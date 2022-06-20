@@ -52,7 +52,7 @@
             this.tcMain.Location = new System.Drawing.Point(0, 0);
             this.tcMain.Name = "tcMain";
             this.tcMain.SelectedIndex = 0;
-            this.tcMain.Size = new System.Drawing.Size(800, 450);
+            this.tcMain.Size = new System.Drawing.Size(884, 611);
             this.tcMain.TabIndex = 1;
             // 
             // tpHotel
@@ -60,7 +60,7 @@
             this.tpHotel.Location = new System.Drawing.Point(4, 22);
             this.tpHotel.Name = "tpHotel";
             this.tpHotel.Padding = new System.Windows.Forms.Padding(3);
-            this.tpHotel.Size = new System.Drawing.Size(792, 424);
+            this.tpHotel.Size = new System.Drawing.Size(876, 585);
             this.tpHotel.TabIndex = 0;
             this.tpHotel.Text = "Hotel";
             this.tpHotel.UseVisualStyleBackColor = true;
@@ -149,7 +149,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(884, 611);
             this.Controls.Add(this.tcMain);
             this.Name = "Main";
             this.Text = "Main";

@@ -35,6 +35,7 @@ namespace PKMSMKN2.Admin
             hotel.Show();
 
             //Service
+            Form service = new Services.SMain(mf);
 
             //Restoran
             

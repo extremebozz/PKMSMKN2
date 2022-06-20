@@ -66,6 +66,11 @@ namespace PKMSMKN2
 
                     case "cs":
                     case "CS":
+                        Services.SMain ServiceMain = new Services.SMain(this);
+                        ServiceMain.MdiParent = this;
+                        ServiceMain.StartPosition = FormStartPosition.CenterScreen;
+                        ServiceMain.WindowState = FormWindowState.Maximized;
+                        ServiceMain.Show();
                         break;
 
                     case "restoran":
