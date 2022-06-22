@@ -35,7 +35,14 @@ namespace PKMSMKN2.Admin
             hotel.Show();
 
             //Service
-            Form service = new Services.SMain(mf);
+            Form service = new Services.SMain(mf, true);
+            service.TopLevel = false;
+            service.FormBorderStyle = FormBorderStyle.None;
+            tpService.Controls.Add(service);
+            service.Dock = DockStyle.Fill;
+            service.WindowState = FormWindowState.Normal;
+            service.BringToFront();
+            service.Show();
 
             //Restoran
             

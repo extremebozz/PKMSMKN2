@@ -42,25 +42,25 @@
             this.bCheckOut = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpKamar = new System.Windows.Forms.TabPage();
-            this.bDeleteRoom = new System.Windows.Forms.Button();
-            this.bEditRoom = new System.Windows.Forms.Button();
+            this.bRoomService = new System.Windows.Forms.Button();
             this.tpJenisKamar = new System.Windows.Forms.TabPage();
+            this.tLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.bEditRoom = new System.Windows.Forms.Button();
+            this.bDeleteRoom = new System.Windows.Forms.Button();
+            this.dgvKonfirgurasiKamar = new System.Windows.Forms.DataGridView();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.bDeleteRoomCategory = new System.Windows.Forms.Button();
             this.bEditRoomCategory = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.bRoomService = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.dgvKonfirgurasiKamar = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvJenisKamar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKamar)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tpKamar.SuspendLayout();
             this.tpJenisKamar.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.tLayout.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKonfirgurasiKamar)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // bAddRoom
@@ -190,27 +190,15 @@
             this.tpKamar.Text = "Kamar";
             this.tpKamar.UseVisualStyleBackColor = true;
             // 
-            // bDeleteRoom
+            // bRoomService
             // 
-            this.bDeleteRoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bDeleteRoom.Location = new System.Drawing.Point(663, 171);
-            this.bDeleteRoom.Name = "bDeleteRoom";
-            this.bDeleteRoom.Size = new System.Drawing.Size(175, 50);
-            this.bDeleteRoom.TabIndex = 1;
-            this.bDeleteRoom.Text = "Hapus Kamar";
-            this.bDeleteRoom.UseVisualStyleBackColor = true;
-            this.bDeleteRoom.Click += new System.EventHandler(this.bDeleteRoom_Click);
-            // 
-            // bEditRoom
-            // 
-            this.bEditRoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bEditRoom.Location = new System.Drawing.Point(663, 105);
-            this.bEditRoom.Name = "bEditRoom";
-            this.bEditRoom.Size = new System.Drawing.Size(175, 50);
-            this.bEditRoom.TabIndex = 1;
-            this.bEditRoom.Text = "Edit Kamar";
-            this.bEditRoom.UseVisualStyleBackColor = true;
-            this.bEditRoom.Click += new System.EventHandler(this.bEditRoom_Click);
+            this.bRoomService.Location = new System.Drawing.Point(476, 10);
+            this.bRoomService.Name = "bRoomService";
+            this.bRoomService.Size = new System.Drawing.Size(150, 50);
+            this.bRoomService.TabIndex = 8;
+            this.bRoomService.Text = "Room Service";
+            this.bRoomService.UseVisualStyleBackColor = true;
+            this.bRoomService.Click += new System.EventHandler(this.bRoomService_Click);
             // 
             // tpJenisKamar
             // 
@@ -223,53 +211,20 @@
             this.tpJenisKamar.Text = "Konfigurasi Hotel";
             this.tpJenisKamar.UseVisualStyleBackColor = true;
             // 
-            // bDeleteRoomCategory
+            // tLayout
             // 
-            this.bDeleteRoomCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bDeleteRoomCategory.Location = new System.Drawing.Point(663, 160);
-            this.bDeleteRoomCategory.Name = "bDeleteRoomCategory";
-            this.bDeleteRoomCategory.Size = new System.Drawing.Size(175, 50);
-            this.bDeleteRoomCategory.TabIndex = 2;
-            this.bDeleteRoomCategory.Text = "Hapus Jenis Kamar";
-            this.bDeleteRoomCategory.UseVisualStyleBackColor = true;
-            this.bDeleteRoomCategory.Click += new System.EventHandler(this.bAddRoomCategory_Click);
-            // 
-            // bEditRoomCategory
-            // 
-            this.bEditRoomCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bEditRoomCategory.Location = new System.Drawing.Point(663, 104);
-            this.bEditRoomCategory.Name = "bEditRoomCategory";
-            this.bEditRoomCategory.Size = new System.Drawing.Size(175, 50);
-            this.bEditRoomCategory.TabIndex = 2;
-            this.bEditRoomCategory.Text = "Edit Jenis Kamar";
-            this.bEditRoomCategory.UseVisualStyleBackColor = true;
-            this.bEditRoomCategory.Click += new System.EventHandler(this.bEditRoomCategory_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.bDeleteRoomCategory);
-            this.groupBox2.Controls.Add(this.dgvJenisKamar);
-            this.groupBox2.Controls.Add(this.bEditRoomCategory);
-            this.groupBox2.Controls.Add(this.bAddRoomCategory);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(3, 261);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(864, 253);
-            this.groupBox2.TabIndex = 5;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Jenis Kamar";
-            // 
-            // bRoomService
-            // 
-            this.bRoomService.Location = new System.Drawing.Point(476, 10);
-            this.bRoomService.Name = "bRoomService";
-            this.bRoomService.Size = new System.Drawing.Size(150, 50);
-            this.bRoomService.TabIndex = 8;
-            this.bRoomService.Text = "Room Service";
-            this.bRoomService.UseVisualStyleBackColor = true;
+            this.tLayout.ColumnCount = 1;
+            this.tLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tLayout.Controls.Add(this.groupBox1, 0, 0);
+            this.tLayout.Controls.Add(this.groupBox2, 0, 1);
+            this.tLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tLayout.Location = new System.Drawing.Point(3, 3);
+            this.tLayout.Name = "tLayout";
+            this.tLayout.RowCount = 2;
+            this.tLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tLayout.Size = new System.Drawing.Size(870, 517);
+            this.tLayout.TabIndex = 7;
             // 
             // groupBox1
             // 
@@ -288,20 +243,27 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Kamar";
             // 
-            // tLayout
+            // bEditRoom
             // 
-            this.tLayout.ColumnCount = 1;
-            this.tLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tLayout.Controls.Add(this.groupBox1, 0, 0);
-            this.tLayout.Controls.Add(this.groupBox2, 0, 1);
-            this.tLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tLayout.Location = new System.Drawing.Point(3, 3);
-            this.tLayout.Name = "tLayout";
-            this.tLayout.RowCount = 2;
-            this.tLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tLayout.Size = new System.Drawing.Size(870, 517);
-            this.tLayout.TabIndex = 7;
+            this.bEditRoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bEditRoom.Location = new System.Drawing.Point(663, 105);
+            this.bEditRoom.Name = "bEditRoom";
+            this.bEditRoom.Size = new System.Drawing.Size(175, 50);
+            this.bEditRoom.TabIndex = 1;
+            this.bEditRoom.Text = "Edit Kamar";
+            this.bEditRoom.UseVisualStyleBackColor = true;
+            this.bEditRoom.Click += new System.EventHandler(this.bEditRoom_Click);
+            // 
+            // bDeleteRoom
+            // 
+            this.bDeleteRoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bDeleteRoom.Location = new System.Drawing.Point(663, 171);
+            this.bDeleteRoom.Name = "bDeleteRoom";
+            this.bDeleteRoom.Size = new System.Drawing.Size(175, 50);
+            this.bDeleteRoom.TabIndex = 1;
+            this.bDeleteRoom.Text = "Hapus Kamar";
+            this.bDeleteRoom.UseVisualStyleBackColor = true;
+            this.bDeleteRoom.Click += new System.EventHandler(this.bDeleteRoom_Click);
             // 
             // dgvKonfirgurasiKamar
             // 
@@ -329,6 +291,45 @@
             this.dgvKonfirgurasiKamar.Size = new System.Drawing.Size(615, 220);
             this.dgvKonfirgurasiKamar.TabIndex = 4;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.bDeleteRoomCategory);
+            this.groupBox2.Controls.Add(this.dgvJenisKamar);
+            this.groupBox2.Controls.Add(this.bEditRoomCategory);
+            this.groupBox2.Controls.Add(this.bAddRoomCategory);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(3, 261);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(864, 253);
+            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Jenis Kamar";
+            // 
+            // bDeleteRoomCategory
+            // 
+            this.bDeleteRoomCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bDeleteRoomCategory.Location = new System.Drawing.Point(663, 160);
+            this.bDeleteRoomCategory.Name = "bDeleteRoomCategory";
+            this.bDeleteRoomCategory.Size = new System.Drawing.Size(175, 50);
+            this.bDeleteRoomCategory.TabIndex = 2;
+            this.bDeleteRoomCategory.Text = "Hapus Jenis Kamar";
+            this.bDeleteRoomCategory.UseVisualStyleBackColor = true;
+            this.bDeleteRoomCategory.Click += new System.EventHandler(this.bAddRoomCategory_Click);
+            // 
+            // bEditRoomCategory
+            // 
+            this.bEditRoomCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bEditRoomCategory.Location = new System.Drawing.Point(663, 104);
+            this.bEditRoomCategory.Name = "bEditRoomCategory";
+            this.bEditRoomCategory.Size = new System.Drawing.Size(175, 50);
+            this.bEditRoomCategory.TabIndex = 2;
+            this.bEditRoomCategory.Text = "Edit Jenis Kamar";
+            this.bEditRoomCategory.UseVisualStyleBackColor = true;
+            this.bEditRoomCategory.Click += new System.EventHandler(this.bEditRoomCategory_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -343,10 +344,10 @@
             this.tabControl1.ResumeLayout(false);
             this.tpKamar.ResumeLayout(false);
             this.tpJenisKamar.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
             this.tLayout.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKonfirgurasiKamar)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

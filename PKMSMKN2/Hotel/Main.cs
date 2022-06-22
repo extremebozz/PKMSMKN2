@@ -161,13 +161,13 @@ namespace PKMSMKN2.Hotel
 
             if (idTransaksi.Equals(0))
             {
-                MessageBox.Show("Kamar Ini Belum Dipesan!", "");
+                MessageBox.Show("Kamar Ini Belum Dipesan!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
             if (((DateTime?)dgvKamar.Rows[rowIndex].Cells["CheckIn"].Value).HasValue ? true : false)
             {
-                MessageBox.Show("Kamar Ini Telah Check In!", "");
+                MessageBox.Show("Kamar Ini Telah Check In!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -183,7 +183,7 @@ namespace PKMSMKN2.Hotel
 
             if (!((DateTime?) dgvKamar.Rows[rowIndex].Cells["CheckIn"].Value).HasValue ? true : false)
             {
-                MessageBox.Show("Kamar Ini Belum Check In!", "");
+                MessageBox.Show("Kamar Ini Belum Check In!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -209,6 +209,23 @@ namespace PKMSMKN2.Hotel
                 pKamar.StartPosition = FormStartPosition.CenterScreen;
                 pKamar.ShowDialog();
             } catch (Exception msg) {  }
-        }        
+        }
+
+        private void bRoomService_Click(object sender, EventArgs e)
+        {
+            int rowIndex = dgvKamar.CurrentCell.RowIndex,
+                noKamar = Convert.ToInt32(dgvKamar.Rows[rowIndex].Cells["NomorKamar"].Value),
+                idService = 0;
+
+            if (!((DateTime?)dgvKamar.Rows[rowIndex].Cells["CheckIn"].Value).HasValue ? true : false)
+            {
+                MessageBox.Show("Kamar Ini Belum Check In!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            //Prove of Concept nanti diganti
+            Services.ServiceMenu sMenu = new Services.ServiceMenu(idService, noKamar);
+            sMenu.ShowDialog();
+        }
     }
 }

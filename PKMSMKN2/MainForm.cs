@@ -51,8 +51,8 @@ namespace PKMSMKN2
                         Admin.Main AdminMain = new Admin.Main(this);
                         AdminMain.MdiParent = this;
                         AdminMain.StartPosition = FormStartPosition.CenterScreen;
+                        AdminMain.WindowState = FormWindowState.Maximized;
                         AdminMain.Show();
-                        //ShowForm(new Admin.Main(this));
                         break;
 
                     case "hotel":
@@ -66,7 +66,7 @@ namespace PKMSMKN2
 
                     case "cs":
                     case "CS":
-                        Services.SMain ServiceMain = new Services.SMain(this);
+                        Services.SMain ServiceMain = new Services.SMain(this, false);
                         ServiceMain.MdiParent = this;
                         ServiceMain.StartPosition = FormStartPosition.CenterScreen;
                         ServiceMain.WindowState = FormWindowState.Maximized;

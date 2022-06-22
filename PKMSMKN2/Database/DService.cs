@@ -51,5 +51,42 @@ namespace PKMSMKN2.Database
 
             return lRoom;
         }
+
+        public static void CreateService(int NomorKamar, string Note)
+        {
+            try
+            {
+                using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
+                {
+                    MySqlCommand cmd = new MySqlCommand("INSERT INTO service_data(waktu_tambah, kamar, note) VALUES(@waktu, @kamar, @note)", con);
+                    cmd.Parameters.AddWithValue("@waktu", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@kamar", NomorKamar);
+                    cmd.Parameters.AddWithValue("@note", Note);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception msg)
+            {
+                throw;
+            }
+        }
+
+        public static void CloseService(int IDService)
+        {
+            try
+            {
+                using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
+                {
+                    MySqlCommand cmd = new MySqlCommand("UPDATE service_data SET waktu_selesai = @waktu, aktif = '0' WHERE id = @id", con);
+                    cmd.Parameters.AddWithValue("@waktu", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@id", IDService);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception msg)
+            {
+                throw;
+            }
+        }
     }
 }

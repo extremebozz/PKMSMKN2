@@ -23,19 +23,41 @@ namespace PKMSMKN2.Services
             AmbilData();
         }
 
-        private void AmbilData()
+        public void AmbilData()
         {
             BindingSource bsService = new BindingSource();
             List<Model.MService> lService = Database.DService.FetchData();
 
             bsService.DataSource = lService;
             dgvService.DataSource = bsService;
+
+            dgvService.Columns["ServiceID"].Visible = false;
+            dgvService.Columns["Aktif"].Visible = false;
+
+            dgvService.Columns["NomorKamar"].FillWeight = 50;
+            dgvService.Columns["NoteService"].FillWeight = 150;
         }
 
         private void SMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!admin)
+            if (!isAdmin)
                 mf.ExitUser();
+        }
+
+        private void dgvService_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = dgvService.CurrentCell.RowIndex;
+            int idService = Convert.ToInt32(dgvService.Rows[rowIndex].Cells["ServiceID"].Value);
+            int nomorKamar = Convert.ToInt32(dgvService.Rows[rowIndex].Cells["NomorKamar"].Value);
+
+            if (!((DateTime?)dgvService.Rows[rowIndex].Cells["CheckIn"].Value).HasValue ? true : false)
+            {
+                MessageBox.Show("Kamar Ini Belum Check In!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            ServiceMenu sMenu = new ServiceMenu(this, idService, nomorKamar);
+            sMenu.ShowDialog();
         }
     }
 }
