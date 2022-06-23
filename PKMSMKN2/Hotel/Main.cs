@@ -46,23 +46,17 @@ namespace PKMSMKN2.Hotel
             dgvKamar.Columns["ID"].Visible = false;
             dgvKamar.Columns["IDJenisKamar"].Visible = false;
             dgvKamar.Columns["IDTransaksi"].Visible = false;
-            //dgvKamar.Columns["CheckIn"].Visible = false;
-            //dgvKamar.Columns["CheckOut"].Visible = false;
+            dgvKamar.Columns["CheckOut"].Visible = false;
             dgvKamar.Columns["Nomor"].HeaderText = "No";
             dgvKamar.Columns["Nomor"].FillWeight = 50;
-            dgvKamar.Columns["NomorKamar"].FillWeight = 75;
-            dgvKamar.Columns["NomorKamar"].HeaderText = "Nomor Kamar";
-            dgvKamar.Columns["JenisKamar"].HeaderText = "Jenis Kamar";
-            dgvKamar.Columns["HargaKamar"].HeaderText = "Harga Kamar";
+            dgvKamar.Columns["NomorKamar"].FillWeight = 50;
             dgvKamar.Columns["HargaKamar"].DefaultCellStyle.Format = "#,###";
-            dgvKamar.Columns["TanggalIn"].HeaderText = "Tanggal Masuk";
             dgvKamar.Columns["TanggalIn"].DefaultCellStyle.Format = "dd MMMM yyyy";
-            dgvKamar.Columns["TanggalOut"].HeaderText = "Tanggal Keluar";
             dgvKamar.Columns["TanggalOut"].DefaultCellStyle.Format = "dd MMMM yyyy";
             dgvKamar.Columns["CheckIn"].DefaultCellStyle.Format = "dd MMMM yyyy HH:mm:ss";
             dgvKamar.Columns["CheckOut"].DefaultCellStyle.Format = "dd MMMM yyyy HH:mm:ss";
 
-            //Formatting DataGridView Kamar
+            //Formatting DataGridView Konfigurasi Kamar
             dgvKonfirgurasiKamar.Columns["Nomor"].Visible = false;
             dgvKonfirgurasiKamar.Columns["ID"].Visible = false;
             dgvKonfirgurasiKamar.Columns["IDJenisKamar"].Visible = false;
@@ -86,7 +80,7 @@ namespace PKMSMKN2.Hotel
             bsJenisKamar.DataSource = lJenisKamar;
             dgvJenisKamar.DataSource = bsJenisKamar;
 
-            //Formatting DataGridView Jenis Kamar
+            //Formatting DataGridView Konfigurasi Jenis Kamar
             dgvJenisKamar.Columns["ID"].Visible = false;
             dgvJenisKamar.Columns["JenisKamar"].HeaderText = "Jenis Kamar";
             dgvJenisKamar.Columns["HargaKamar"].DefaultCellStyle.Format = "#,###";
@@ -208,7 +202,11 @@ namespace PKMSMKN2.Hotel
                 PesanKamar pKamar = new PesanKamar(this, idKamar);
                 pKamar.StartPosition = FormStartPosition.CenterScreen;
                 pKamar.ShowDialog();
-            } catch (Exception msg) {  }
+            } 
+            catch (Exception msg) 
+            {
+                MessageBox.Show(msg.ToString(), "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void bRoomService_Click(object sender, EventArgs e)

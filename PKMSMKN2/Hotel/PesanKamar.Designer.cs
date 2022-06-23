@@ -40,15 +40,15 @@
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbJenisKelamin = new System.Windows.Forms.ComboBox();
             this.tNamaPemesan = new System.Windows.Forms.TextBox();
             this.tNomorIdentitas = new System.Windows.Forms.TextBox();
+            this.cbJenisKelamin = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.bCancel = new System.Windows.Forms.Button();
             this.lTotalHari = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.bCancel = new System.Windows.Forms.Button();
             this.lTotalTrasansaksi = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nExtraBed)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -61,9 +61,9 @@
             this.lNoKamar.AutoSize = true;
             this.lNoKamar.Location = new System.Drawing.Point(15, 30);
             this.lNoKamar.Name = "lNoKamar";
-            this.lNoKamar.Size = new System.Drawing.Size(111, 17);
+            this.lNoKamar.Size = new System.Drawing.Size(115, 17);
             this.lNoKamar.TabIndex = 1;
-            this.lNoKamar.Text = "Nomor Kamar   :";
+            this.lNoKamar.Text = "Nomor Kamar   : ";
             // 
             // lJenisKamar
             // 
@@ -195,44 +195,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Informasi Pemesan";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nama Pemesan";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 67);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(149, 17);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Nomor KTP / Passport";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 104);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 17);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Jenis Kelamin";
-            // 
-            // cbJenisKelamin
-            // 
-            this.cbJenisKelamin.BackColor = System.Drawing.Color.Silver;
-            this.cbJenisKelamin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbJenisKelamin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbJenisKelamin.FormattingEnabled = true;
-            this.cbJenisKelamin.Location = new System.Drawing.Point(212, 101);
-            this.cbJenisKelamin.Name = "cbJenisKelamin";
-            this.cbJenisKelamin.Size = new System.Drawing.Size(121, 24);
-            this.cbJenisKelamin.TabIndex = 2;
-            // 
             // tNamaPemesan
             // 
             this.tNamaPemesan.Location = new System.Drawing.Point(212, 27);
@@ -246,6 +208,58 @@
             this.tNomorIdentitas.Name = "tNomorIdentitas";
             this.tNomorIdentitas.Size = new System.Drawing.Size(269, 23);
             this.tNomorIdentitas.TabIndex = 1;
+            // 
+            // cbJenisKelamin
+            // 
+            this.cbJenisKelamin.BackColor = System.Drawing.Color.Silver;
+            this.cbJenisKelamin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbJenisKelamin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbJenisKelamin.FormattingEnabled = true;
+            this.cbJenisKelamin.Location = new System.Drawing.Point(212, 101);
+            this.cbJenisKelamin.Name = "cbJenisKelamin";
+            this.cbJenisKelamin.Size = new System.Drawing.Size(121, 24);
+            this.cbJenisKelamin.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(20, 104);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(95, 17);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Jenis Kelamin";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(20, 67);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(149, 17);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Nomor KTP / Passport";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(20, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(108, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Nama Pemesan";
+            // 
+            // bCancel
+            // 
+            this.bCancel.BackColor = System.Drawing.Color.Silver;
+            this.bCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.bCancel.FlatAppearance.BorderSize = 0;
+            this.bCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bCancel.Location = new System.Drawing.Point(23, 268);
+            this.bCancel.Name = "bCancel";
+            this.bCancel.Size = new System.Drawing.Size(220, 40);
+            this.bCancel.TabIndex = 7;
+            this.bCancel.Text = "Cancel";
+            this.bCancel.UseVisualStyleBackColor = false;
+            this.bCancel.Click += new System.EventHandler(this.bCancel_Click);
             // 
             // lTotalHari
             // 
@@ -269,20 +283,6 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Informasi Pesanan";
             // 
-            // bCancel
-            // 
-            this.bCancel.BackColor = System.Drawing.Color.Silver;
-            this.bCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bCancel.FlatAppearance.BorderSize = 0;
-            this.bCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bCancel.Location = new System.Drawing.Point(23, 268);
-            this.bCancel.Name = "bCancel";
-            this.bCancel.Size = new System.Drawing.Size(220, 40);
-            this.bCancel.TabIndex = 7;
-            this.bCancel.Text = "Cancel";
-            this.bCancel.UseVisualStyleBackColor = false;
-            this.bCancel.Click += new System.EventHandler(this.bCancel_Click);
-            // 
             // lTotalTrasansaksi
             // 
             this.lTotalTrasansaksi.AutoSize = true;
@@ -303,6 +303,8 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "PesanKamar";
             this.Text = "Pesan Kamar";
             ((System.ComponentModel.ISupportInitialize)(this.nExtraBed)).EndInit();

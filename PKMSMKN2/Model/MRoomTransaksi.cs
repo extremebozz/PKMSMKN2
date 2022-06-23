@@ -12,6 +12,7 @@ namespace PKMSMKN2.Model
         public string NomorKamar { set; get; }
         public string Nama { get; set; }
         public string Identitas { get; set; }
+        public string JenisKelamin { get; set; }
         public int ExtraBed { get; set; }
         public int TotalHari { get; set; }
         public DateTime TanggalMasuk { get; set; }

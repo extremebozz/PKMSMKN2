@@ -46,6 +46,11 @@ namespace PKMSMKN2.Hotel
         private void AmbilData(int IDTransaksi)
         {
             //Kode Ambil Data
+            Model.MRoomTransaksi mTransaksiKamar = Database.DKamar.ReadTransactionByID(IDTransaksi);
+
+            lNama.Text += mTransaksiKamar.Nama;
+            lIdentitas.Text += mTransaksiKamar.Identitas;
+            lJenisKelamin.Text += mTransaksiKamar.JenisKelamin;
         }
 
         private void bCheck_Click(object sender, EventArgs e)

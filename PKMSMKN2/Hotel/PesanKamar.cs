@@ -47,15 +47,7 @@ namespace PKMSMKN2.Hotel
             cbJenisKelamin.ValueMember = "Value";
 
             //Kode Ambil Data Kamar
-            //mKamar = Database.DKamar.ReadRoomID(IDKamar);
-
-            mKamar = new Model.MRoom()
-            {
-                ID = 10,
-                NomorKamar = "25",
-                HargaKamar = 1500000,
-                JenisKamar = "King Debug"
-            };
+            mKamar = Database.DKamar.ReadRoomID(IDKamar);
 
             if (string.IsNullOrEmpty(mKamar.JenisKamar))
             {
@@ -71,15 +63,7 @@ namespace PKMSMKN2.Hotel
             lJenisKamar.Text += mKamar.JenisKamar;
             lHargaKamar.Text += string.Format("{0:#,##0}", hargaKamar);
 
-            //mKamar = Database.DKamar.ReadExtraBed();
-
-            mKamar = new Model.MRoom()
-            {
-                ID = 10,
-                NomorKamar = "25",
-                HargaKamar = 150000,
-                JenisKamar = "King Debug"
-            };
+            mKamar = Database.DKamar.ReadExtraBed();
 
             hargaExtraBed = mKamar.HargaKamar;
 
@@ -131,7 +115,21 @@ namespace PKMSMKN2.Hotel
             {
                 //Nanti masukan data ke model MRoomTransaksi baru dioper ke function!
                 //Database.DKamar.PesanKamar(Convert.ToInt32(nomorKamar), extraBed, Checkin, Checkout, hari);
-                
+
+                Model.MRoomTransaksi mTransaksi = new Model.MRoomTransaksi()
+                {
+                    NomorKamar = nomorKamar,
+                    Nama = tNamaPemesan.Text,
+                    Identitas = tNomorIdentitas.Text,
+                    JenisKelamin = cbJenisKelamin.SelectedValue.ToString(),
+                    TanggalMasuk = Checkin,
+                    TanggalKeluar = Checkout,
+                    TotalHari = hari,
+                    ExtraBed = extraBed
+                };
+
+                Database.DKamar.PesanKamar(mTransaksi);
+
                 //Kode Refresh Data
                 hMain.AmbilData();
                 this.Close();

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,11 +11,15 @@ namespace PKMSMKN2.Model
     {
         private string _Ketersediaan;
 
+        [DisplayName("No")]
         public int Nomor { set; get; }
         public int ID { set; get; }
+        [DisplayName("Nomor Kamar")]
         public string NomorKamar { set; get; }
         public int IDJenisKamar { set; get; }
+        [DisplayName("Jenis Kamar")]
         public string JenisKamar { set; get; }
+        [DisplayName("Harga Kamar")]
         public int HargaKamar { set; get; }
         public string Ketersediaan
         {
@@ -31,8 +36,11 @@ namespace PKMSMKN2.Model
                     return "Tidak";
             }
         }
+        [DisplayName("Tanggal Masuk")]
         public DateTime? TanggalIn { set; get; }
+        [DisplayName("Tanggal Keluar")]
         public DateTime? TanggalOut { set; get; }
+        [DisplayName("Check In")]
         public DateTime? CheckIn { set; get; }
         public DateTime? CheckOut { set; get; }
         public int? IDTransaksi { set; get; }

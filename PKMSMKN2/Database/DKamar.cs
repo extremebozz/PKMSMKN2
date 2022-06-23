@@ -9,19 +9,22 @@ namespace PKMSMKN2.Database
 {
     class DKamar
     {
-        public static void PesanKamar(string Nama, string Identitas, string JenisKelamin, int NomorKamar, int ExtraBed, DateTime TanggalCheckin, DateTime TanggalCheckOut, int Hari)
+        public static void PesanKamar(Model.MRoomTransaksi MPesanKamar)
         {
             using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
             {
                 try
                 {
-                    MySqlCommand cmd = new MySqlCommand("INSERT INTO kamar_transaksi(kamar, extra_bed, tanggal_in, tanggal_out, hari) " +
-                        "VALUES (@kamar, @extraBed, @tanggalIn, @tanggalOut, @hari); SELECT LAST_INSERT_ID();", con);
-                    cmd.Parameters.AddWithValue("@kamar", NomorKamar);
-                    cmd.Parameters.AddWithValue("@extraBed", ExtraBed);
-                    cmd.Parameters.AddWithValue("@tanggalIn", TanggalCheckin.ToString("yyyy-MM-dd"));
-                    cmd.Parameters.AddWithValue("@tanggalOut", TanggalCheckOut.ToString("yyyy-MM-dd"));
-                    cmd.Parameters.AddWithValue("@hari", Hari);
+                    MySqlCommand cmd = new MySqlCommand("INSERT INTO kamar_transaksi(kamar, extra_bed, tanggal_in, tanggal_out, hari, nama, identitas, jenis_kelamin) " +
+                        "VALUES (@kamar, @extraBed, @tanggalIn, @tanggalOut, @hari, @nama, @identitas, @jk); SELECT LAST_INSERT_ID();", con);
+                    cmd.Parameters.AddWithValue("@kamar", MPesanKamar.NomorKamar);
+                    cmd.Parameters.AddWithValue("@extraBed", MPesanKamar.ExtraBed);
+                    cmd.Parameters.AddWithValue("@tanggalIn", MPesanKamar.TanggalMasuk.ToString("yyyy-MM-dd"));
+                    cmd.Parameters.AddWithValue("@tanggalOut", MPesanKamar.TanggalKeluar.ToString("yyyy-MM-dd"));
+                    cmd.Parameters.AddWithValue("@hari", MPesanKamar.TotalHari);
+                    cmd.Parameters.AddWithValue("@nama", MPesanKamar.Nama);
+                    cmd.Parameters.AddWithValue("@identitas", MPesanKamar.Identitas);
+                    cmd.Parameters.AddWithValue("@jk", MPesanKamar.JenisKelamin);
                     int idTransaksi = Convert.ToInt32(cmd.ExecuteScalar());
 
                     cmd.CommandText = "UPDATE kamar_data SET ketersediaan = 'n', id_transaksi = @idTransaksi WHERE nomor_kamar = @kamar";
@@ -207,7 +210,7 @@ namespace PKMSMKN2.Database
             using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
                 try
                 {
-                    MySqlCommand cmd = new MySqlCommand("SELECT id, jenis, harga FROM kamar_jenis WHERE jenis = extra_bed", con);
+                    MySqlCommand cmd = new MySqlCommand("SELECT id, jenis, harga FROM kamar_jenis WHERE jenis = 'extra_bed'", con);
 
                     MySqlDataReader read = cmd.ExecuteReader();
                     read.Read();
@@ -216,7 +219,7 @@ namespace PKMSMKN2.Database
                     mRoomCategories.JenisKamar = read["jenis"].ToString();
                     mRoomCategories.HargaKamar = Convert.ToInt32(read["harga"].ToString());
                 }
-                catch (Exception msg)
+                catch
                 {
                     throw;
                 }
@@ -319,6 +322,34 @@ namespace PKMSMKN2.Database
             }
 
             return nomorKamar;
+        }
+
+        public static Model.MRoomTransaksi ReadTransactionByID(int IDTransaksi)
+        {
+            Model.MRoomTransaksi mTransaksi = new Model.MRoomTransaksi();
+
+            using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
+            {
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM kamar_transaksi WHERE id = @id", con);
+                cmd.Parameters.AddWithValue("@id", IDTransaksi);
+
+                using (MySqlDataReader read = cmd.ExecuteReader()) 
+                    while (read.Read())
+                        mTransaksi = new Model.MRoomTransaksi()
+                        {
+                            ID = Convert.ToInt32(read["id"]),
+                            NomorKamar = read["kamar"].ToString(),
+                            Nama = read["nama"].ToString(),
+                            Identitas = read["identitas"].ToString(),
+                            JenisKelamin = read["jenis_kelamin"].ToString(),
+                            TanggalMasuk = Convert.ToDateTime(read["tanggal_in"]),
+                            TanggalKeluar = Convert.ToDateTime(read["tanggal_out"]),
+                            ExtraBed = Convert.ToInt32(read["extra_bed"]),
+                            TotalHari = Convert.ToInt32(read["hari"])
+                        };
+            }
+
+            return mTransaksi;
         }
     }
 }

@@ -32,13 +32,13 @@
             this.dtTanggalCheck = new System.Windows.Forms.DateTimePicker();
             this.dtJamCheck = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lNama = new System.Windows.Forms.Label();
-            this.lIdentitas = new System.Windows.Forms.Label();
             this.lJenisKelamin = new System.Windows.Forms.Label();
+            this.lIdentitas = new System.Windows.Forms.Label();
+            this.lNama = new System.Windows.Forms.Label();
             this.gbInformasi = new System.Windows.Forms.GroupBox();
-            this.lCheckTanggal = new System.Windows.Forms.Label();
-            this.lCheckWaktu = new System.Windows.Forms.Label();
             this.bCancel = new System.Windows.Forms.Button();
+            this.lCheckWaktu = new System.Windows.Forms.Label();
+            this.lCheckTanggal = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.gbInformasi.SuspendLayout();
             this.SuspendLayout();
@@ -56,6 +56,7 @@
             // dtTanggalCheck
             // 
             this.dtTanggalCheck.CustomFormat = "dd MMMM yyyy";
+            this.dtTanggalCheck.Enabled = false;
             this.dtTanggalCheck.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtTanggalCheck.Location = new System.Drawing.Point(23, 48);
             this.dtTanggalCheck.Name = "dtTanggalCheck";
@@ -67,7 +68,7 @@
             this.dtJamCheck.CustomFormat = "HH:mm:ss";
             this.dtJamCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtJamCheck.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtJamCheck.Location = new System.Drawing.Point(207, 48);
+            this.dtJamCheck.Location = new System.Drawing.Point(224, 48);
             this.dtJamCheck.Name = "dtJamCheck";
             this.dtJamCheck.ShowUpDown = true;
             this.dtJamCheck.Size = new System.Drawing.Size(125, 23);
@@ -86,14 +87,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informasi Pelanggan";
             // 
-            // lNama
+            // lJenisKelamin
             // 
-            this.lNama.AutoSize = true;
-            this.lNama.Location = new System.Drawing.Point(20, 30);
-            this.lNama.Name = "lNama";
-            this.lNama.Size = new System.Drawing.Size(113, 17);
-            this.lNama.TabIndex = 0;
-            this.lNama.Text = "Nama               : ";
+            this.lJenisKelamin.AutoSize = true;
+            this.lJenisKelamin.Location = new System.Drawing.Point(20, 104);
+            this.lJenisKelamin.Name = "lJenisKelamin";
+            this.lJenisKelamin.Size = new System.Drawing.Size(115, 17);
+            this.lJenisKelamin.TabIndex = 2;
+            this.lJenisKelamin.Text = "Jenis Kelamin   : ";
             // 
             // lIdentitas
             // 
@@ -104,14 +105,14 @@
             this.lIdentitas.TabIndex = 1;
             this.lIdentitas.Text = "Identitas           : ";
             // 
-            // lJenisKelamin
+            // lNama
             // 
-            this.lJenisKelamin.AutoSize = true;
-            this.lJenisKelamin.Location = new System.Drawing.Point(20, 104);
-            this.lJenisKelamin.Name = "lJenisKelamin";
-            this.lJenisKelamin.Size = new System.Drawing.Size(115, 17);
-            this.lJenisKelamin.TabIndex = 2;
-            this.lJenisKelamin.Text = "Jenis Kelamin   : ";
+            this.lNama.AutoSize = true;
+            this.lNama.Location = new System.Drawing.Point(20, 30);
+            this.lNama.Name = "lNama";
+            this.lNama.Size = new System.Drawing.Size(113, 17);
+            this.lNama.TabIndex = 0;
+            this.lNama.Text = "Nama               : ";
             // 
             // gbInformasi
             // 
@@ -129,24 +130,6 @@
             this.gbInformasi.TabStop = false;
             this.gbInformasi.Text = "Informasi Check ";
             // 
-            // lCheckTanggal
-            // 
-            this.lCheckTanggal.AutoSize = true;
-            this.lCheckTanggal.Location = new System.Drawing.Point(20, 28);
-            this.lCheckTanggal.Name = "lCheckTanggal";
-            this.lCheckTanggal.Size = new System.Drawing.Size(107, 17);
-            this.lCheckTanggal.TabIndex = 3;
-            this.lCheckTanggal.Text = "Tanggal Check ";
-            // 
-            // lCheckWaktu
-            // 
-            this.lCheckWaktu.AutoSize = true;
-            this.lCheckWaktu.Location = new System.Drawing.Point(204, 28);
-            this.lCheckWaktu.Name = "lCheckWaktu";
-            this.lCheckWaktu.Size = new System.Drawing.Size(95, 17);
-            this.lCheckWaktu.TabIndex = 4;
-            this.lCheckWaktu.Text = "Waktu Check ";
-            // 
             // bCancel
             // 
             this.bCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -158,6 +141,24 @@
             this.bCancel.UseVisualStyleBackColor = true;
             this.bCancel.Click += new System.EventHandler(this.bCancel_Click);
             // 
+            // lCheckWaktu
+            // 
+            this.lCheckWaktu.AutoSize = true;
+            this.lCheckWaktu.Location = new System.Drawing.Point(221, 28);
+            this.lCheckWaktu.Name = "lCheckWaktu";
+            this.lCheckWaktu.Size = new System.Drawing.Size(95, 17);
+            this.lCheckWaktu.TabIndex = 4;
+            this.lCheckWaktu.Text = "Waktu Check ";
+            // 
+            // lCheckTanggal
+            // 
+            this.lCheckTanggal.AutoSize = true;
+            this.lCheckTanggal.Location = new System.Drawing.Point(20, 28);
+            this.lCheckTanggal.Name = "lCheckTanggal";
+            this.lCheckTanggal.Size = new System.Drawing.Size(107, 17);
+            this.lCheckTanggal.TabIndex = 3;
+            this.lCheckTanggal.Text = "Tanggal Check ";
+            // 
             // CheckKamar
             // 
             this.AcceptButton = this.bCheck;
@@ -168,6 +169,8 @@
             this.ClientSize = new System.Drawing.Size(424, 320);
             this.Controls.Add(this.gbInformasi);
             this.Controls.Add(this.groupBox1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CheckKamar";
             this.Text = "Check In";
             this.groupBox1.ResumeLayout(false);
