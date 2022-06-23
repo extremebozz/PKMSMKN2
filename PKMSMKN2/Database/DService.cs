@@ -65,7 +65,7 @@ namespace PKMSMKN2.Database
                     cmd.ExecuteNonQuery();
                 }
             }
-            catch (Exception msg)
+            catch
             {
                 throw;
             }
@@ -83,7 +83,7 @@ namespace PKMSMKN2.Database
                     cmd.ExecuteNonQuery();
                 }
             }
-            catch (Exception msg)
+            catch
             {
                 throw;
             }

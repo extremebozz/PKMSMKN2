@@ -9,7 +9,7 @@ namespace PKMSMKN2.Database
 {
     class DKamar
     {
-        public static void PesanKamar(int NomorKamar, int ExtraBed, DateTime TanggalCheckin, DateTime TanggalCheckOut, int Hari)
+        public static void PesanKamar(string Nama, string Identitas, string JenisKelamin, int NomorKamar, int ExtraBed, DateTime TanggalCheckin, DateTime TanggalCheckOut, int Hari)
         {
             using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
             {
@@ -193,6 +193,30 @@ namespace PKMSMKN2.Database
                     mRoomCategories.HargaKamar = Convert.ToInt32(read["harga"].ToString());
                 }
                 catch(Exception msg)
+                {
+                    throw;
+                }
+
+            return mRoomCategories;
+        }
+
+        public static Model.MRoom ReadExtraBed()
+        {
+            Model.MRoom mRoomCategories = new Model.MRoom();
+
+            using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand("SELECT id, jenis, harga FROM kamar_jenis WHERE jenis = extra_bed", con);
+
+                    MySqlDataReader read = cmd.ExecuteReader();
+                    read.Read();
+
+                    mRoomCategories.ID = Convert.ToInt32(read["id"].ToString());
+                    mRoomCategories.JenisKamar = read["jenis"].ToString();
+                    mRoomCategories.HargaKamar = Convert.ToInt32(read["harga"].ToString());
+                }
+                catch (Exception msg)
                 {
                     throw;
                 }

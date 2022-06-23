@@ -45,7 +45,14 @@ namespace PKMSMKN2.Admin
             service.Show();
 
             //Restoran
-            
+            Form restoran = new Restoran.RMain();
+            restoran.TopLevel = false;
+            restoran.FormBorderStyle = FormBorderStyle.None;
+            tpRestoran.Controls.Add(restoran);
+            restoran.Dock = DockStyle.Fill;
+            restoran.WindowState = FormWindowState.Normal;
+            restoran.BringToFront();
+            restoran.Show();
         }
 
         public void AmbilData()

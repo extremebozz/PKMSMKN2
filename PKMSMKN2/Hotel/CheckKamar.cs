@@ -23,11 +23,29 @@ namespace PKMSMKN2.Hotel
             hMain = HMain;
             checkIn = CheckIn;
             idTransaksi = IDTransaksi;
+            AmbilData(idTransaksi);
+
+            if (checkIn)
+            {
+                this.Text = "Check In";
+                bCheck.Text = "Check In";
+                lCheckTanggal.Text += "In";
+                lCheckWaktu.Text += "In";
+                gbInformasi.Text += "In";
+            }
+            else
+            {
+                this.Text = "Check Out";
+                bCheck.Text = "Check Out";
+                lCheckTanggal.Text += "Out";
+                lCheckWaktu.Text += "Out";
+                gbInformasi.Text += "Out";
+            }
         }
 
-        private void AmbilData()
+        private void AmbilData(int IDTransaksi)
         {
-
+            //Kode Ambil Data
         }
 
         private void bCheck_Click(object sender, EventArgs e)
@@ -65,6 +83,11 @@ namespace PKMSMKN2.Hotel
                 {
                     MessageBox.Show(msg.ToString(), "Data Gagal Tersimpan!");
                 }
+        }
+
+        private void bCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

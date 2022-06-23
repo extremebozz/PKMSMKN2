@@ -9,7 +9,6 @@ namespace PKMSMKN2.Model
     class MRoom
     {
         private string _Ketersediaan;
-        private DateTime? _CheckIn, _CheckOut;
 
         public int Nomor { set; get; }
         public int ID { set; get; }
