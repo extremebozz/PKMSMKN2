@@ -12,9 +12,26 @@ namespace PKMSMKN2.Restoran
 {
     public partial class AddFood : Form
     {
-        public AddFood()
+        Admin.Main main;
+        int idMenu;
+
+        public AddFood(Admin.Main Main)
         {
             InitializeComponent();
+            main = Main;
+        }
+
+        public AddFood(Admin.Main Main, int IdMenu) : this(Main)
+        {
+            idMenu = IdMenu;
+            this.Text = "Edit Menu";
+
+            AmbilData(IdMenu);
+        }
+
+        private void AmbilData(int MenuID)
+        {
+            //Kode Ambil Data Menu
         }
     }
 }

@@ -22,6 +22,12 @@ namespace PKMSMKN2.Admin
             AmbilData();
         }
 
+        public Main()
+        {
+            InitializeComponent();
+            AmbilData();
+        }
+
         private void Init()
         {
             //Hotel
@@ -58,14 +64,25 @@ namespace PKMSMKN2.Admin
         public void AmbilData()
         {
             //User
-            BindingSource bsUser = new BindingSource();
-            List<Model.Model_User> lUser = Database.DUser.GetUser();
+            //BindingSource bsUser = new BindingSource();
+            //List<Model.Model_User> lUser = Database.DUser.GetUser();
 
-            bsUser.DataSource = lUser;
-            dgvUser.DataSource = bsUser;
+            //bsUser.DataSource = lUser;
+            //dgvUser.DataSource = bsUser;
 
-            dgvUser.Columns["Nomor"].FillWeight = 50;
-            dgvUser.Columns["UserID"].Visible = false;
+            //dgvUser.Columns["Nomor"].FillWeight = 50;
+            //dgvUser.Columns["UserID"].Visible = false;
+
+            //dgvMakanan
+            BindingSource bsMakanan = new BindingSource();
+            List<Model.MMakanan> lMakanan = Database.DRestoran.ReadMakananDebug();
+
+            bsMakanan.DataSource = lMakanan;
+            dgvKonfigMenu.DataSource = bsMakanan;
+
+            //dgvKategoriMakanan
+            //BindingSource bsMakanan = new BindingSource();
+            //List<Model.MKategoriMakanan> lKategoriMakanan = Database.DRestoran.read
         }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
@@ -106,6 +123,43 @@ namespace PKMSMKN2.Admin
                 catch (Exception msg)
                 {
                     MessageBox.Show(msg.ToString(), "Data Gagal Dihapus", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        private void bAddMenu_Click(object sender, EventArgs e)
+        {
+            Restoran.AddFood restoran = new Restoran.AddFood(this);
+            restoran.ShowDialog();
+        }
+
+        private void bEditMenu_Click(object sender, EventArgs e)
+        {
+            int index = dgvKonfigMenu.CurrentCell.RowIndex;
+            int idMenu = Convert.ToInt32(dgvKonfigMenu.Rows[index].Cells["FoodID"].Value);
+
+            Restoran.AddFood restoran = new Restoran.AddFood(this, idMenu);
+            restoran.ShowDialog();
+        }
+
+        private void bDeleteMenu_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Apakah Anda Yakin Ingin Menghapus Data Ini?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if(dr == DialogResult.Yes)
+            {
+                int index = dgvKonfigMenu.CurrentCell.RowIndex;
+                int idMenu = Convert.ToInt32(dgvKonfigMenu.Rows[index].Cells["FoodID"].Value);
+
+                try
+                {
+                    //Database.DRestoran.DeleteMakanan(idMenu);
+                    MessageBox.Show("Menu Telah Berhasil Dihapus!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    AmbilData();
+                }
+                catch (Exception msg)
+                {
+                    MessageBox.Show(msg.ToString(), "Menu Gagal Dihapus", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }

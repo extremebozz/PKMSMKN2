@@ -14,18 +14,18 @@ namespace PKMSMKN2
         [STAThread]
         static void Main()
         {
-            if (DatabaseHelper.CheckKoneksi())
-            {
-                //Menampilkan Menu Utama Apabila Terhubung Ke Database
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new MainForm());
-            }
+            //if (DatabaseHelper.CheckKoneksi())
+            //{
+            //    //Menampilkan Menu Utama Apabila Terhubung Ke Database
+            //    Application.EnableVisualStyles();
+            //    Application.SetCompatibleTextRenderingDefault(false);
+            //    Application.Run(new MainForm());
+            //}
 
             //Debug
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new PKMSMKN2.Admin.Main());
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new PKMSMKN2.Admin.Main());
         }
     }
 }

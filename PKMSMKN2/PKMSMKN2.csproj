@@ -102,6 +102,7 @@
     <Compile Include="Database\DatabaseHelper.cs" />
     <Compile Include="Database\DKamar.cs" />
     <Compile Include="Database\DLogin.cs" />
+    <Compile Include="Database\DRestoran.cs" />
     <Compile Include="Database\DService.cs" />
     <Compile Include="Database\DUser.cs" />
     <Compile Include="Function.cs" />
@@ -149,6 +150,7 @@
     </Compile>
     <Compile Include="Model\MKategoriMakanan.cs" />
     <Compile Include="Model\MMakanan.cs" />
+    <Compile Include="Model\MMakananTransaksi.cs" />
     <Compile Include="Model\Model_User.cs" />
     <Compile Include="Model\MRoom.cs" />
     <Compile Include="Model\MRoomCategory.cs" />
@@ -168,6 +170,12 @@
     </Compile>
     <Compile Include="Restoran\AddFoodCategory.Designer.cs">
       <DependentUpon>AddFoodCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Restoran\Order.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Restoran\Order.Designer.cs">
+      <DependentUpon>Order.cs</DependentUpon>
     </Compile>
     <Compile Include="Restoran\RMain.cs">
       <SubType>Form</SubType>
@@ -230,6 +238,9 @@
     <EmbeddedResource Include="Restoran\AddFoodCategory.resx">
       <DependentUpon>AddFoodCategory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Restoran\Order.resx">
+      <DependentUpon>Order.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Restoran\RMain.resx">
       <DependentUpon>RMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -253,6 +264,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Catatan 24-6-2022.txt" />
+    <Content Include="Restoran\Database untuk fitur restoran.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

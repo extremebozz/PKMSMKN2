@@ -9,7 +9,7 @@ namespace PKMSMKN2.Model
 {
     class MRoom
     {
-        private string _Ketersediaan;
+        private string _Ketersediaan, _Pesanan;
 
         [DisplayName("No")]
         public int Nomor { set; get; }
@@ -44,5 +44,20 @@ namespace PKMSMKN2.Model
         public DateTime? CheckIn { set; get; }
         public DateTime? CheckOut { set; get; }
         public int? IDTransaksi { set; get; }
+        public string Pesanan
+        {
+            set
+            {
+                _Pesanan = value;
+            }
+
+            get
+            {
+                if (string.IsNullOrEmpty(_Pesanan) || _Pesanan.Equals(0))
+                    return "Ya";
+                else
+                    return "Tidak";
+            }
+        }
     }
 }

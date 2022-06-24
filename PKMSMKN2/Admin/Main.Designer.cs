@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcMain = new System.Windows.Forms.TabControl();
             this.tpHotel = new System.Windows.Forms.TabPage();
             this.tpService = new System.Windows.Forms.TabPage();
@@ -44,13 +44,22 @@
             this.bAddUser = new System.Windows.Forms.Button();
             this.tbKonfigurasi = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tpKonfiguranKamar = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvKamar = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvJenisKamar = new System.Windows.Forms.DataGridView();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.tpKonfigurasiRestoran = new System.Windows.Forms.TabPage();
+            this.tpKonfigurasiHotel = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.dgvKonfigMenu = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.bAddMenu = new System.Windows.Forms.Button();
+            this.bEditMenu = new System.Windows.Forms.Button();
+            this.bDeleteMenu = new System.Windows.Forms.Button();
             this.tcMain.SuspendLayout();
             this.tpUser.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -58,12 +67,18 @@
             this.panel1.SuspendLayout();
             this.tbKonfigurasi.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.tabPage4.SuspendLayout();
+            this.tpKonfiguranKamar.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKamar)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvJenisKamar)).BeginInit();
+            this.tpKonfigurasiRestoran.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKonfigMenu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // tcMain
@@ -140,30 +155,30 @@
             // 
             this.dgvUser.AllowUserToAddRows = false;
             this.dgvUser.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle28.BackColor = System.Drawing.Color.Gainsboro;
-            this.dgvUser.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Gainsboro;
+            this.dgvUser.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle29.Padding = new System.Windows.Forms.Padding(3);
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(3);
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle30.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvUser.DefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvUser.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgvUser.Location = new System.Drawing.Point(3, 3);
             this.dgvUser.Name = "dgvUser";
             this.dgvUser.RowHeadersVisible = false;
@@ -233,8 +248,9 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tpKonfiguranKamar);
+            this.tabControl1.Controls.Add(this.tpKonfigurasiRestoran);
+            this.tabControl1.Controls.Add(this.tpKonfigurasiHotel);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.ItemSize = new System.Drawing.Size(100, 20);
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
@@ -244,16 +260,16 @@
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 0;
             // 
-            // tabPage4
+            // tpKonfiguranKamar
             // 
-            this.tabPage4.Controls.Add(this.tableLayoutPanel2);
-            this.tabPage4.Location = new System.Drawing.Point(4, 24);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(862, 539);
-            this.tabPage4.TabIndex = 0;
-            this.tabPage4.Text = "Kamar";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.tpKonfiguranKamar.Controls.Add(this.tableLayoutPanel2);
+            this.tpKonfiguranKamar.Location = new System.Drawing.Point(4, 24);
+            this.tpKonfiguranKamar.Name = "tpKonfiguranKamar";
+            this.tpKonfiguranKamar.Padding = new System.Windows.Forms.Padding(3);
+            this.tpKonfiguranKamar.Size = new System.Drawing.Size(862, 539);
+            this.tpKonfiguranKamar.TabIndex = 0;
+            this.tpKonfiguranKamar.Text = "Kamar";
+            this.tpKonfiguranKamar.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel2
             // 
@@ -318,15 +334,120 @@
             this.dgvJenisKamar.Size = new System.Drawing.Size(600, 230);
             this.dgvJenisKamar.TabIndex = 0;
             // 
-            // tabPage5
+            // tpKonfigurasiRestoran
             // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 24);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(862, 539);
-            this.tabPage5.TabIndex = 1;
-            this.tabPage5.Text = "Hotel";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.tpKonfigurasiRestoran.Controls.Add(this.tableLayoutPanel3);
+            this.tpKonfigurasiRestoran.Location = new System.Drawing.Point(4, 24);
+            this.tpKonfigurasiRestoran.Name = "tpKonfigurasiRestoran";
+            this.tpKonfigurasiRestoran.Padding = new System.Windows.Forms.Padding(3);
+            this.tpKonfigurasiRestoran.Size = new System.Drawing.Size(862, 539);
+            this.tpKonfigurasiRestoran.TabIndex = 1;
+            this.tpKonfigurasiRestoran.Text = "Restoran";
+            this.tpKonfigurasiRestoran.UseVisualStyleBackColor = true;
+            // 
+            // tpKonfigurasiHotel
+            // 
+            this.tpKonfigurasiHotel.Location = new System.Drawing.Point(4, 24);
+            this.tpKonfigurasiHotel.Name = "tpKonfigurasiHotel";
+            this.tpKonfigurasiHotel.Padding = new System.Windows.Forms.Padding(3);
+            this.tpKonfigurasiHotel.Size = new System.Drawing.Size(862, 539);
+            this.tpKonfigurasiHotel.TabIndex = 2;
+            this.tpKonfigurasiHotel.Text = "Hotel";
+            this.tpKonfigurasiHotel.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.groupBox3, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.groupBox4, 0, 1);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(856, 533);
+            this.tableLayoutPanel3.TabIndex = 0;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.bDeleteMenu);
+            this.groupBox3.Controls.Add(this.bEditMenu);
+            this.groupBox3.Controls.Add(this.bAddMenu);
+            this.groupBox3.Controls.Add(this.dgvKonfigMenu);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(3, 3);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(850, 260);
+            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Menu";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.dataGridView2);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(3, 269);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(850, 261);
+            this.groupBox4.TabIndex = 1;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Kategori Makanan";
+            // 
+            // dgvKonfigMenu
+            // 
+            this.dgvKonfigMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvKonfigMenu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvKonfigMenu.Location = new System.Drawing.Point(13, 26);
+            this.dgvKonfigMenu.Name = "dgvKonfigMenu";
+            this.dgvKonfigMenu.Size = new System.Drawing.Size(633, 220);
+            this.dgvKonfigMenu.TabIndex = 0;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(13, 26);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(633, 220);
+            this.dataGridView2.TabIndex = 1;
+            // 
+            // bAddMenu
+            // 
+            this.bAddMenu.Location = new System.Drawing.Point(674, 35);
+            this.bAddMenu.Name = "bAddMenu";
+            this.bAddMenu.Size = new System.Drawing.Size(150, 30);
+            this.bAddMenu.TabIndex = 1;
+            this.bAddMenu.Text = "Tambah Menu";
+            this.bAddMenu.UseVisualStyleBackColor = true;
+            this.bAddMenu.Click += new System.EventHandler(this.bAddMenu_Click);
+            // 
+            // bEditMenu
+            // 
+            this.bEditMenu.Location = new System.Drawing.Point(674, 85);
+            this.bEditMenu.Name = "bEditMenu";
+            this.bEditMenu.Size = new System.Drawing.Size(150, 30);
+            this.bEditMenu.TabIndex = 2;
+            this.bEditMenu.Text = "Edit Menu";
+            this.bEditMenu.UseVisualStyleBackColor = true;
+            this.bEditMenu.Click += new System.EventHandler(this.bEditMenu_Click);
+            // 
+            // bDeleteMenu
+            // 
+            this.bDeleteMenu.Location = new System.Drawing.Point(674, 135);
+            this.bDeleteMenu.Name = "bDeleteMenu";
+            this.bDeleteMenu.Size = new System.Drawing.Size(150, 30);
+            this.bDeleteMenu.TabIndex = 2;
+            this.bDeleteMenu.Text = "Hapus Menu";
+            this.bDeleteMenu.UseVisualStyleBackColor = true;
+            this.bDeleteMenu.Click += new System.EventHandler(this.bDeleteMenu_Click);
             // 
             // Main
             // 
@@ -344,12 +465,18 @@
             this.panel1.ResumeLayout(false);
             this.tbKonfigurasi.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
-            this.tabPage4.ResumeLayout(false);
+            this.tpKonfiguranKamar.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKamar)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvJenisKamar)).EndInit();
+            this.tpKonfigurasiRestoran.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKonfigMenu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -369,12 +496,21 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TabPage tbKonfigurasi;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TabPage tpKonfiguranKamar;
+        private System.Windows.Forms.TabPage tpKonfigurasiRestoran;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dgvKamar;
         private System.Windows.Forms.DataGridView dgvJenisKamar;
+        private System.Windows.Forms.TabPage tpKonfigurasiHotel;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button bDeleteMenu;
+        private System.Windows.Forms.Button bEditMenu;
+        private System.Windows.Forms.Button bAddMenu;
+        private System.Windows.Forms.DataGridView dgvKonfigMenu;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }
