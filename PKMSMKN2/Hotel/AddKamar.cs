@@ -83,7 +83,7 @@ namespace PKMSMKN2.Hotel
             int nomorKamar = int.Parse(nNomorKamar.Value.ToString());
             int jenisKamar = int.Parse(cbJenisKamar.SelectedValue.ToString());
 
-            if (nomorKamar >= 1000000)
+            if (nomorKamar >= 999999)
             {
                 MessageBox.Show("Nomor Kamar Melebihi Batas! Silakan Pilih Nomor Kamar Yang Lain!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 nNomorKamar.Focus();
@@ -109,7 +109,7 @@ namespace PKMSMKN2.Hotel
             int nomorKamar = int.Parse(nNomorKamar.Value.ToString());
             int jenisKamar = int.Parse(cbJenisKamar.SelectedValue.ToString());
 
-            if (nomorKamar >= 1000000)
+            if (nomorKamar >= 999999)
             {
                 MessageBox.Show("Nomor Kamar Melebihi Batas! Silakan Pilih Nomor Kamar Yang Lain!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 nNomorKamar.Focus();

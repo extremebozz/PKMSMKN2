@@ -177,6 +177,46 @@ namespace PKMSMKN2.Database
         #endregion
 
         #region Transaksi
+        public static void AddTransaksi(Model.MMakananTransaksi MTransaksi, string Waiter)
+        {
+            try
+            {
+                using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
+                {
+                    MySqlCommand cmd = new MySqlCommand("INSERT INTO restoran_transaksi(id_transaksi_kamar, tanggal, waiter) " +
+                        "VALUES(@idKamar, @tanggal, @waiter); SELECT LAST_INSERT_ID();", con);
+                    cmd.Parameters.AddWithValue("@idKamar", MTransaksi.IDTransaksiKamar);
+                    cmd.Parameters.AddWithValue("@tanggal", DateTime.Now.ToString("yyyy-mm-dd"));
+                    cmd.Parameters.AddWithValue("@waiter", Waiter);
+                    int idTransaksi = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+                    MTransaksi.IDTransaksi = idTransaksi;
+                }
+
+                AddOrder(MTransaksi);
+            }
+            catch { throw; }
+        }
+
+        public static void AddOrder(Model.MMakananTransaksi MTransaksi)
+        {
+            try
+            {
+                using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
+                {
+
+                    MySqlCommand cmd = new MySqlCommand("INSERT INTO restoran_detail(id_transaksi, id_makanan, nama, qty, harga) " +
+                    "VALUES(@idTransaksi, @idMakanan, @nama, @qty, @harga)", con);
+                    cmd.Parameters.AddWithValue("@idTransaksi", MTransaksi.IDTransaksi);
+                    cmd.Parameters.AddWithValue("@idMakanan", MTransaksi.IDMakanan);
+                    cmd.Parameters.AddWithValue("@nama", MTransaksi.NamaMenu);
+                    cmd.Parameters.AddWithValue("@qty", MTransaksi.Qty);
+                    cmd.Parameters.AddWithValue("@harga", MTransaksi.Harga);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch { throw; }
+        }
+
         public static List<Model.MMakananTransaksi> ReadTransaksi(int IDTransaksi)
         {
             List<Model.MMakananTransaksi> lTransaksi = new List<Model.MMakananTransaksi>();
@@ -184,64 +224,23 @@ namespace PKMSMKN2.Database
             using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
             {
                 MySqlCommand cmd = new MySqlCommand("SELECT *, (SELECT id_transaksi_kamar FROM restoran_transaksi WHERE id = @id) AS nomor_kamar, " +
-                    "(SELECT nama FROM makanan_data WHERE id = id_makanan) AS makanan FROM restoran_detail WHERE id_transaksi = @id", con);
+                    "(SELECT nama FROM menu_data WHERE id = id_makanan) AS makanan FROM restoran_detail WHERE id_transaksi = @id", con);
                 cmd.Parameters.AddWithValue("@id", IDTransaksi);
 
                 using (MySqlDataReader read = cmd.ExecuteReader())
-                {
-                    lTransaksi.Add(new Model.MMakananTransaksi()
-                    {
-                        IDTransaksi = read.GetInt32("id_transaksi"),
-                        IDTransaksiKamar = read.GetInt32("nomor_kamar"),
-                        IDMakanan = read.GetInt32("id_makanan"),
-                        Qty = read.GetInt32("qty"),
-                        Harga = read.GetInt32("harga"),
-                        NamaMenu = read["makanan"].ToString()
-                    });
-                }
+                    while (read.Read())
+                        lTransaksi.Add(new Model.MMakananTransaksi()
+                        {
+                            IDTransaksi = read.GetInt32("id_transaksi"),
+                            IDTransaksiKamar = read.GetInt32("nomor_kamar"),
+                            IDMakanan = read.GetInt32("id_makanan"),
+                            Qty = read.GetInt32("qty"),
+                            Harga = read.GetInt32("harga"),
+                            NamaMenu = read["makanan"].ToString()
+                        });
             }
 
             return lTransaksi;
-        }
-        #endregion
-
-        #region Debug
-        public static List<Model.MMakananTransaksi> ReadTransaksiDebug()
-        {
-            List<Model.MMakananTransaksi> lTransaksi = new List<Model.MMakananTransaksi>();
-
-            for (int i = 1; i <= 5; i++)
-            {
-                lTransaksi.Add(new Model.MMakananTransaksi()
-                {
-                    IDTransaksi = i,
-                    IDTransaksiKamar = 1,
-                    IDMakanan = i,
-                    Qty = i,
-                    Harga = 12500,
-                    NamaMenu = "Nasi Goreng"
-                });
-            }
-
-            return lTransaksi;
-        }
-
-        public static List<Model.MMakanan> ReadMakananDebug()
-        {
-            List<Model.MMakanan> lMakanan = new List<Model.MMakanan>();
-
-            for (int i = 10000; i <= 50000; i += 10000)
-            {
-                lMakanan.Add(new Model.MMakanan()
-                {
-                    Nama = "test" + i,
-                    Harga = i,
-                    CategoryID = i / 1000,
-                    FoodID = i / 100
-                });
-            }
-
-            return lMakanan;
         }
         #endregion
     }

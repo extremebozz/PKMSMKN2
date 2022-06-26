@@ -13,6 +13,7 @@ namespace PKMSMKN2.Restoran
     public partial class Order : Form
     {
         int idTransaksi;
+        bool orderanBaru = true;
 
         public Order(int IDTransaksi, int NomorKamar)
         {
@@ -26,7 +27,15 @@ namespace PKMSMKN2.Restoran
         {
             //Ambil data Makanan_transaksi berdasarkan Id_Transaksi
             BindingSource bsTransaksi = new BindingSource();
-            List<Model.MMakananTransaksi> lTransaksi = Database.DRestoran.ReadTransaksiDebug();
+            List<Model.MMakananTransaksi> lTransaksi = Database.DRestoran.ReadTransaksi(IdTransaksi);
+
+            if (lTransaksi.Count == 0)
+            {
+                dgvOrderList.Columns.Add("", "");
+                dgvOrderList.Rows.Add("Tidak Ada Orderan!");
+                orderanBaru = false;
+                return;
+            }
 
             bsTransaksi.DataSource = lTransaksi;
             dgvOrderList.DataSource = bsTransaksi;

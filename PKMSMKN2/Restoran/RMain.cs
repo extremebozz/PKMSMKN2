@@ -15,39 +15,17 @@ namespace PKMSMKN2.Restoran
         public RMain()
         {
             InitializeComponent();
-            Debug();
             AmbilData();
-        }
-
-        private void Debug()
-        {
-            BindingSource bsKamar = new BindingSource();
-            List<Model.MRoom> lRoom = new List<Model.MRoom>();
-
-            for (int i = 1; i < 10; i++)
-            {
-                lRoom.Add(new Model.MRoom()
-                {
-                    ID = i,
-                    CheckIn = DateTime.Now,
-                    TanggalIn = DateTime.Now,
-                    TanggalOut = DateTime.Now.AddDays(1),
-                    HargaKamar = 1250000,
-                    IDJenisKamar = i,
-                    IDTransaksi = i,
-                    JenisKamar = "King",
-                    NomorKamar = i.ToString(),
-                    Ketersediaan = "n"
-                });
-            }
-
-            bsKamar.DataSource = lRoom;
-            dgvKamar.DataSource = bsKamar;
         }
 
         public void AmbilData()
         {
             //Ambil data kamar yang telah checkin
+            BindingSource bsKamar = new BindingSource();
+            List<Model.MRoom> lKamar = Database.DKamar.ReadRoom();
+
+            bsKamar.DataSource = lKamar;
+            dgvKamar.DataSource = bsKamar;
 
         }
 
