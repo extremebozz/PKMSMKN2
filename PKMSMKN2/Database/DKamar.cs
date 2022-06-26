@@ -307,6 +307,40 @@ namespace PKMSMKN2.Database
                 }
         }
 
+        public static void DeleteRoom(int RoomID)
+        {
+            using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
+            {
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand("DELETE FROM kamar_data WHERE id = @id", con);
+                    cmd.Parameters.AddWithValue("@id", RoomID);
+                    cmd.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
+
+        public static void DeleteCategory(int CategoryID)
+        {
+            using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
+            {
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand("DELETE FROM kamar_jenis WHERE id = @id", con);
+                    cmd.Parameters.AddWithValue("@id", CategoryID);
+                    cmd.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
+
         public static int GetLastestRoomNumber()
         {
             int nomorKamar = 0;

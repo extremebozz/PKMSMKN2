@@ -28,6 +28,8 @@ namespace PKMSMKN2.Restoran
             idCategory = CategoryID;
             edit = true;
             AmbilData(CategoryID);
+
+            this.Text = "Edit Kategori";
         }
 
         private void AmbilData(int CategoryID)
@@ -56,6 +58,9 @@ namespace PKMSMKN2.Restoran
                     Database.DRestoran.UpdateCategory(idCategory, namaKategori);
                 else
                     Database.DRestoran.AddCategory(namaKategori);
+
+                aMain.AmbilData();
+                this.Close();
             }
             catch (Exception msg)
             {

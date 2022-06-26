@@ -24,13 +24,7 @@ id_transaksi_kamar > kamar_transaksi.id
 restoran_detail : 
 id
 id_transaksi
-id_makanan
-nama
-qty
-harga
-
-relation,
-id_transaksi > resoran_transaksi.id
+id_makan> resoran_transaksi.id
 id_makanan > makanan_data.id
 
 

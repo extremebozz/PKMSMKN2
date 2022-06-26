@@ -12,22 +12,22 @@ namespace PKMSMKN2.Hotel
 {
     public partial class AddKamar : Form
     {
-        Main hMain;
+        Admin.Main aMain;
 
         List<Model.MRoomCategory> lKategoriKamar;
         int NomorKamar = 0, IdKamar;
 
-        public AddKamar(Main HMain)
+        public AddKamar(Admin.Main Main)
         {
             InitializeComponent();
             InitData();
-            hMain = HMain;
+            aMain = Main;
         }
 
-        public AddKamar(Main HMain, int ID)
+        public AddKamar(Admin.Main Main, int ID)
         {
             InitializeComponent();
-            hMain = HMain;
+            aMain = Main;
             IdKamar = ID;
             AmbilData(ID);
 
@@ -83,12 +83,19 @@ namespace PKMSMKN2.Hotel
             int nomorKamar = int.Parse(nNomorKamar.Value.ToString());
             int jenisKamar = int.Parse(cbJenisKamar.SelectedValue.ToString());
 
+            if (nomorKamar >= 1000000)
+            {
+                MessageBox.Show("Nomor Kamar Melebihi Batas! Silakan Pilih Nomor Kamar Yang Lain!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                nNomorKamar.Focus();
+                return;
+            }
+
             try
             {
                 Database.DKamar.CreateRoom(nomorKamar, jenisKamar);
                 MessageBox.Show("Data Kamar Berhasil Disimpan!", "Data Telah Tersimpan", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                hMain.AmbilData();
+                aMain.AmbilData();
                 this.Close();
             }
             catch (Exception msg)
@@ -102,12 +109,19 @@ namespace PKMSMKN2.Hotel
             int nomorKamar = int.Parse(nNomorKamar.Value.ToString());
             int jenisKamar = int.Parse(cbJenisKamar.SelectedValue.ToString());
 
+            if (nomorKamar >= 1000000)
+            {
+                MessageBox.Show("Nomor Kamar Melebihi Batas! Silakan Pilih Nomor Kamar Yang Lain!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                nNomorKamar.Focus();
+                return;
+            }
+
             try
             {
                 Database.DKamar.UpdateRoom(IdKamar, nomorKamar, jenisKamar);
                 MessageBox.Show("Data Kamar Berhasil Disimpan!", "Data Telah Tersimpan", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                hMain.AmbilData();
+                aMain.AmbilData();
                 this.Close();
             }
             catch (Exception msg)

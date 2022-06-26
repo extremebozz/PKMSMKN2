@@ -53,7 +53,7 @@ namespace PKMSMKN2.Model
 
             get
             {
-                if (string.IsNullOrEmpty(_Pesanan) || _Pesanan.Equals(0))
+                if (!string.IsNullOrEmpty(_Pesanan))
                     return "Ya";
                 else
                     return "Tidak";

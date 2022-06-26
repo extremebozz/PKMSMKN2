@@ -86,8 +86,11 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AddFoodCategory";
-            this.Text = "Tambah";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Tambah Kategori";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddFoodCategory_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();

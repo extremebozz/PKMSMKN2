@@ -47,6 +47,7 @@ namespace PKMSMKN2.Hotel
             dgvKamar.Columns["IDJenisKamar"].Visible = false;
             dgvKamar.Columns["IDTransaksi"].Visible = false;
             dgvKamar.Columns["CheckOut"].Visible = false;
+            dgvKamar.Columns["Pesanan"].Visible = false;
             dgvKamar.Columns["Nomor"].HeaderText = "No";
             dgvKamar.Columns["Nomor"].FillWeight = 50;
             dgvKamar.Columns["NomorKamar"].FillWeight = 50;
@@ -56,23 +57,7 @@ namespace PKMSMKN2.Hotel
             dgvKamar.Columns["CheckIn"].DefaultCellStyle.Format = "dd MMMM yyyy HH:mm:ss";
             dgvKamar.Columns["CheckOut"].DefaultCellStyle.Format = "dd MMMM yyyy HH:mm:ss";
 
-            //Formatting DataGridView Konfigurasi Kamar
-            dgvKonfirgurasiKamar.Columns["Nomor"].Visible = false;
-            dgvKonfirgurasiKamar.Columns["ID"].Visible = false;
-            dgvKonfirgurasiKamar.Columns["IDJenisKamar"].Visible = false;
-            dgvKonfirgurasiKamar.Columns["IDTransaksi"].Visible = false;
-            dgvKonfirgurasiKamar.Columns["CheckIn"].Visible = false;
-            dgvKonfirgurasiKamar.Columns["CheckOut"].Visible = false;
-            dgvKonfirgurasiKamar.Columns["TanggalIn"].Visible = false;
-            dgvKonfirgurasiKamar.Columns["TanggalOut"].Visible = false;
-            dgvKonfirgurasiKamar.Columns["Ketersediaan"].Visible = false;
-            dgvKonfirgurasiKamar.Columns["Nomor"].HeaderText = "No";
-            dgvKonfirgurasiKamar.Columns["Nomor"].FillWeight = 50;
-            dgvKonfirgurasiKamar.Columns["NomorKamar"].FillWeight = 75;
-            dgvKonfirgurasiKamar.Columns["NomorKamar"].HeaderText = "Nomor Kamar";
-            dgvKonfirgurasiKamar.Columns["JenisKamar"].HeaderText = "Jenis Kamar";
-            dgvKonfirgurasiKamar.Columns["HargaKamar"].HeaderText = "Harga Kamar";
-            dgvKonfirgurasiKamar.Columns["HargaKamar"].DefaultCellStyle.Format = "#,###";
+            
 
             BindingSource bsJenisKamar = new BindingSource();
             List<Model.MRoomCategory> lJenisKamar = Database.DKamar.ReadRoomCategory();
@@ -80,16 +65,12 @@ namespace PKMSMKN2.Hotel
             bsJenisKamar.DataSource = lJenisKamar;
             dgvJenisKamar.DataSource = bsJenisKamar;
 
-            //Formatting DataGridView Konfigurasi Jenis Kamar
-            dgvJenisKamar.Columns["ID"].Visible = false;
-            dgvJenisKamar.Columns["JenisKamar"].HeaderText = "Jenis Kamar";
-            dgvJenisKamar.Columns["HargaKamar"].DefaultCellStyle.Format = "#,###";
-            dgvJenisKamar.Columns["HargaKamar"].HeaderText = "Harga Kamar";
+            
         }
 
         private void bAddRoom_Click(object sender, EventArgs e)
         {
-            mf.ShowForm(new AddKamar(this));
+            //mf.ShowForm(new AddKamar(this));
         }
 
         private void bDeleteRoom_Click(object sender, EventArgs e)
@@ -105,13 +86,13 @@ namespace PKMSMKN2.Hotel
             int rowIndex = dgvKonfirgurasiKamar.CurrentCell.RowIndex;
             int idKamar = Convert.ToInt32(dgvKonfirgurasiKamar.Rows[rowIndex].Cells["ID"].Value);
 
-            AddKamar aKamar = new AddKamar(this, idKamar);
-            aKamar.ShowDialog();
+            //AddKamar aKamar = new AddKamar(this, idKamar);
+            //aKamar.ShowDialog();
         }
 
         private void bAddRoomCategory_Click(object sender, EventArgs e)
         {
-            mf.ShowForm(new AddKategoriKamar(this));
+            //mf.ShowForm(new AddKategoriKamar(this));
         }
 
         private void bEditRoomCategory_Click(object sender, EventArgs e)
@@ -119,7 +100,7 @@ namespace PKMSMKN2.Hotel
             int rowIndex = dgvJenisKamar.CurrentCell.RowIndex;
             int idJenisKamar = Convert.ToInt32(dgvJenisKamar.Rows[rowIndex].Cells["ID"].Value);
 
-            mf.ShowForm(new AddKategoriKamar(this, idJenisKamar));
+            //mf.ShowForm(new AddKategoriKamar(this, idJenisKamar));
         }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
@@ -133,8 +114,8 @@ namespace PKMSMKN2.Hotel
             if (e.RowIndex >= 0)
             {
                 int id = Convert.ToInt32(dgvJenisKamar.Rows[e.RowIndex].Cells["ID"].Value);
-                AddKategoriKamar aKategoriKamar = new AddKategoriKamar(this, id);
-                aKategoriKamar.ShowDialog();
+                //    AddKategoriKamar aKategoriKamar = new AddKategoriKamar(this, id);
+                //    aKategoriKamar.ShowDialog();
             }
         }
 
@@ -143,8 +124,8 @@ namespace PKMSMKN2.Hotel
             if (e.RowIndex >= 0)
             {
                 int id = Convert.ToInt32(dgvKamar.Rows[e.RowIndex].Cells[1].Value);
-                AddKamar aKamar = new AddKamar(this, id);
-                aKamar.ShowDialog();
+                //AddKamar aKamar = new AddKamar(this, id);
+                //aKamar.ShowDialog();
             }
         }
 

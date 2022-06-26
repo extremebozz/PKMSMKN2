@@ -16,7 +16,7 @@ namespace PKMSMKN2.Database
             {
                 using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
                 {
-                    MySqlCommand cmd = new MySqlCommand("INSERT INTO makanan_kategori(nama) VALUES(@nama)", con);
+                    MySqlCommand cmd = new MySqlCommand("INSERT INTO menu_kategori(nama) VALUES(@nama)", con);
                     cmd.Parameters.AddWithValue("@nama", Nama);
                     cmd.ExecuteNonQuery();
                 }
@@ -33,7 +33,7 @@ namespace PKMSMKN2.Database
 
             using ( MySqlConnection con = DatabaseHelper.OpenKoneksi() )
             {
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM makanan_kategori", con);
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM menu_kategori", con);
 
                 if (CategoryID != 0)
                 {
@@ -42,13 +42,12 @@ namespace PKMSMKN2.Database
                 }
 
                 using (MySqlDataReader read = cmd.ExecuteReader())
-                {
-                    mKategori.Add(new Model.MKategoriMakanan()
-                    {
-                        CategoryID = read.GetInt32("id"),
-                        Nama = read["nama"].ToString()
-                    });
-                }
+                    while (read.Read())
+                        mKategori.Add(new Model.MKategoriMakanan()
+                        {
+                            CategoryID = read.GetInt32("id"),
+                            Nama = read["nama"].ToString()
+                        });
             }
 
             return mKategori;
@@ -60,7 +59,7 @@ namespace PKMSMKN2.Database
             {
                 using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
                 {
-                    MySqlCommand cmd = new MySqlCommand("UPDATE makanan_kategori SET nama = @nama WHERE id = @id", con);
+                    MySqlCommand cmd = new MySqlCommand("UPDATE menu_kategori SET nama = @nama WHERE id = @id", con);
                     cmd.Parameters.AddWithValue("@nama", CategoryNama);
                     cmd.Parameters.AddWithValue("@id", CategoryID);
                     cmd.ExecuteNonQuery();
@@ -78,7 +77,7 @@ namespace PKMSMKN2.Database
             {
                 using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
                 {
-                    MySqlCommand cmd = new MySqlCommand("DELETE FROM makanan_category WHERE id = @id", con);
+                    MySqlCommand cmd = new MySqlCommand("DELETE FROM menu_kategori WHERE id = @id", con);
                     cmd.Parameters.AddWithValue("@id", CategoryID);
                     cmd.ExecuteNonQuery();
                 }
@@ -97,7 +96,7 @@ namespace PKMSMKN2.Database
             {
                 using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
                 {
-                    MySqlCommand cmd = new MySqlCommand("INSERT INTO makanan_data(id_kategori, nama, harga) VALUES(@id, @nama, @harga)", con);
+                    MySqlCommand cmd = new MySqlCommand("INSERT INTO menu_data(id_kategori, nama, harga) VALUES(@id, @nama, @harga)", con);
                     cmd.Parameters.AddWithValue("@id", MMakanan.CategoryID);
                     cmd.Parameters.AddWithValue("@nama", MMakanan.Nama);
                     cmd.Parameters.AddWithValue("@harga", MMakanan.Harga);
@@ -116,7 +115,7 @@ namespace PKMSMKN2.Database
 
             using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
             {
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM makanan_data", con);
+                MySqlCommand cmd = new MySqlCommand("SELECT *, (SELECT nama FROM menu_kategori WHERE id = id_kategori) AS kategori FROM menu_data", con);
 
                 if (IDKategori != 0)
                 {
@@ -129,6 +128,7 @@ namespace PKMSMKN2.Database
                         lMakanan.Add(new Model.MMakanan()
                         {
                             CategoryID = read.GetInt32("id_kategori"),
+                            Category = read["kategori"].ToString(),
                             FoodID = read.GetInt32("id"),
                             Harga = read.GetInt32("harga"),
                             Nama = read.GetString("nama")
@@ -144,12 +144,29 @@ namespace PKMSMKN2.Database
             {
                 using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
                 {
-                    MySqlCommand cmd = new MySqlCommand("UPDATE makanan_data SET id_kategori = @idKategori, nama = @nama, harga = @harga WHERE id = @id", con);
+                    MySqlCommand cmd = new MySqlCommand("UPDATE menu_data SET id_kategori = @idKategori, nama = @nama, harga = @harga WHERE id = @id", con);
                     cmd.Parameters.AddWithValue("@idKategori", MMakanan.CategoryID);
                     cmd.Parameters.AddWithValue("@nama", MMakanan.Nama);
                     cmd.Parameters.AddWithValue("@harga", MMakanan.Harga);
                     cmd.Parameters.AddWithValue("@id", MMakanan.FoodID);
                     cmd.ExecuteNonQuery();
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public static void DeleteMakanan(int MenuID)
+        {
+            try
+            {
+                using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
+                {
+                    MySqlCommand cmd = new MySqlCommand("DELETE FROM menu_data WHERE id = @id", con);
+                    cmd.Parameters.AddWithValue("@id", MenuID);
+                    cmd.ExecuteReader();
                 }
             }
             catch

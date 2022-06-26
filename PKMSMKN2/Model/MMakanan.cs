@@ -10,6 +10,7 @@ namespace PKMSMKN2.Model
     {
         public int FoodID { get; set; }
         public int CategoryID { get; set; }
+        public string Category { get; set; }
         public string Nama { get; set; }
         public int Harga { get; set; }
     }

@@ -10,6 +10,6 @@ namespace PKMSMKN2.Model
     {
         public int CategoryID { get; set; }
         public string Nama { get; set; }
-        public List<Model.MMakanan> ListMakanan { get; set; }
+        public List<MMakanan> ListMakanan { get; set; }
     }
 }
