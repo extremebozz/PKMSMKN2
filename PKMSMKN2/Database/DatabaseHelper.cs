@@ -34,7 +34,7 @@ namespace PKMSMKN2
             {
                 Server = "localhost", //ConfigurationManager.ConnectionStrings["server"].ConnectionString,
                 UserID = "root",
-                Password = "bukanadmin",
+                Password = "test", //bukanadmin
                 Database = "hotel_smkn2" //ConfigurationManager.ConnectionStrings["database"].ConnectionString
             };
 

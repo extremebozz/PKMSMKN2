@@ -40,5 +40,15 @@ namespace PKMSMKN2.Restoran
             bsTransaksi.DataSource = lTransaksi;
             dgvOrderList.DataSource = bsTransaksi;
         }
+
+        private void bClose_Click(object sender, EventArgs e)
+        {
+            this.Close();           
+        }
+
+        private void bAddOrder_Click(object sender, EventArgs e)
+        {
+            //Kode Muncul Form Add Menu
+        }
     }
 }
