@@ -36,7 +36,7 @@ namespace PKMSMKN2.Restoran
             int idTransaksi = Convert.ToInt32(dgvKamar.Rows[index].Cells["IDTransaksi"].Value);
             int nomorKamar = Convert.ToInt32(dgvKamar.Rows[index].Cells["NomorKamar"].Value);
 
-            Order order = new Order(idTransaksi, nomorKamar);
+            Order order = new Order(this, idTransaksi, nomorKamar);
             order.ShowDialog();
         }
     }

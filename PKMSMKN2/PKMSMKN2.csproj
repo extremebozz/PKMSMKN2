@@ -177,6 +177,12 @@
     <Compile Include="Restoran\Order.Designer.cs">
       <DependentUpon>Order.cs</DependentUpon>
     </Compile>
+    <Compile Include="Restoran\OrderMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Restoran\OrderMenu.Designer.cs">
+      <DependentUpon>OrderMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Restoran\RMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,6 +246,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Restoran\Order.resx">
       <DependentUpon>Order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Restoran\OrderMenu.resx">
+      <DependentUpon>OrderMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Restoran\RMain.resx">
       <DependentUpon>RMain.cs</DependentUpon>
