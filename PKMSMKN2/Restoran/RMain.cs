@@ -16,6 +16,16 @@ namespace PKMSMKN2.Restoran
         {
             InitializeComponent();
             AmbilData();
+
+            Timer timer = new Timer();
+            timer.Interval = (10 * 1000); //10 Detik
+            timer.Tick += new EventHandler(timer_Tick);
+            timer.Start();
+        }
+
+        private void timer_Tick(object sender, EventArgs e) 
+        {
+            AmbilData();
         }
 
         public void AmbilData()
@@ -26,9 +36,17 @@ namespace PKMSMKN2.Restoran
 
             bsKamar.DataSource = lKamar;
             dgvKamar.DataSource = bsKamar;
+
+            dgvKamar.Columns["ID"].Visible = false;
+            dgvKamar.Columns["JenisKamar"].Visible = false;
+            dgvKamar.Columns["IDJenisKamar"].Visible = false;
+            dgvKamar.Columns["HargaKamar"].Visible = false;
+            dgvKamar.Columns["Ketersediaan"].Visible = false;
+            dgvKamar.Columns["CheckOut"].Visible = false;
+            dgvKamar.Columns["IDTransaksi"].Visible = false;
         }
 
-        private void bPesan_Click(object sender, EventArgs e)
+        private void dgvKamar_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             //Ambil index
             int index = dgvKamar.CurrentCell.RowIndex;

@@ -203,6 +203,7 @@
             this.dgvUser.Location = new System.Drawing.Point(3, 3);
             this.dgvUser.Name = "dgvUser";
             this.dgvUser.RowHeadersVisible = false;
+            this.dgvUser.RowTemplate.Height = 30;
             this.dgvUser.Size = new System.Drawing.Size(695, 567);
             this.dgvUser.TabIndex = 0;
             // 
@@ -306,7 +307,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 533F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(856, 533);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
@@ -391,6 +392,7 @@
             this.dgvKonfigKamar.Location = new System.Drawing.Point(6, 23);
             this.dgvKonfigKamar.Name = "dgvKonfigKamar";
             this.dgvKonfigKamar.RowHeadersVisible = false;
+            this.dgvKonfigKamar.RowTemplate.Height = 30;
             this.dgvKonfigKamar.Size = new System.Drawing.Size(197, 497);
             this.dgvKonfigKamar.TabIndex = 0;
             // 

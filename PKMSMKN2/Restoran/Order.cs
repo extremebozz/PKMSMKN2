@@ -51,6 +51,8 @@ namespace PKMSMKN2.Restoran
             dgvOrderList.Columns["IDTransaksiKamar"].Visible = false;
             dgvOrderList.Columns["IDMakanan"].Visible = false;
             dgvOrderList.Columns["harga"].DefaultCellStyle.Format = "#,##0";
+
+            lTotal.Text = string.Format("{0:#,##0}", lTransaksi.Sum(transaksi => transaksi.Harga * transaksi.Qty));
         }
 
         private void Order_FormClosing(object sender, FormClosingEventArgs e)

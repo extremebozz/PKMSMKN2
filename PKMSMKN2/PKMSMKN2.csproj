@@ -152,6 +152,7 @@
     <Compile Include="Model\MMakanan.cs" />
     <Compile Include="Model\MMakananTransaksi.cs" />
     <Compile Include="Model\Model_User.cs" />
+    <Compile Include="Model\MRestoranView.cs" />
     <Compile Include="Model\MRoom.cs" />
     <Compile Include="Model\MRoomCategory.cs" />
     <Compile Include="Model\MRoomTransaksi.cs" />

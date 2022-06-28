@@ -113,9 +113,6 @@ namespace PKMSMKN2.Hotel
 
             try
             {
-                //Nanti masukan data ke model MRoomTransaksi baru dioper ke function!
-                //Database.DKamar.PesanKamar(Convert.ToInt32(nomorKamar), extraBed, Checkin, Checkout, hari);
-
                 Model.MRoomTransaksi mTransaksi = new Model.MRoomTransaksi()
                 {
                     NomorKamar = nomorKamar,
@@ -128,7 +125,7 @@ namespace PKMSMKN2.Hotel
                     ExtraBed = extraBed
                 };
 
-                Database.DKamar.PesanKamar(mTransaksi);
+                Database.DKamar.PesanKamar(mTransaksi, hargaKamar);
 
                 //Kode Refresh Data
                 hMain.AmbilData();

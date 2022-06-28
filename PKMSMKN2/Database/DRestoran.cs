@@ -257,7 +257,7 @@ namespace PKMSMKN2.Database
                     cmd.ExecuteNonQuery();
 
                     cmd.CommandText = "UPDATE restoran_transaksi SET total = " +
-                    "(SELECT SUM(harga) FROM restoran_detail WHERE id_transaksi = @idTransaksi) WHERE id = @idTransaksi";
+                    "(SELECT SUM(harga * qty) FROM restoran_detail WHERE id_transaksi = @idTransaksi) WHERE id = @idTransaksi";
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -306,7 +306,7 @@ namespace PKMSMKN2.Database
                 cmd.ExecuteNonQuery();
 
                 cmd.CommandText = "UPDATE restoran_transaksi SET total = " +
-                    "(SELECT SUM(harga) FROM restoran_detail WHERE id_transaksi = @idTransaksi) WHERE id = @idTransaksi";
+                    "(SELECT SUM(harga * qty) FROM restoran_detail WHERE id_transaksi = @idTransaksi) WHERE id = @idTransaksi";
                 cmd.Parameters.AddWithValue("@idTransaksi", MTransaksi.IDTransaksi);
                 cmd.ExecuteNonQuery();
             }
@@ -321,7 +321,7 @@ namespace PKMSMKN2.Database
                 cmd.ExecuteNonQuery();
 
                 cmd.CommandText = "UPDATE restoran_transaksi SET total = " +
-                    "(SELECT SUM(harga) FROM restoran_detail WHERE id_transaksi = @idTransaksi) WHERE id = @idTransaksi";
+                    "(SELECT SUM(harga * qty) FROM restoran_detail WHERE id_transaksi = @idTransaksi) WHERE id = @idTransaksi";
                 cmd.Parameters.AddWithValue("@idTransaksi", TransaksiOrderID);
                 cmd.ExecuteNonQuery();
             }

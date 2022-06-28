@@ -20,6 +20,16 @@ namespace PKMSMKN2.Admin
             mf = mainForm;
             Init();
             AmbilData();
+            
+            Timer timer = new Timer();
+            timer.Interval = (10 * 1000); //10 Detik
+            timer.Tick += new EventHandler(timer_Tick);
+            timer.Start();
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            AmbilData();
         }
 
         private void Init()

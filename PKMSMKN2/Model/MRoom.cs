@@ -16,6 +16,8 @@ namespace PKMSMKN2.Model
         public int ID { set; get; }
         [DisplayName("Nomor Kamar")]
         public string NomorKamar { set; get; }
+        [DisplayName("Nama")]
+        public string NamaPemesan { get; set; }
         public int IDJenisKamar { set; get; }
         [DisplayName("Jenis Kamar")]
         public string JenisKamar { set; get; }
@@ -59,5 +61,6 @@ namespace PKMSMKN2.Model
                     return "Tidak";
             }
         }
+        public int? Nominal { get; set; }
     }
 }
