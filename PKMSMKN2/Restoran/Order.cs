@@ -12,22 +12,25 @@ namespace PKMSMKN2.Restoran
 {
     public partial class Order : Form
     {
-        int idTransaksi;
+        int idTransaksiKamar, idTransaksiOrder;
         bool orderanBaru = true;
 
-        public Order(int IDTransaksi, int NomorKamar)
+        RMain main;
+
+        public Order(RMain Main, int IDTransaksiKamar, int NomorKamar)
         {
             InitializeComponent();
-            idTransaksi = IDTransaksi;
-            AmbilData(IDTransaksi);
+            idTransaksiKamar = IDTransaksiKamar;
+            main = Main;
+            AmbilData();
             this.Text = "Nomor Kamar : " + NomorKamar;
         }
 
-        private void AmbilData(int IdTransaksi)
+        public void AmbilData()
         {
             //Ambil data Makanan_transaksi berdasarkan Id_Transaksi
             BindingSource bsTransaksi = new BindingSource();
-            List<Model.MMakananTransaksi> lTransaksi = Database.DRestoran.ReadTransaksi(IdTransaksi);
+            List<Model.MMakananTransaksi> lTransaksi = Database.DRestoran.ReadTransaksi(idTransaksiKamar);
 
             if (lTransaksi.Count == 0)
             {
@@ -37,18 +40,22 @@ namespace PKMSMKN2.Restoran
                 return;
             }
 
+            if (lTransaksi[0].IDTransaksi != 0)
+                idTransaksiOrder = lTransaksi[0].IDTransaksi;
+
             bsTransaksi.DataSource = lTransaksi;
             dgvOrderList.DataSource = bsTransaksi;
         }
 
-        private void bClose_Click(object sender, EventArgs e)
+        private void Order_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Close();           
+            main.AmbilData();
         }
 
-        private void bAddOrder_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            //Kode Muncul Form Add Menu
+            OrderMenu oMenu = new OrderMenu(this, idTransaksiKamar, idTransaksiOrder);
+            oMenu.ShowDialog();
         }
     }
 }

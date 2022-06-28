@@ -58,7 +58,7 @@ namespace PKMSMKN2.Restoran
         private void AmbilData(int MenuID)
         {
             //Kode Ambil Data Menu
-            List<Model.MMakanan> mMakanan = Database.DRestoran.ReadMakanan(MenuID);
+            List<Model.MMakanan> mMakanan = Database.DRestoran.ReadMakanan(MenuID, 0);
 
             if (mMakanan.Count == 0)
             {

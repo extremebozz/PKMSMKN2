@@ -135,6 +135,9 @@ namespace PKMSMKN2.Database
                             int? idTransaksi = Convert.IsDBNull(read["id_transaksi"])
                                 ? (int?)null : Convert.ToInt32(read["id_transaksi"]);
 
+                            string pesanan = Convert.IsDBNull(read["pesanan"])
+                                ? "" : "y";
+
                             kKamar.Add(new Model.MRoom()
                             {
                                 Nomor = nomorList,
@@ -148,7 +151,8 @@ namespace PKMSMKN2.Database
                                 TanggalOut = tanggalOut,
                                 CheckIn = checkIn,
                                 CheckOut = checkOut,
-                                IDTransaksi = idTransaksi
+                                IDTransaksi = idTransaksi,
+                                Pesanan = pesanan
                             });
 
                             nomorList++;
