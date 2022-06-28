@@ -253,8 +253,11 @@ namespace PKMSMKN2.Admin
         #region Config Kamar
         private void bAddKamar_Click(object sender, EventArgs e)
         {
-            Hotel.AddKamar kamar = new Hotel.AddKamar(this);
-            kamar.ShowDialog();
+            try
+            {
+                Hotel.AddKamar kamar = new Hotel.AddKamar(this);
+                kamar.ShowDialog();
+            }catch { }
         }
 
         private void bEditKamar_Click(object sender, EventArgs e)

@@ -26,7 +26,6 @@ namespace PKMSMKN2.Restoran
 
             bsKamar.DataSource = lKamar;
             dgvKamar.DataSource = bsKamar;
-
         }
 
         private void bPesan_Click(object sender, EventArgs e)
@@ -36,6 +35,14 @@ namespace PKMSMKN2.Restoran
             int idTransaksi = Convert.ToInt32(dgvKamar.Rows[index].Cells["IDTransaksi"].Value);
             int nomorKamar = Convert.ToInt32(dgvKamar.Rows[index].Cells["NomorKamar"].Value);
 
+            //Check apakah kamar telah check in
+            if (!((DateTime?)dgvKamar.Rows[index].Cells["CheckIn"].Value).HasValue ? true : false)
+            {
+                MessageBox.Show("Kamar Ini Belum CheckIn!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            //Show form order
             Order order = new Order(this, idTransaksi, nomorKamar);
             order.ShowDialog();
         }

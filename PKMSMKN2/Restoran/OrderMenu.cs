@@ -15,7 +15,7 @@ namespace PKMSMKN2.Restoran
         Order order;
         List<Model.MKategoriMakanan> lKategori;
 
-        int qty, idFood, harga, idOrder = 0, idKamar;
+        int qty, idFood, harga, idOrder = 0, idKamar, idFoodTransaction = 0;
         string menu;
 
         public OrderMenu(Order Order, int RoomID, int OrderID = 0)
@@ -24,10 +24,18 @@ namespace PKMSMKN2.Restoran
             order = Order;
             idKamar = RoomID;
             idOrder = OrderID;
-            AmbilData();
+            InitData();
         }
 
-        private void AmbilData()
+        public OrderMenu(Order Order, int RoomID, int OrderID, int FoodTransactionID) : this(Order, RoomID, OrderID)
+        {
+            nQty.ValueChanged -= numericUpDown1_ValueChanged;
+            idFoodTransaction = FoodTransactionID;
+            AmbilData(FoodTransactionID);
+            nQty.ValueChanged += numericUpDown1_ValueChanged;
+        }
+
+        private void InitData()
         {
             lKategori = Database.DRestoran.ReadOrderFood();
 
@@ -38,7 +46,7 @@ namespace PKMSMKN2.Restoran
                 return;
             }
 
-            for (int i = 0; i < lKategori.Count; i++)
+            for (int i = lKategori.Count - 1; i >= 0; i--)
             {
                 //Add Label
                 Label label = new Label();
@@ -65,13 +73,29 @@ namespace PKMSMKN2.Restoran
 
                 this.pKategori.Controls.Add(panel);
             }
+
+            ShowDataGridViewData();
         }
 
-        private void pLabel_Click(object sender, EventArgs e)
+        private void AmbilData(int FoodTransactionID)
         {
-            int index = Convert.ToInt32(((Control)sender).Name);
-            BindingSource bs = new BindingSource();
+            Model.MMakananTransaksi mTransaksi = Database.DRestoran.ReadFoodTransaction(FoodTransactionID);
+
+            lMenu.Text = mTransaksi.NamaMenu.ToString();
+            lHarga.Text = string.Format("{0:#,##0}", mTransaksi.Harga * mTransaksi.Qty);
+            nQty.Value = mTransaksi.Qty;
+
+            List<Model.MMakanan> mMakanan = Database.DRestoran.ReadMakanan(mTransaksi.IDMakanan);
+            int idCategory = mMakanan[0].CategoryID;
+            int index = lKategori.FindIndex(kat => kat.CategoryID == idCategory);
+
+            ShowDataGridViewData(index);
+        }
+
+        private void ShowDataGridViewData(int index = 0)
+        {
             List<Model.MMakanan> lMakanan = lKategori[index].ListMakanan;
+            BindingSource bs = new BindingSource();
 
             bs.DataSource = lMakanan;
             dgvMenu.DataSource = bs;
@@ -80,6 +104,17 @@ namespace PKMSMKN2.Restoran
             dgvMenu.Columns["CategoryID"].Visible = false;
             dgvMenu.Columns["Category"].Visible = false;
             dgvMenu.Columns["Harga"].DefaultCellStyle.Format = "#,###";
+        }
+
+        private void OrderMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            order.AmbilData();
+        }
+
+        private void pLabel_Click(object sender, EventArgs e)
+        {
+            int index = Convert.ToInt32(((Control)sender).Name);
+            ShowDataGridViewData(index);
         }
 
         private void bSimpan_Click(object sender, EventArgs e)
@@ -99,15 +134,22 @@ namespace PKMSMKN2.Restoran
                     IDTransaksi = idOrder,
                     IDTransaksiKamar = idKamar,
                     NamaMenu = menu,
-                    Qty = qty
+                    Qty = qty,
+                    IDDetailTransaksi = idFoodTransaction
                 };
 
-                if (idOrder == 0)
-                    Database.DRestoran.AddTransaksi(mTransaksi, Model.MUser.USERNAME);
+                if (idFoodTransaction == 0)
+                {
+                    if (idOrder == 0)
+                        Database.DRestoran.AddTransaksi(mTransaksi, Model.MUser.USERNAME);
+                    else
+                        Database.DRestoran.AddOrder(mTransaksi);
+                }
                 else
-                    Database.DRestoran.AddOrder(mTransaksi);
+                {
+                    Database.DRestoran.EditOrder(mTransaksi);
+                }
 
-                MessageBox.Show("Data Telah Berhasil Disimpan!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 order.AmbilData();
                 this.Close();
             }

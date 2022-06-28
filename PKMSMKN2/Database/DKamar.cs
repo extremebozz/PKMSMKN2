@@ -225,7 +225,15 @@ namespace PKMSMKN2.Database
                 }
                 catch
                 {
-                    throw;
+                    using (MySqlConnection con1 = DatabaseHelper.OpenKoneksi())
+                    {
+                        MySqlCommand cmd = new MySqlCommand("INSERT INTO kamar_jenis(jenis, harga) VALUES(@jenis, @harga)", con1);
+                        cmd.Parameters.AddWithValue("@jenis", "extra_bed");
+                        cmd.Parameters.AddWithValue("@harga", "125000");
+                        cmd.ExecuteNonQuery();
+
+                        ReadExtraBed();
+                    }
                 }
 
             return mRoomCategories;

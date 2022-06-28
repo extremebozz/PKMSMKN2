@@ -144,6 +144,31 @@ namespace PKMSMKN2.Database
             return lMakanan;
         }
 
+        public static Model.MMakananTransaksi ReadFoodTransaction(int FoodTrasactionID)
+        {
+            Model.MMakananTransaksi mTransaksi = new Model.MMakananTransaksi();
+
+            using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
+            {
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM restoran_detail WHERE id = @id", con);
+                cmd.Parameters.AddWithValue("@id", FoodTrasactionID);
+
+                MySqlDataReader read = cmd.ExecuteReader();
+                read.Read();
+
+                mTransaksi = new Model.MMakananTransaksi()
+                {
+                    IDMakanan = read.GetInt32("id_makanan"),
+                    Harga = read.GetInt32("harga"),
+                    Qty = read.GetInt32("qty"),
+                    IDTransaksi = read.GetInt32("id_transaksi"),
+                    NamaMenu = read["nama"].ToString()
+                };
+            }
+
+            return mTransaksi;
+        }
+
         public static void UpdateMakanan(Model.MMakanan MMakanan)
         {
             try
@@ -222,7 +247,6 @@ namespace PKMSMKN2.Database
             {
                 using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
                 {
-
                     MySqlCommand cmd = new MySqlCommand("INSERT INTO restoran_detail(id_transaksi, id_makanan, nama, qty, harga) " +
                     "VALUES(@idTransaksi, @idMakanan, @nama, @qty, @harga)", con);
                     cmd.Parameters.AddWithValue("@idTransaksi", MTransaksi.IDTransaksi);
@@ -231,12 +255,16 @@ namespace PKMSMKN2.Database
                     cmd.Parameters.AddWithValue("@qty", MTransaksi.Qty);
                     cmd.Parameters.AddWithValue("@harga", MTransaksi.Harga);
                     cmd.ExecuteNonQuery();
+
+                    cmd.CommandText = "UPDATE restoran_transaksi SET total = " +
+                    "(SELECT SUM(harga) FROM restoran_detail WHERE id_transaksi = @idTransaksi) WHERE id = @idTransaksi";
+                    cmd.ExecuteNonQuery();
                 }
             }
             catch { throw; }
         }
 
-        public static List<Model.MMakananTransaksi> ReadTransaksi(int IDTransaksi)
+        public static List<Model.MMakananTransaksi> ReadDetailTransaksi(int IDTransaksi)
         {
             List<Model.MMakananTransaksi> lTransaksi = new List<Model.MMakananTransaksi>();
 
@@ -251,6 +279,7 @@ namespace PKMSMKN2.Database
                     while (read.Read())
                         lTransaksi.Add(new Model.MMakananTransaksi()
                         {
+                            IDDetailTransaksi = read.GetInt32("id"),
                             IDTransaksi = read.GetInt32("id_transaksi"),
                             IDTransaksiKamar = read.GetInt32("id_transaksi_kamar"),
                             IDMakanan = read.GetInt32("id_makanan"),
@@ -261,6 +290,41 @@ namespace PKMSMKN2.Database
             }
 
             return lTransaksi;
+        }
+
+        public static void EditOrder(Model.MMakananTransaksi MTransaksi)
+        {
+            using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
+            {
+                MySqlCommand cmd = new MySqlCommand("UPDATE restoran_detail SET id_makanan = @idMakanan, nama = @nama, qty = @qty, harga = @harga " +
+                    "WHERE id = @idDetail", con);
+                cmd.Parameters.AddWithValue("@idMakanan", MTransaksi.IDMakanan);
+                cmd.Parameters.AddWithValue("@nama", MTransaksi.NamaMenu);
+                cmd.Parameters.AddWithValue("@qty", MTransaksi.Qty);
+                cmd.Parameters.AddWithValue("@harga", MTransaksi.Harga);
+                cmd.Parameters.AddWithValue("@idDetail", MTransaksi.IDDetailTransaksi);
+                cmd.ExecuteNonQuery();
+
+                cmd.CommandText = "UPDATE restoran_transaksi SET total = " +
+                    "(SELECT SUM(harga) FROM restoran_detail WHERE id_transaksi = @idTransaksi) WHERE id = @idTransaksi";
+                cmd.Parameters.AddWithValue("@idTransaksi", MTransaksi.IDTransaksi);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public static void DeleteOrder(int DetailOrderID, int TransaksiOrderID)
+        {
+            using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
+            {
+                MySqlCommand cmd = new MySqlCommand("DELETE FROM restoran_detail WHERE id = @id", con);
+                cmd.Parameters.AddWithValue("@id", DetailOrderID);
+                cmd.ExecuteNonQuery();
+
+                cmd.CommandText = "UPDATE restoran_transaksi SET total = " +
+                    "(SELECT SUM(harga) FROM restoran_detail WHERE id_transaksi = @idTransaksi) WHERE id = @idTransaksi";
+                cmd.Parameters.AddWithValue("@idTransaksi", TransaksiOrderID);
+                cmd.ExecuteNonQuery();
+            }
         }
         #endregion
     }
