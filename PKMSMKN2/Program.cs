@@ -21,6 +21,11 @@ namespace PKMSMKN2
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new MainForm());
             }
+
+            //Debug
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new PKMSMKN2.Admin.Main());
         }
     }
 }

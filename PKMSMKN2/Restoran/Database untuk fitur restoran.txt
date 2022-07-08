@@ -1,0 +1,37 @@
+﻿makanan_data / menu_data : 
+id
+id_kategori
+nama
+harga
+
+relation,
+id_kategori > makanan_kategori.id
+
+makanan_kategori / menu_kategori: 
+id
+nama
+
+makanan_transaksi / restoran_transaksi : 
+id
+id_transaksi_kamar
+tanggal
+total
+waiter
+
+relation,
+id_transaksi_kamar > kamar_transaksi.id
+
+restoran_detail : 
+id
+id_transaksi
+id_makan> resoran_transaksi.id
+id_makanan > makanan_data.id
+
+
+Menu : tampil list kamar
+mau order masuk pilih kamar di datagridview lalu tekan tombol order
+nanti di tampilan order ada list pesanan sama tombol add makanan
+
+datagridview tampilkan nomor kamar, jenis kamar, nama pemesan, tanggal masuk/keluar, check in, orderan (ya or tidak)
+
+Order : Tampil list pesanan sama tombol add makanan

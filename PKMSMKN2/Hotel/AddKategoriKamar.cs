@@ -12,21 +12,19 @@ namespace PKMSMKN2.Hotel
 {
     public partial class AddKategoriKamar : Form
     {
-        Main hMain;
+        Admin.Main aMain;
 
         int IdKamar, hargaKamar = 0;
         string jenisKamar;
 
-        public AddKategoriKamar(Main HMain)
+        public AddKategoriKamar(Admin.Main Main)
         {
             InitializeComponent();
-            hMain = HMain;
+            aMain = Main;
         }
 
-        public AddKategoriKamar(Main HMain, int ID)
+        public AddKategoriKamar(Admin.Main Main, int ID) : this(Main)
         {
-            InitializeComponent();
-            hMain = HMain;
             IdKamar = ID;
             AmbilData(ID);
 
@@ -60,7 +58,7 @@ namespace PKMSMKN2.Hotel
                 Database.DKamar.UpdateRoomCategory(IdKamar, jenisKamar, hargaKamar);
                 MessageBox.Show("Data Telah Berhasil Disimpan!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                hMain.AmbilData();
+                aMain.AmbilData();
                 this.Close();
             }
             catch (Exception msg)
@@ -87,7 +85,7 @@ namespace PKMSMKN2.Hotel
                 Database.DKamar.CreateRoomCategory(jenisKamar, hargaKamar);
                 MessageBox.Show("Data Jenis Kamar Telah Tersimpan!", "Data Telah Tersimpan", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                hMain.AmbilData();
+                aMain.AmbilData();
                 this.Close();
             }
             catch (Exception msg)

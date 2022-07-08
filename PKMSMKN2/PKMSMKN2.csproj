@@ -48,6 +48,7 @@
     <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
       <HintPath>..\packages\K4os.Hash.xxHash.1.0.6\lib\net45\K4os.Hash.xxHash.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="MySql.Data, Version=8.0.28.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.0.28\lib\net452\MySql.Data.dll</HintPath>
     </Reference>
@@ -101,6 +102,8 @@
     <Compile Include="Database\DatabaseHelper.cs" />
     <Compile Include="Database\DKamar.cs" />
     <Compile Include="Database\DLogin.cs" />
+    <Compile Include="Database\DRestoran.cs" />
+    <Compile Include="Database\DService.cs" />
     <Compile Include="Database\DUser.cs" />
     <Compile Include="Function.cs" />
     <Compile Include="Hotel\AddKamar.cs">
@@ -145,12 +148,60 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\MKategoriMakanan.cs" />
+    <Compile Include="Model\MMakanan.cs" />
+    <Compile Include="Model\MMakananTransaksi.cs" />
     <Compile Include="Model\Model_User.cs" />
+    <Compile Include="Model\MRestoranView.cs" />
     <Compile Include="Model\MRoom.cs" />
     <Compile Include="Model\MRoomCategory.cs" />
+    <Compile Include="Model\MRoomTransaksi.cs" />
+    <Compile Include="Model\MService.cs" />
     <Compile Include="Model\MUser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Restoran\AddFood.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Restoran\AddFood.Designer.cs">
+      <DependentUpon>AddFood.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Restoran\AddFoodCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Restoran\AddFoodCategory.Designer.cs">
+      <DependentUpon>AddFoodCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Restoran\Order.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Restoran\Order.Designer.cs">
+      <DependentUpon>Order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Restoran\OrderMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Restoran\OrderMenu.Designer.cs">
+      <DependentUpon>OrderMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Restoran\RMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Restoran\RMain.Designer.cs">
+      <DependentUpon>RMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\ServiceMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Services\ServiceMenu.Designer.cs">
+      <DependentUpon>ServiceMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\SMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Services\SMain.Designer.cs">
+      <DependentUpon>SMain.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Admin\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -188,6 +239,27 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Restoran\AddFood.resx">
+      <DependentUpon>AddFood.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Restoran\AddFoodCategory.resx">
+      <DependentUpon>AddFoodCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Restoran\Order.resx">
+      <DependentUpon>Order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Restoran\OrderMenu.resx">
+      <DependentUpon>OrderMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Restoran\RMain.resx">
+      <DependentUpon>RMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\ServiceMenu.resx">
+      <DependentUpon>ServiceMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\SMain.resx">
+      <DependentUpon>SMain.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -202,6 +274,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Catatan 24-6-2022.txt" />
+    <Content Include="Restoran\Database untuk fitur restoran.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

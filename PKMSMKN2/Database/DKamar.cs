@@ -9,19 +9,82 @@ namespace PKMSMKN2.Database
 {
     class DKamar
     {
-        public static void PesanKamar(int NomorKamar, int ExtraBed, DateTime TanggalCheckin, DateTime TanggalCheckOut, int Hari)
+        public static List<Model.MRoom> ReadTransaksiRoom()
+        {
+            List<Model.MRoom> kKamar = new List<Model.MRoom>();
+            int nomorList = 1;
+
+            using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand("CALL pTampilTransaksiHotel();", con);
+
+                    using (MySqlDataReader read = cmd.ExecuteReader())
+                        while (read.Read())
+                        {
+                            DateTime? checkIn = Convert.IsDBNull(read["check_in"])
+                                    ? (DateTime?)null : Convert.ToDateTime(read["check_in"]),
+                                checkOut = Convert.IsDBNull(read["check_out"])
+                                    ? (DateTime?)null : Convert.ToDateTime(read["check_out"]),
+                                tanggalIn = Convert.IsDBNull(read["tanggal_in"])
+                                    ? (DateTime?)null : Convert.ToDateTime(read["tanggal_in"]),
+                                tanggalOut = Convert.IsDBNull(read["tanggal_out"])
+                                    ? (DateTime?)null : Convert.ToDateTime(read["tanggal_out"]);
+
+                            int? idTransaksi = Convert.IsDBNull(read["id_transaksi"])
+                                ? (int?)null : Convert.ToInt32(read["id_transaksi"]);
+
+                            string pesanan = Convert.IsDBNull(read["pesanan"])
+                                ? "" : "y";
+
+                            kKamar.Add(new Model.MRoom()
+                            {
+                                Nomor = nomorList,
+                                ID = Convert.ToInt32(read["id"]),
+                                NomorKamar = read["nomor_kamar"].ToString(),
+                                JenisKamar = read["jenis"].ToString(),
+                                IDJenisKamar = Convert.ToInt32(read["jenis_kamar"]),
+                                HargaKamar = Convert.ToInt32(read["harga"]),
+                                Ketersediaan = read["ketersediaan"].ToString(),
+                                TanggalIn = tanggalIn,
+                                TanggalOut = tanggalOut,
+                                CheckIn = checkIn,
+                                CheckOut = checkOut,
+                                IDTransaksi = idTransaksi,
+                                Pesanan = pesanan,
+                                NamaPemesan = read["nama"].ToString(),
+                                Nominal = read.GetInt32("nominal")
+                            });
+
+                            nomorList++;
+                        }
+                }
+                catch (Exception msg)
+                {
+                    throw;
+                }
+
+            return kKamar;
+        }
+
+        public static void PesanKamar(Model.MRoomTransaksi MPesanKamar, int HargaKamar)
         {
             using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
             {
                 try
                 {
-                    MySqlCommand cmd = new MySqlCommand("INSERT INTO kamar_transaksi(kamar, extra_bed, tanggal_in, tanggal_out, hari) " +
-                        "VALUES (@kamar, @extraBed, @tanggalIn, @tanggalOut, @hari); SELECT LAST_INSERT_ID();", con);
-                    cmd.Parameters.AddWithValue("@kamar", NomorKamar);
-                    cmd.Parameters.AddWithValue("@extraBed", ExtraBed);
-                    cmd.Parameters.AddWithValue("@tanggalIn", TanggalCheckin.ToString("yyyy-MM-dd"));
-                    cmd.Parameters.AddWithValue("@tanggalOut", TanggalCheckOut.ToString("yyyy-MM-dd"));
-                    cmd.Parameters.AddWithValue("@hari", Hari);
+                    MySqlCommand cmd = new MySqlCommand("INSERT INTO kamar_transaksi(kamar, extra_bed, tanggal_in, tanggal_out, hari, nama, identitas, jenis_kelamin, rate, nominal) " +
+                        "VALUES (@kamar, @extraBed, @tanggalIn, @tanggalOut, @hari, @nama, @identitas, @jk, @rate, @nominal); SELECT LAST_INSERT_ID();", con);
+                    cmd.Parameters.AddWithValue("@kamar", MPesanKamar.NomorKamar);
+                    cmd.Parameters.AddWithValue("@extraBed", MPesanKamar.ExtraBed);
+                    cmd.Parameters.AddWithValue("@tanggalIn", MPesanKamar.TanggalMasuk.ToString("yyyy-MM-dd"));
+                    cmd.Parameters.AddWithValue("@tanggalOut", MPesanKamar.TanggalKeluar.ToString("yyyy-MM-dd"));
+                    cmd.Parameters.AddWithValue("@hari", MPesanKamar.TotalHari);
+                    cmd.Parameters.AddWithValue("@nama", MPesanKamar.Nama);
+                    cmd.Parameters.AddWithValue("@identitas", MPesanKamar.Identitas);
+                    cmd.Parameters.AddWithValue("@jk", MPesanKamar.JenisKelamin);
+                    cmd.Parameters.AddWithValue("@rate", HargaKamar);
+                    cmd.Parameters.AddWithValue("@nominal", HargaKamar * MPesanKamar.TotalHari);
                     int idTransaksi = Convert.ToInt32(cmd.ExecuteScalar());
 
                     cmd.CommandText = "UPDATE kamar_data SET ketersediaan = 'n', id_transaksi = @idTransaksi WHERE nomor_kamar = @kamar";
@@ -59,13 +122,19 @@ namespace PKMSMKN2.Database
             {
                 try
                 {
-                    MySqlCommand cmd = new MySqlCommand("UPDATE kamar_transaksi SET check_out = @checkOut WHERE id = @idTransaksi", con);
+                    MySqlCommand cmd = new MySqlCommand("UPDATE kamar_transaksi SET check_out = @checkOut, " +
+                        "nominal = (nominal + (SELECT total FROM restoran_transaksi WHERE id_transaksi_kamar = @idTransaksi)) WHERE id = @idTransaksi", con);
                     cmd.Parameters.AddWithValue("@checkOut", TanggalCheckOut);
                     cmd.Parameters.AddWithValue("@idTransaksi", IDTransaksi);
                     cmd.ExecuteNonQuery();
 
-                    cmd.CommandText = "UPDATE kamar_data SET id_transaksi = null, ketersediaan = 'y' WHERE id_transaksi = @idTransaksi";
-                    cmd.ExecuteNonQuery();
+                    cmd.CommandText = "SELECT nomor_kamar FROM kamar_data WHERE id_transaksi = @idTransaksi;" +
+                        "UPDATE kamar_data SET id_transaksi = null, ketersediaan = 'y' WHERE id_transaksi = @idTransaksi;";
+                    int nomorKamar = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+
+                    cmd.CommandText = "UPDATE service_data SET aktif = '0' WHERE kamar = @kamar";
+                    cmd.Parameters.AddWithValue("@kamar", nomorKamar);
+                    cmd.ExecuteScalar();
                 }
                 catch (Exception msg)
                 {
@@ -132,6 +201,9 @@ namespace PKMSMKN2.Database
                             int? idTransaksi = Convert.IsDBNull(read["id_transaksi"])
                                 ? (int?)null : Convert.ToInt32(read["id_transaksi"]);
 
+                            string pesanan = Convert.IsDBNull(read["pesanan"])
+                                ? "" : "y";
+
                             kKamar.Add(new Model.MRoom()
                             {
                                 Nomor = nomorList,
@@ -145,7 +217,9 @@ namespace PKMSMKN2.Database
                                 TanggalOut = tanggalOut,
                                 CheckIn = checkIn,
                                 CheckOut = checkOut,
-                                IDTransaksi = idTransaksi
+                                IDTransaksi = idTransaksi,
+                                Pesanan = pesanan,
+                                NamaPemesan = read["nama"].ToString()
                             });
 
                             nomorList++;
@@ -195,6 +269,38 @@ namespace PKMSMKN2.Database
                 catch(Exception msg)
                 {
                     throw;
+                }
+
+            return mRoomCategories;
+        }
+
+        public static Model.MRoom ReadExtraBed()
+        {
+            Model.MRoom mRoomCategories = new Model.MRoom();
+
+            using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand("SELECT id, jenis, harga FROM kamar_jenis WHERE jenis = 'extra_bed'", con);
+
+                    MySqlDataReader read = cmd.ExecuteReader();
+                    read.Read();
+
+                    mRoomCategories.ID = Convert.ToInt32(read["id"].ToString());
+                    mRoomCategories.JenisKamar = read["jenis"].ToString();
+                    mRoomCategories.HargaKamar = Convert.ToInt32(read["harga"].ToString());
+                }
+                catch
+                {
+                    using (MySqlConnection con1 = DatabaseHelper.OpenKoneksi())
+                    {
+                        MySqlCommand cmd = new MySqlCommand("INSERT INTO kamar_jenis(jenis, harga) VALUES(@jenis, @harga)", con1);
+                        cmd.Parameters.AddWithValue("@jenis", "extra_bed");
+                        cmd.Parameters.AddWithValue("@harga", "125000");
+                        cmd.ExecuteNonQuery();
+
+                        ReadExtraBed();
+                    }
                 }
 
             return mRoomCategories;
@@ -280,6 +386,40 @@ namespace PKMSMKN2.Database
                 }
         }
 
+        public static void DeleteRoom(int RoomID)
+        {
+            using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
+            {
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand("DELETE FROM kamar_data WHERE id = @id", con);
+                    cmd.Parameters.AddWithValue("@id", RoomID);
+                    cmd.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
+
+        public static void DeleteCategory(int CategoryID)
+        {
+            using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
+            {
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand("DELETE FROM kamar_jenis WHERE id = @id", con);
+                    cmd.Parameters.AddWithValue("@id", CategoryID);
+                    cmd.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
+
         public static int GetLastestRoomNumber()
         {
             int nomorKamar = 0;
@@ -295,6 +435,34 @@ namespace PKMSMKN2.Database
             }
 
             return nomorKamar;
+        }
+
+        public static Model.MRoomTransaksi ReadTransactionByID(int IDTransaksi)
+        {
+            Model.MRoomTransaksi mTransaksi = new Model.MRoomTransaksi();
+
+            using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
+            {
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM kamar_transaksi WHERE id = @id", con);
+                cmd.Parameters.AddWithValue("@id", IDTransaksi);
+
+                using (MySqlDataReader read = cmd.ExecuteReader()) 
+                    while (read.Read())
+                        mTransaksi = new Model.MRoomTransaksi()
+                        {
+                            ID = Convert.ToInt32(read["id"]),
+                            NomorKamar = read["kamar"].ToString(),
+                            Nama = read["nama"].ToString(),
+                            Identitas = read["identitas"].ToString(),
+                            JenisKelamin = read["jenis_kelamin"].ToString(),
+                            TanggalMasuk = Convert.ToDateTime(read["tanggal_in"]),
+                            TanggalKeluar = Convert.ToDateTime(read["tanggal_out"]),
+                            ExtraBed = Convert.ToInt32(read["extra_bed"]),
+                            TotalHari = Convert.ToInt32(read["hari"])
+                        };
+            }
+
+            return mTransaksi;
         }
     }
 }
