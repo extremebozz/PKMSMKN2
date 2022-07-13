@@ -62,8 +62,12 @@ namespace PKMSMKN2.Restoran
         
         private void bAdd_Click(object sender, EventArgs e)
         {
-            OrderMenu oMenu = new OrderMenu(this, idTransaksiKamar, idTransaksiOrder);
-            oMenu.ShowDialog();
+            try
+            {
+                OrderMenu oMenu = new OrderMenu(this, idTransaksiKamar, idTransaksiOrder);
+                oMenu.ShowDialog();
+            }
+            catch { }
         }
 
         private void bEdit_Click(object sender, EventArgs e)

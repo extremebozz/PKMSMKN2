@@ -205,7 +205,7 @@ namespace PKMSMKN2.Database
                                 ? "" : "y";
 
                             kKamar.Add(new Model.MRoom()
-                            {
+                            { 
                                 Nomor = nomorList,
                                 ID = Convert.ToInt32(read["id"]),
                                 NomorKamar = read["nomor_kamar"].ToString(),
@@ -458,7 +458,8 @@ namespace PKMSMKN2.Database
                             TanggalMasuk = Convert.ToDateTime(read["tanggal_in"]),
                             TanggalKeluar = Convert.ToDateTime(read["tanggal_out"]),
                             ExtraBed = Convert.ToInt32(read["extra_bed"]),
-                            TotalHari = Convert.ToInt32(read["hari"])
+                            TotalHari = Convert.ToInt32(read["hari"]),
+                            Rate = Convert.ToInt32(read["rate"])
                         };
             }
 

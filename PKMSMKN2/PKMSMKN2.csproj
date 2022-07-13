@@ -172,6 +172,7 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\MCetakFaktur.cs" />
     <Compile Include="Model\MKategoriMakanan.cs" />
     <Compile Include="Model\MMakanan.cs" />
     <Compile Include="Model\MMakananTransaksi.cs" />
@@ -290,6 +291,8 @@
       <DependentUpon>SMain.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\PKMSMKN2.Model.MMakananTransaksi.datasource" />
+    <None Include="Properties\DataSources\PKMSMKN2.Model.MRoomTransaksi.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -320,5 +323,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

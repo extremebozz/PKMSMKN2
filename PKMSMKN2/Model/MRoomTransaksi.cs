@@ -15,6 +15,7 @@ namespace PKMSMKN2.Model
         public string JenisKelamin { get; set; }
         public int ExtraBed { get; set; }
         public int TotalHari { get; set; }
+        public int Rate { get; set; }
         public DateTime TanggalMasuk { get; set; }
         public DateTime TanggalKeluar { get; set; }
     }

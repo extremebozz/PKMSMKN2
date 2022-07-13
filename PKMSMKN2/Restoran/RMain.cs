@@ -61,8 +61,12 @@ namespace PKMSMKN2.Restoran
             }
 
             //Show form order
-            Order order = new Order(this, idTransaksi, nomorKamar);
-            order.ShowDialog();
+            try
+            {
+                Order order = new Order(this, idTransaksi, nomorKamar);
+                order.ShowDialog();
+            }
+            catch { }
         }
     }
 }

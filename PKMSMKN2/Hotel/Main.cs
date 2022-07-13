@@ -61,7 +61,7 @@ namespace PKMSMKN2.Hotel
 
             //Buat Transaksi
             BindingSource bsTransaksi = new BindingSource();
-            List<Model.MRoom> lTransaksi = Database.DKamar.ReadTransaksiRoom();
+            List<Model.MRoom> lTransaksi = new List<Model.MRoom>();//Database.DKamar.ReadTransaksiRoom();
 
             bsTransaksi.DataSource = lTransaksi;
             dgvTransaksi.DataSource = bsTransaksi;
@@ -165,6 +165,12 @@ namespace PKMSMKN2.Hotel
             //Prove of Concept nanti diganti
             Services.ServiceMenu sMenu = new Services.ServiceMenu(idService, noKamar);
             sMenu.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CetakFaktur cFatkur = new CetakFaktur(this, 13);
+            cFatkur.ShowDialog();
         }
     }
 }

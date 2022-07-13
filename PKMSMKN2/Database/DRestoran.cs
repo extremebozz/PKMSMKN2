@@ -264,7 +264,7 @@ namespace PKMSMKN2.Database
             catch { throw; }
         }
 
-        public static List<Model.MMakananTransaksi> ReadDetailTransaksi(int IDTransaksi)
+        public static List<Model.MMakananTransaksi> ReadDetailTransaksi(int IDTransaksiKamar)
         {
             List<Model.MMakananTransaksi> lTransaksi = new List<Model.MMakananTransaksi>();
 
@@ -273,7 +273,7 @@ namespace PKMSMKN2.Database
                 MySqlCommand cmd = new MySqlCommand("SELECT *, (SELECT id_transaksi_kamar FROM restoran_transaksi WHERE id = @id) AS nomor_kamar, " +
                     "(SELECT nama FROM menu_data WHERE id = id_makanan) AS makanan FROM restoran_detail JOIN restoran_transaksi AS RD ON " +
                     "id_transaksi = RD.id WHERE id_transaksi_kamar = @id", con);
-                cmd.Parameters.AddWithValue("@id", IDTransaksi);
+                cmd.Parameters.AddWithValue("@id", IDTransaksiKamar);
 
                 using (MySqlDataReader read = cmd.ExecuteReader())
                     while (read.Read())
