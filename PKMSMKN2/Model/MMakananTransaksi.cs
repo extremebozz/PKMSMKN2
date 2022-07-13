@@ -17,5 +17,12 @@ namespace PKMSMKN2.Model
         public string NamaMenu { get; set; }
         public int Harga { get; set; }
         public int Qty { get; set; }
+        public int Total 
+        { 
+            get
+            {
+                return Qty * Harga;
+            }
+        }
     }
 }

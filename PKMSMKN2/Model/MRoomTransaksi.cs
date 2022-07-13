@@ -10,6 +10,7 @@ namespace PKMSMKN2.Model
     {
         public int ID { set; get; }
         public string NomorKamar { set; get; }
+        public string JenisKamar { get; set; }
         public string Nama { get; set; }
         public string Identitas { get; set; }
         public string JenisKelamin { get; set; }

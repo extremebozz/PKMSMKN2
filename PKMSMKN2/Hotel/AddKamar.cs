@@ -24,10 +24,8 @@ namespace PKMSMKN2.Hotel
             aMain = Main;
         }
 
-        public AddKamar(Admin.Main Main, int ID)
+        public AddKamar(Admin.Main Main, int ID) : this(Main)
         {
-            InitializeComponent();
-            aMain = Main;
             IdKamar = ID;
             AmbilData(ID);
 
@@ -61,9 +59,6 @@ namespace PKMSMKN2.Hotel
 
         private void AmbilData(int ID)
         {
-            //Kode Isi ComboBox
-            InitData();
-
             //Kode Ambil Data Kamar
             Model.MRoom mRoom = Database.DKamar.ReadRoomID(ID);
 

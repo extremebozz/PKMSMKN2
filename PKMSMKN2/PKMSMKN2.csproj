@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
@@ -118,6 +121,7 @@
       <DependentUpon>User.cs</DependentUpon>
     </Compile>
     <Compile Include="Database\DatabaseHelper.cs" />
+    <Compile Include="Database\DInformasi.cs" />
     <Compile Include="Database\DKamar.cs" />
     <Compile Include="Database\DLogin.cs" />
     <Compile Include="Database\DRestoran.cs" />
@@ -173,6 +177,7 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\MCetakFaktur.cs" />
+    <Compile Include="Model\MInformasi.cs" />
     <Compile Include="Model\MKategoriMakanan.cs" />
     <Compile Include="Model\MMakanan.cs" />
     <Compile Include="Model\MMakananTransaksi.cs" />
@@ -290,7 +295,9 @@
     <EmbeddedResource Include="Services\SMain.resx">
       <DependentUpon>SMain.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.manifest" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\PKMSMKN2.Model.MInformasi.datasource" />
     <None Include="Properties\DataSources\PKMSMKN2.Model.MMakananTransaksi.datasource" />
     <None Include="Properties\DataSources\PKMSMKN2.Model.MRoomTransaksi.datasource" />
     <None Include="Properties\Settings.settings">

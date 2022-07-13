@@ -14,10 +14,10 @@ namespace PKMSMKN2.Hotel
     {
         Main hMain;
         int idTransaksi;
-        Model.MCetakFaktur cFaktur = new Model.MCetakFaktur();
 
         List<Model.MMakananTransaksi> listOrder = new List<Model.MMakananTransaksi>();
         Model.MRoomTransaksi detailKamar = new Model.MRoomTransaksi();
+        Model.MInformasi mInformasi = new Model.MInformasi();
 
         public CetakFaktur(Main Main, int IDTransaksi)
         {
@@ -31,12 +31,14 @@ namespace PKMSMKN2.Hotel
         {
             detailKamar = Database.DKamar.ReadTransactionByID(idTransaksi);
             listOrder = Database.DRestoran.ReadDetailTransaksi(idTransaksi);
+            mInformasi = Database.DInformasi.ReadInformasi();
         }
 
         private void CetakFaktur_Load(object sender, EventArgs e)
         {
             this.mMakananTransaksiBindingSource.DataSource = listOrder;
             this.mRoomTransaksiBindingSource.DataSource = detailKamar;
+            this.MInformasiBindingSource.DataSource = mInformasi;
             this.reportViewer1.RefreshReport();
         }
     }
