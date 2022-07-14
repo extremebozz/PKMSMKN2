@@ -81,11 +81,11 @@
             this.bAddCategory = new System.Windows.Forms.Button();
             this.dgvKonfigKategori = new System.Windows.Forms.DataGridView();
             this.tpKonfigurasiHotel = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tHotel = new System.Windows.Forms.TextBox();
-            this.tAlamat = new System.Windows.Forms.TextBox();
             this.bSimpan = new System.Windows.Forms.Button();
+            this.tAlamat = new System.Windows.Forms.TextBox();
+            this.tHotel = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.tcMain.SuspendLayout();
             this.tpUser.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -118,18 +118,20 @@
             this.tcMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcMain.ItemSize = new System.Drawing.Size(125, 30);
             this.tcMain.Location = new System.Drawing.Point(0, 0);
+            this.tcMain.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tcMain.Name = "tcMain";
             this.tcMain.SelectedIndex = 0;
-            this.tcMain.Size = new System.Drawing.Size(884, 611);
+            this.tcMain.Size = new System.Drawing.Size(1326, 940);
             this.tcMain.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tcMain.TabIndex = 1;
             // 
             // tpHotel
             // 
             this.tpHotel.Location = new System.Drawing.Point(4, 34);
+            this.tpHotel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tpHotel.Name = "tpHotel";
-            this.tpHotel.Padding = new System.Windows.Forms.Padding(3);
-            this.tpHotel.Size = new System.Drawing.Size(876, 573);
+            this.tpHotel.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tpHotel.Size = new System.Drawing.Size(1318, 902);
             this.tpHotel.TabIndex = 0;
             this.tpHotel.Text = "Hotel";
             this.tpHotel.UseVisualStyleBackColor = true;
@@ -137,9 +139,10 @@
             // tpService
             // 
             this.tpService.Location = new System.Drawing.Point(4, 34);
+            this.tpService.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tpService.Name = "tpService";
-            this.tpService.Padding = new System.Windows.Forms.Padding(3);
-            this.tpService.Size = new System.Drawing.Size(876, 573);
+            this.tpService.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tpService.Size = new System.Drawing.Size(1318, 902);
             this.tpService.TabIndex = 1;
             this.tpService.Text = "Service";
             this.tpService.UseVisualStyleBackColor = true;
@@ -147,8 +150,9 @@
             // tpRestoran
             // 
             this.tpRestoran.Location = new System.Drawing.Point(4, 34);
+            this.tpRestoran.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tpRestoran.Name = "tpRestoran";
-            this.tpRestoran.Size = new System.Drawing.Size(876, 573);
+            this.tpRestoran.Size = new System.Drawing.Size(1318, 902);
             this.tpRestoran.TabIndex = 2;
             this.tpRestoran.Text = "Restoran";
             this.tpRestoran.UseVisualStyleBackColor = true;
@@ -157,8 +161,9 @@
             // 
             this.tpUser.Controls.Add(this.tableLayoutPanel1);
             this.tpUser.Location = new System.Drawing.Point(4, 34);
+            this.tpUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tpUser.Name = "tpUser";
-            this.tpUser.Size = new System.Drawing.Size(876, 573);
+            this.tpUser.Size = new System.Drawing.Size(1318, 902);
             this.tpUser.TabIndex = 3;
             this.tpUser.Text = "User";
             this.tpUser.UseVisualStyleBackColor = true;
@@ -172,10 +177,11 @@
             this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(876, 573);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1318, 902);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // dgvUser
@@ -206,11 +212,13 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvUser.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvUser.Location = new System.Drawing.Point(3, 3);
+            this.dgvUser.Location = new System.Drawing.Point(4, 5);
+            this.dgvUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvUser.Name = "dgvUser";
             this.dgvUser.RowHeadersVisible = false;
+            this.dgvUser.RowHeadersWidth = 62;
             this.dgvUser.RowTemplate.Height = 30;
-            this.dgvUser.Size = new System.Drawing.Size(695, 567);
+            this.dgvUser.Size = new System.Drawing.Size(1047, 892);
             this.dgvUser.TabIndex = 0;
             // 
             // panel1
@@ -219,9 +227,10 @@
             this.panel1.Controls.Add(this.bEditUser);
             this.panel1.Controls.Add(this.bAddUser);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(704, 3);
+            this.panel1.Location = new System.Drawing.Point(1059, 5);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(169, 567);
+            this.panel1.Size = new System.Drawing.Size(255, 892);
             this.panel1.TabIndex = 1;
             // 
             // bHapusUser
@@ -229,9 +238,10 @@
             this.bHapusUser.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.bHapusUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bHapusUser.Location = new System.Drawing.Point(10, 95);
+            this.bHapusUser.Location = new System.Drawing.Point(15, 146);
+            this.bHapusUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bHapusUser.Name = "bHapusUser";
-            this.bHapusUser.Size = new System.Drawing.Size(150, 50);
+            this.bHapusUser.Size = new System.Drawing.Size(226, 77);
             this.bHapusUser.TabIndex = 3;
             this.bHapusUser.Text = "Delete User";
             this.bHapusUser.UseVisualStyleBackColor = true;
@@ -242,9 +252,10 @@
             this.bEditUser.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.bEditUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bEditUser.Location = new System.Drawing.Point(10, 165);
+            this.bEditUser.Location = new System.Drawing.Point(15, 254);
+            this.bEditUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bEditUser.Name = "bEditUser";
-            this.bEditUser.Size = new System.Drawing.Size(150, 50);
+            this.bEditUser.Size = new System.Drawing.Size(226, 77);
             this.bEditUser.TabIndex = 2;
             this.bEditUser.Text = "Edit User";
             this.bEditUser.UseVisualStyleBackColor = true;
@@ -255,9 +266,10 @@
             this.bAddUser.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.bAddUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bAddUser.Location = new System.Drawing.Point(10, 25);
+            this.bAddUser.Location = new System.Drawing.Point(15, 38);
+            this.bAddUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bAddUser.Name = "bAddUser";
-            this.bAddUser.Size = new System.Drawing.Size(150, 50);
+            this.bAddUser.Size = new System.Drawing.Size(226, 77);
             this.bAddUser.TabIndex = 1;
             this.bAddUser.Text = "Tambah User";
             this.bAddUser.UseVisualStyleBackColor = true;
@@ -267,9 +279,10 @@
             // 
             this.tbKonfigurasi.Controls.Add(this.tabControl1);
             this.tbKonfigurasi.Location = new System.Drawing.Point(4, 34);
+            this.tbKonfigurasi.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbKonfigurasi.Name = "tbKonfigurasi";
-            this.tbKonfigurasi.Padding = new System.Windows.Forms.Padding(3);
-            this.tbKonfigurasi.Size = new System.Drawing.Size(876, 573);
+            this.tbKonfigurasi.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbKonfigurasi.Size = new System.Drawing.Size(1318, 902);
             this.tbKonfigurasi.TabIndex = 4;
             this.tbKonfigurasi.Text = "Konfigurasi";
             this.tbKonfigurasi.UseVisualStyleBackColor = true;
@@ -281,10 +294,11 @@
             this.tabControl1.Controls.Add(this.tpKonfigurasiHotel);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.ItemSize = new System.Drawing.Size(100, 20);
-            this.tabControl1.Location = new System.Drawing.Point(3, 3);
+            this.tabControl1.Location = new System.Drawing.Point(4, 5);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(870, 567);
+            this.tabControl1.Size = new System.Drawing.Size(1310, 892);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 0;
             // 
@@ -292,9 +306,10 @@
             // 
             this.tpKonfiguranKamar.Controls.Add(this.tableLayoutPanel2);
             this.tpKonfiguranKamar.Location = new System.Drawing.Point(4, 24);
+            this.tpKonfiguranKamar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tpKonfiguranKamar.Name = "tpKonfiguranKamar";
-            this.tpKonfiguranKamar.Padding = new System.Windows.Forms.Padding(3);
-            this.tpKonfiguranKamar.Size = new System.Drawing.Size(862, 539);
+            this.tpKonfiguranKamar.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tpKonfiguranKamar.Size = new System.Drawing.Size(1302, 864);
             this.tpKonfiguranKamar.TabIndex = 0;
             this.tpKonfiguranKamar.Text = "Kamar";
             this.tpKonfiguranKamar.UseVisualStyleBackColor = true;
@@ -304,17 +319,18 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.Controls.Add(this.groupBox1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.groupBox2, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 5);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 533F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(856, 533);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 820F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1294, 854);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // groupBox1
@@ -327,9 +343,11 @@
             this.groupBox1.Controls.Add(this.bAddKamar);
             this.groupBox1.Controls.Add(this.dgvKonfigKamar);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Location = new System.Drawing.Point(4, 5);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(422, 527);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Size = new System.Drawing.Size(639, 844);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Kamar";
@@ -337,9 +355,10 @@
             // bDeleteKamar
             // 
             this.bDeleteKamar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bDeleteKamar.Location = new System.Drawing.Point(229, 160);
+            this.bDeleteKamar.Location = new System.Drawing.Point(350, 246);
+            this.bDeleteKamar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bDeleteKamar.Name = "bDeleteKamar";
-            this.bDeleteKamar.Size = new System.Drawing.Size(175, 40);
+            this.bDeleteKamar.Size = new System.Drawing.Size(262, 62);
             this.bDeleteKamar.TabIndex = 3;
             this.bDeleteKamar.Text = "Delete Kamar";
             this.bDeleteKamar.UseVisualStyleBackColor = true;
@@ -348,9 +367,10 @@
             // bEditKamar
             // 
             this.bEditKamar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bEditKamar.Location = new System.Drawing.Point(229, 100);
+            this.bEditKamar.Location = new System.Drawing.Point(350, 154);
+            this.bEditKamar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bEditKamar.Name = "bEditKamar";
-            this.bEditKamar.Size = new System.Drawing.Size(175, 40);
+            this.bEditKamar.Size = new System.Drawing.Size(262, 62);
             this.bEditKamar.TabIndex = 2;
             this.bEditKamar.Text = "Edit Kamar";
             this.bEditKamar.UseVisualStyleBackColor = true;
@@ -360,9 +380,10 @@
             // 
             this.bAddKamar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bAddKamar.Cursor = System.Windows.Forms.Cursors.Default;
-            this.bAddKamar.Location = new System.Drawing.Point(229, 40);
+            this.bAddKamar.Location = new System.Drawing.Point(350, 62);
+            this.bAddKamar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bAddKamar.Name = "bAddKamar";
-            this.bAddKamar.Size = new System.Drawing.Size(175, 40);
+            this.bAddKamar.Size = new System.Drawing.Size(262, 62);
             this.bAddKamar.TabIndex = 1;
             this.bAddKamar.Text = "Tambah Kamar";
             this.bAddKamar.UseVisualStyleBackColor = true;
@@ -395,13 +416,15 @@
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvKonfigKamar.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvKonfigKamar.Location = new System.Drawing.Point(6, 23);
+            this.dgvKonfigKamar.Location = new System.Drawing.Point(9, 35);
+            this.dgvKonfigKamar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvKonfigKamar.MultiSelect = false;
             this.dgvKonfigKamar.Name = "dgvKonfigKamar";
             this.dgvKonfigKamar.ReadOnly = true;
             this.dgvKonfigKamar.RowHeadersVisible = false;
+            this.dgvKonfigKamar.RowHeadersWidth = 62;
             this.dgvKonfigKamar.RowTemplate.Height = 30;
-            this.dgvKonfigKamar.Size = new System.Drawing.Size(197, 497);
+            this.dgvKonfigKamar.Size = new System.Drawing.Size(302, 798);
             this.dgvKonfigKamar.TabIndex = 0;
             // 
             // groupBox2
@@ -412,9 +435,11 @@
             this.groupBox2.Controls.Add(this.bTambahJenis);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(431, 3);
+            this.groupBox2.Location = new System.Drawing.Point(651, 5);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(422, 527);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox2.Size = new System.Drawing.Size(639, 844);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Jenis Kamar";
@@ -422,9 +447,10 @@
             // bDeleteJenis
             // 
             this.bDeleteJenis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bDeleteJenis.Location = new System.Drawing.Point(229, 160);
+            this.bDeleteJenis.Location = new System.Drawing.Point(350, 246);
+            this.bDeleteJenis.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bDeleteJenis.Name = "bDeleteJenis";
-            this.bDeleteJenis.Size = new System.Drawing.Size(175, 40);
+            this.bDeleteJenis.Size = new System.Drawing.Size(262, 62);
             this.bDeleteJenis.TabIndex = 6;
             this.bDeleteJenis.Text = "Delete Jenis Kamar";
             this.bDeleteJenis.UseVisualStyleBackColor = true;
@@ -433,9 +459,10 @@
             // bEditJenis
             // 
             this.bEditJenis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bEditJenis.Location = new System.Drawing.Point(229, 100);
+            this.bEditJenis.Location = new System.Drawing.Point(350, 154);
+            this.bEditJenis.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bEditJenis.Name = "bEditJenis";
-            this.bEditJenis.Size = new System.Drawing.Size(175, 40);
+            this.bEditJenis.Size = new System.Drawing.Size(262, 62);
             this.bEditJenis.TabIndex = 5;
             this.bEditJenis.Text = "Edit Jenis Kamar";
             this.bEditJenis.UseVisualStyleBackColor = true;
@@ -468,21 +495,24 @@
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvKonfigJenis.DefaultCellStyle = dataGridViewCellStyle9;
-            this.dgvKonfigJenis.Location = new System.Drawing.Point(6, 23);
+            this.dgvKonfigJenis.Location = new System.Drawing.Point(9, 35);
+            this.dgvKonfigJenis.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvKonfigJenis.MultiSelect = false;
             this.dgvKonfigJenis.Name = "dgvKonfigJenis";
             this.dgvKonfigJenis.ReadOnly = true;
             this.dgvKonfigJenis.RowHeadersVisible = false;
+            this.dgvKonfigJenis.RowHeadersWidth = 62;
             this.dgvKonfigJenis.RowTemplate.Height = 30;
-            this.dgvKonfigJenis.Size = new System.Drawing.Size(197, 496);
+            this.dgvKonfigJenis.Size = new System.Drawing.Size(302, 796);
             this.dgvKonfigJenis.TabIndex = 0;
             // 
             // bTambahJenis
             // 
             this.bTambahJenis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bTambahJenis.Location = new System.Drawing.Point(229, 40);
+            this.bTambahJenis.Location = new System.Drawing.Point(350, 62);
+            this.bTambahJenis.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bTambahJenis.Name = "bTambahJenis";
-            this.bTambahJenis.Size = new System.Drawing.Size(175, 40);
+            this.bTambahJenis.Size = new System.Drawing.Size(262, 62);
             this.bTambahJenis.TabIndex = 4;
             this.bTambahJenis.Text = "Tambah Jenis Kamar";
             this.bTambahJenis.UseVisualStyleBackColor = true;
@@ -492,9 +522,10 @@
             // 
             this.tpKonfigurasiRestoran.Controls.Add(this.tableLayoutPanel3);
             this.tpKonfigurasiRestoran.Location = new System.Drawing.Point(4, 24);
+            this.tpKonfigurasiRestoran.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tpKonfigurasiRestoran.Name = "tpKonfigurasiRestoran";
-            this.tpKonfigurasiRestoran.Padding = new System.Windows.Forms.Padding(3);
-            this.tpKonfigurasiRestoran.Size = new System.Drawing.Size(862, 539);
+            this.tpKonfigurasiRestoran.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tpKonfigurasiRestoran.Size = new System.Drawing.Size(1297, 844);
             this.tpKonfigurasiRestoran.TabIndex = 1;
             this.tpKonfigurasiRestoran.Text = "Restoran";
             this.tpKonfigurasiRestoran.UseVisualStyleBackColor = true;
@@ -507,11 +538,12 @@
             this.tableLayoutPanel3.Controls.Add(this.groupBox3, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.groupBox4, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(4, 5);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(856, 533);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1289, 834);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // groupBox3
@@ -522,9 +554,11 @@
             this.groupBox3.Controls.Add(this.dgvKonfigMenu);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(3, 3);
+            this.groupBox3.Location = new System.Drawing.Point(4, 5);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(422, 527);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox3.Size = new System.Drawing.Size(636, 824);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Menu";
@@ -532,9 +566,10 @@
             // bDeleteMenu
             // 
             this.bDeleteMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bDeleteMenu.Location = new System.Drawing.Point(246, 135);
+            this.bDeleteMenu.Location = new System.Drawing.Point(372, 208);
+            this.bDeleteMenu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bDeleteMenu.Name = "bDeleteMenu";
-            this.bDeleteMenu.Size = new System.Drawing.Size(150, 30);
+            this.bDeleteMenu.Size = new System.Drawing.Size(225, 46);
             this.bDeleteMenu.TabIndex = 2;
             this.bDeleteMenu.Text = "Hapus Menu";
             this.bDeleteMenu.UseVisualStyleBackColor = true;
@@ -543,9 +578,10 @@
             // bEditMenu
             // 
             this.bEditMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bEditMenu.Location = new System.Drawing.Point(246, 85);
+            this.bEditMenu.Location = new System.Drawing.Point(372, 131);
+            this.bEditMenu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bEditMenu.Name = "bEditMenu";
-            this.bEditMenu.Size = new System.Drawing.Size(150, 30);
+            this.bEditMenu.Size = new System.Drawing.Size(225, 46);
             this.bEditMenu.TabIndex = 2;
             this.bEditMenu.Text = "Edit Menu";
             this.bEditMenu.UseVisualStyleBackColor = true;
@@ -554,9 +590,10 @@
             // bAddMenu
             // 
             this.bAddMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bAddMenu.Location = new System.Drawing.Point(246, 35);
+            this.bAddMenu.Location = new System.Drawing.Point(372, 54);
+            this.bAddMenu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bAddMenu.Name = "bAddMenu";
-            this.bAddMenu.Size = new System.Drawing.Size(150, 30);
+            this.bAddMenu.Size = new System.Drawing.Size(225, 46);
             this.bAddMenu.TabIndex = 1;
             this.bAddMenu.Text = "Tambah Menu";
             this.bAddMenu.UseVisualStyleBackColor = true;
@@ -590,13 +627,15 @@
             dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvKonfigMenu.DefaultCellStyle = dataGridViewCellStyle12;
-            this.dgvKonfigMenu.Location = new System.Drawing.Point(13, 26);
+            this.dgvKonfigMenu.Location = new System.Drawing.Point(20, 40);
+            this.dgvKonfigMenu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvKonfigMenu.MultiSelect = false;
             this.dgvKonfigMenu.Name = "dgvKonfigMenu";
             this.dgvKonfigMenu.ReadOnly = true;
             this.dgvKonfigMenu.RowHeadersVisible = false;
+            this.dgvKonfigMenu.RowHeadersWidth = 62;
             this.dgvKonfigMenu.RowTemplate.Height = 40;
-            this.dgvKonfigMenu.Size = new System.Drawing.Size(205, 487);
+            this.dgvKonfigMenu.Size = new System.Drawing.Size(311, 762);
             this.dgvKonfigMenu.TabIndex = 0;
             // 
             // groupBox4
@@ -607,9 +646,11 @@
             this.groupBox4.Controls.Add(this.dgvKonfigKategori);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(431, 3);
+            this.groupBox4.Location = new System.Drawing.Point(648, 5);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(422, 527);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox4.Size = new System.Drawing.Size(637, 824);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Kategori Makanan";
@@ -617,9 +658,10 @@
             // bDeleteCategory
             // 
             this.bDeleteCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bDeleteCategory.Location = new System.Drawing.Point(246, 135);
+            this.bDeleteCategory.Location = new System.Drawing.Point(373, 208);
+            this.bDeleteCategory.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bDeleteCategory.Name = "bDeleteCategory";
-            this.bDeleteCategory.Size = new System.Drawing.Size(150, 30);
+            this.bDeleteCategory.Size = new System.Drawing.Size(225, 46);
             this.bDeleteCategory.TabIndex = 4;
             this.bDeleteCategory.Text = "Delete Kategori";
             this.bDeleteCategory.UseVisualStyleBackColor = true;
@@ -628,9 +670,10 @@
             // bEditCategory
             // 
             this.bEditCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bEditCategory.Location = new System.Drawing.Point(246, 85);
+            this.bEditCategory.Location = new System.Drawing.Point(373, 131);
+            this.bEditCategory.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bEditCategory.Name = "bEditCategory";
-            this.bEditCategory.Size = new System.Drawing.Size(150, 30);
+            this.bEditCategory.Size = new System.Drawing.Size(225, 46);
             this.bEditCategory.TabIndex = 3;
             this.bEditCategory.Text = "Edit Kategori";
             this.bEditCategory.UseVisualStyleBackColor = true;
@@ -639,9 +682,10 @@
             // bAddCategory
             // 
             this.bAddCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bAddCategory.Location = new System.Drawing.Point(246, 35);
+            this.bAddCategory.Location = new System.Drawing.Point(373, 54);
+            this.bAddCategory.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bAddCategory.Name = "bAddCategory";
-            this.bAddCategory.Size = new System.Drawing.Size(150, 30);
+            this.bAddCategory.Size = new System.Drawing.Size(225, 46);
             this.bAddCategory.TabIndex = 2;
             this.bAddCategory.Text = "Tambah Kategori";
             this.bAddCategory.UseVisualStyleBackColor = true;
@@ -675,13 +719,15 @@
             dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvKonfigKategori.DefaultCellStyle = dataGridViewCellStyle15;
-            this.dgvKonfigKategori.Location = new System.Drawing.Point(13, 26);
+            this.dgvKonfigKategori.Location = new System.Drawing.Point(20, 40);
+            this.dgvKonfigKategori.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvKonfigKategori.MultiSelect = false;
             this.dgvKonfigKategori.Name = "dgvKonfigKategori";
             this.dgvKonfigKategori.ReadOnly = true;
             this.dgvKonfigKategori.RowHeadersVisible = false;
+            this.dgvKonfigKategori.RowHeadersWidth = 62;
             this.dgvKonfigKategori.RowTemplate.Height = 40;
-            this.dgvKonfigKategori.Size = new System.Drawing.Size(205, 486);
+            this.dgvKonfigKategori.Size = new System.Drawing.Size(312, 761);
             this.dgvKonfigKategori.TabIndex = 1;
             // 
             // tpKonfigurasiHotel
@@ -692,65 +738,73 @@
             this.tpKonfigurasiHotel.Controls.Add(this.label2);
             this.tpKonfigurasiHotel.Controls.Add(this.label1);
             this.tpKonfigurasiHotel.Location = new System.Drawing.Point(4, 24);
+            this.tpKonfigurasiHotel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tpKonfigurasiHotel.Name = "tpKonfigurasiHotel";
-            this.tpKonfigurasiHotel.Padding = new System.Windows.Forms.Padding(3);
-            this.tpKonfigurasiHotel.Size = new System.Drawing.Size(862, 539);
+            this.tpKonfigurasiHotel.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tpKonfigurasiHotel.Size = new System.Drawing.Size(1302, 864);
             this.tpKonfigurasiHotel.TabIndex = 2;
             this.tpKonfigurasiHotel.Text = "Hotel";
             this.tpKonfigurasiHotel.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // bSimpan
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(35, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nama Hotel";
+            this.bSimpan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bSimpan.Location = new System.Drawing.Point(750, 49);
+            this.bSimpan.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bSimpan.Name = "bSimpan";
+            this.bSimpan.Size = new System.Drawing.Size(300, 102);
+            this.bSimpan.TabIndex = 2;
+            this.bSimpan.Text = "Simpan";
+            this.bSimpan.UseVisualStyleBackColor = true;
+            this.bSimpan.Click += new System.EventHandler(this.bSimpan_Click);
+            // 
+            // tAlamat
+            // 
+            this.tAlamat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tAlamat.Location = new System.Drawing.Point(225, 115);
+            this.tAlamat.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tAlamat.Name = "tAlamat";
+            this.tAlamat.Size = new System.Drawing.Size(448, 30);
+            this.tAlamat.TabIndex = 1;
+            // 
+            // tHotel
+            // 
+            this.tHotel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tHotel.Location = new System.Drawing.Point(225, 49);
+            this.tHotel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tHotel.Name = "tHotel";
+            this.tHotel.Size = new System.Drawing.Size(448, 30);
+            this.tHotel.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(35, 78);
+            this.label2.Location = new System.Drawing.Point(52, 120);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 17);
+            this.label2.Size = new System.Drawing.Size(73, 25);
             this.label2.TabIndex = 0;
             this.label2.Text = "Alamat";
             // 
-            // tHotel
+            // label1
             // 
-            this.tHotel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tHotel.Location = new System.Drawing.Point(150, 32);
-            this.tHotel.Name = "tHotel";
-            this.tHotel.Size = new System.Drawing.Size(300, 23);
-            this.tHotel.TabIndex = 1;
-            // 
-            // tAlamat
-            // 
-            this.tAlamat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tAlamat.Location = new System.Drawing.Point(150, 75);
-            this.tAlamat.Name = "tAlamat";
-            this.tAlamat.Size = new System.Drawing.Size(300, 23);
-            this.tAlamat.TabIndex = 1;
-            // 
-            // bSimpan
-            // 
-            this.bSimpan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bSimpan.Location = new System.Drawing.Point(500, 32);
-            this.bSimpan.Name = "bSimpan";
-            this.bSimpan.Size = new System.Drawing.Size(200, 66);
-            this.bSimpan.TabIndex = 2;
-            this.bSimpan.Text = "Simpan";
-            this.bSimpan.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(52, 54);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(114, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Nama Hotel";
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 611);
+            this.ClientSize = new System.Drawing.Size(1326, 940);
             this.Controls.Add(this.tcMain);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Main";
             this.Text = "Main";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);

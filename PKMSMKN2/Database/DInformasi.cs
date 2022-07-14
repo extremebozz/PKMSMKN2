@@ -13,17 +13,38 @@ namespace PKMSMKN2.Database
         {
             Model.MInformasi mInformasi = new Model.MInformasi();
 
-            using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
+            try
             {
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM informasi", con);
-                MySqlDataReader read = cmd.ExecuteReader();
-                read.Read();
+                using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
+                {
+                    MySqlCommand cmd = new MySqlCommand("SELECT * FROM informasi", con);
+                    MySqlDataReader read = cmd.ExecuteReader();
+                    read.Read();
 
-                mInformasi.Nama = read["nama"].ToString();
-                mInformasi.Alamat = read["alamat"].ToString();
+                    mInformasi.Nama = read["nama"].ToString();
+                    mInformasi.Alamat = read["alamat"].ToString();
+                }
+            }
+            catch
+            {
+                using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
+                {
+                    MySqlCommand cmd = new MySqlCommand("INSERT INTO informasi(nama, alamat), VALUES('SMKN2 BATAM', 'Jl. Pemuda No. 5 Batam Center, Kota Batam')", con);
+                }
             }
 
             return mInformasi;
+        }
+
+        public static void UpdateInformasi(string Nama, string Alamat)
+        {
+            using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
+            {
+                MySqlCommand cmd = new MySqlCommand("UPDATE informasi SET nama = @nama, alamat = @alamat", con);
+                cmd.Parameters.AddWithValue("@nama", Nama);
+                cmd.Parameters.AddWithValue("@alamat", Alamat);
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }

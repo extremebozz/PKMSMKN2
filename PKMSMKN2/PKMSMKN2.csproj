@@ -114,6 +114,12 @@
     <Compile Include="Admin\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Service.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Service.Designer.cs">
+      <DependentUpon>Service.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\User\User.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -138,6 +138,15 @@ namespace PKMSMKN2.Admin
             dgvKonfigKategori.DataSource = bsKategori;
 
             dgvKonfigKategori.Columns["CategoryID"].Visible = false;
+
+            //Informasi Hotel
+            Model.MInformasi informasi = Database.DInformasi.ReadInformasi();
+
+            if (informasi.Nama != tHotel.Text || informasi.Alamat != tAlamat.Text)
+            {
+                tHotel.Text = informasi.Nama;
+                tAlamat.Text = informasi.Alamat;
+            }
         }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
@@ -342,5 +351,15 @@ namespace PKMSMKN2.Admin
             }
         }
         #endregion
+
+        private void bSimpan_Click(object sender, EventArgs e)
+        {
+            string nama = tHotel.Text,
+                alamat = tAlamat.Text;
+
+            Database.DInformasi.UpdateInformasi(nama, alamat);
+
+            AmbilData();
+        }
     }
 }
