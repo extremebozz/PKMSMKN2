@@ -24,5 +24,27 @@ namespace PKMSMKN2
                 return sb.ToString();
             }
         }
+
+        public static void cekAngka(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != ','))
+                e.Handled = true;
+
+            // only allow one decimal point
+            if ((e.KeyChar == ',') && ((sender as System.Windows.Forms.TextBox).Text.IndexOf(',') > -1))
+                e.Handled = true;
+        }
+
+        public static void addNominal(System.Windows.Forms.TextBox Textbox)
+        {
+            int indexLama = Textbox.SelectionStart,
+                angkaLama = Textbox.TextLength;
+            if (angkaLama > 1)
+            {
+                Textbox.Text = Textbox.Text.Equals("") ? "" : string.Format("{0:#,##0}", Convert.ToInt64(System.Text.RegularExpressions.Regex.Replace(Textbox.Text, @"\W", "")));
+                int angkaBaru = Textbox.TextLength, indexBaru = angkaBaru - angkaLama;
+                Textbox.SelectionStart = indexLama + indexBaru;
+            }
+        }
     }
 }

@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -76,7 +77,7 @@ namespace PKMSMKN2.Restoran
         {
             //Ambil data dari form
             int idCategory = Convert.ToInt32(cbKategori.SelectedValue),
-                harga = Convert.ToInt32(tHarga.Text);
+                harga = Convert.ToInt32(Regex.Replace(tHarga.Text, @"\W", ""));
             string nama = tNama.Text;
 
             //Masukan data diatas ke dalam model
@@ -107,6 +108,24 @@ namespace PKMSMKN2.Restoran
                 {
                     MessageBox.Show(msg.ToString(), "Data Tidak Berhasil Disimpan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+        }
+
+        private void tHarga_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Back || tHarga.Text.Length < 16)
+                Function.cekAngka(sender, e);
+            else
+                e.Handled = true;
+        }
+
+        private void tHarga_KeyUp(object sender, KeyEventArgs e)
+        {
+            Function.addNominal(tHarga);
+        }
+
+        private void bCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

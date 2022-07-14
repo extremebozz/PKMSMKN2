@@ -443,7 +443,9 @@ namespace PKMSMKN2.Database
 
             using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
             {
-                MySqlCommand cmd = new MySqlCommand("SELECT *, (SELECT jenis FROM kamar_jenis AS KJ WHERE KJ.id = (SELECT jenis_kamar FROM kamar_data AS KD WHERE KD.nomor_kamar = @id)) AS jenis_kamar FROM kamar_transaksi WHERE id = @id", con);
+                MySqlCommand cmd = new MySqlCommand("SELECT *, (SELECT jenis FROM kamar_jenis AS KJ WHERE KJ.id = " +
+                    "(SELECT jenis_kamar FROM kamar_data AS KD WHERE KD.nomor_kamar = kamar)) AS jenis_kamar, (SELECT harga FROM kamar_jenis WHERE jenis = 'extra_bed') AS harga_extra " +
+                    "FROM kamar_transaksi WHERE id = @id", con);
                 cmd.Parameters.AddWithValue("@id", IDTransaksi);
 
                 using (MySqlDataReader read = cmd.ExecuteReader()) 
@@ -460,7 +462,8 @@ namespace PKMSMKN2.Database
                             ExtraBed = Convert.ToInt32(read["extra_bed"]),
                             TotalHari = Convert.ToInt32(read["hari"]),
                             Rate = Convert.ToInt32(read["rate"]),
-                            JenisKamar = read["jenis_kamar"].ToString()
+                            JenisKamar = read["jenis_kamar"].ToString(),
+                            HargaExtraBed = Convert.ToInt32(read["harga_extra"])
                         };
             }
 

@@ -31,7 +31,7 @@ namespace PKMSMKN2.Hotel
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            //AmbilData();
+            AmbilData();
         }
 
         public void AmbilData()
@@ -169,7 +169,10 @@ namespace PKMSMKN2.Hotel
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CetakFaktur cFatkur = new CetakFaktur(this, 13);
+            int rowIndex = dgvKamar.CurrentCell.RowIndex,
+                idTransaksi = Convert.ToInt32(dgvKamar.Rows[rowIndex].Cells["IDTransaksi"].Value);
+
+            CetakFaktur cFatkur = new CetakFaktur(this, idTransaksi);
             cFatkur.ShowDialog();
         }
     }

@@ -99,6 +99,11 @@ namespace PKMSMKN2.Hotel
             }
         }
 
+        private void bCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void bUpdate_Click(object sender, EventArgs e)
         {
             int nomorKamar = int.Parse(nNomorKamar.Value.ToString());

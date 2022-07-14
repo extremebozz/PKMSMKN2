@@ -81,6 +81,11 @@
             this.bAddCategory = new System.Windows.Forms.Button();
             this.dgvKonfigKategori = new System.Windows.Forms.DataGridView();
             this.tpKonfigurasiHotel = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tHotel = new System.Windows.Forms.TextBox();
+            this.tAlamat = new System.Windows.Forms.TextBox();
+            this.bSimpan = new System.Windows.Forms.Button();
             this.tcMain.SuspendLayout();
             this.tpUser.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -100,6 +105,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvKonfigMenu)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKonfigKategori)).BeginInit();
+            this.tpKonfigurasiHotel.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcMain
@@ -390,7 +396,9 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvKonfigKamar.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvKonfigKamar.Location = new System.Drawing.Point(6, 23);
+            this.dgvKonfigKamar.MultiSelect = false;
             this.dgvKonfigKamar.Name = "dgvKonfigKamar";
+            this.dgvKonfigKamar.ReadOnly = true;
             this.dgvKonfigKamar.RowHeadersVisible = false;
             this.dgvKonfigKamar.RowTemplate.Height = 30;
             this.dgvKonfigKamar.Size = new System.Drawing.Size(197, 497);
@@ -461,7 +469,9 @@
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvKonfigJenis.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgvKonfigJenis.Location = new System.Drawing.Point(6, 23);
+            this.dgvKonfigJenis.MultiSelect = false;
             this.dgvKonfigJenis.Name = "dgvKonfigJenis";
+            this.dgvKonfigJenis.ReadOnly = true;
             this.dgvKonfigJenis.RowHeadersVisible = false;
             this.dgvKonfigJenis.RowTemplate.Height = 30;
             this.dgvKonfigJenis.Size = new System.Drawing.Size(197, 496);
@@ -581,7 +591,9 @@
             dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvKonfigMenu.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgvKonfigMenu.Location = new System.Drawing.Point(13, 26);
+            this.dgvKonfigMenu.MultiSelect = false;
             this.dgvKonfigMenu.Name = "dgvKonfigMenu";
+            this.dgvKonfigMenu.ReadOnly = true;
             this.dgvKonfigMenu.RowHeadersVisible = false;
             this.dgvKonfigMenu.RowTemplate.Height = 40;
             this.dgvKonfigMenu.Size = new System.Drawing.Size(205, 487);
@@ -664,7 +676,9 @@
             dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvKonfigKategori.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgvKonfigKategori.Location = new System.Drawing.Point(13, 26);
+            this.dgvKonfigKategori.MultiSelect = false;
             this.dgvKonfigKategori.Name = "dgvKonfigKategori";
+            this.dgvKonfigKategori.ReadOnly = true;
             this.dgvKonfigKategori.RowHeadersVisible = false;
             this.dgvKonfigKategori.RowTemplate.Height = 40;
             this.dgvKonfigKategori.Size = new System.Drawing.Size(205, 486);
@@ -672,6 +686,11 @@
             // 
             // tpKonfigurasiHotel
             // 
+            this.tpKonfigurasiHotel.Controls.Add(this.bSimpan);
+            this.tpKonfigurasiHotel.Controls.Add(this.tAlamat);
+            this.tpKonfigurasiHotel.Controls.Add(this.tHotel);
+            this.tpKonfigurasiHotel.Controls.Add(this.label2);
+            this.tpKonfigurasiHotel.Controls.Add(this.label1);
             this.tpKonfigurasiHotel.Location = new System.Drawing.Point(4, 24);
             this.tpKonfigurasiHotel.Name = "tpKonfigurasiHotel";
             this.tpKonfigurasiHotel.Padding = new System.Windows.Forms.Padding(3);
@@ -679,6 +698,52 @@
             this.tpKonfigurasiHotel.TabIndex = 2;
             this.tpKonfigurasiHotel.Text = "Hotel";
             this.tpKonfigurasiHotel.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(35, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Nama Hotel";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(35, 78);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 17);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Alamat";
+            // 
+            // tHotel
+            // 
+            this.tHotel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tHotel.Location = new System.Drawing.Point(150, 32);
+            this.tHotel.Name = "tHotel";
+            this.tHotel.Size = new System.Drawing.Size(300, 23);
+            this.tHotel.TabIndex = 1;
+            // 
+            // tAlamat
+            // 
+            this.tAlamat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tAlamat.Location = new System.Drawing.Point(150, 75);
+            this.tAlamat.Name = "tAlamat";
+            this.tAlamat.Size = new System.Drawing.Size(300, 23);
+            this.tAlamat.TabIndex = 1;
+            // 
+            // bSimpan
+            // 
+            this.bSimpan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bSimpan.Location = new System.Drawing.Point(500, 32);
+            this.bSimpan.Name = "bSimpan";
+            this.bSimpan.Size = new System.Drawing.Size(200, 66);
+            this.bSimpan.TabIndex = 2;
+            this.bSimpan.Text = "Simpan";
+            this.bSimpan.UseVisualStyleBackColor = true;
             // 
             // Main
             // 
@@ -708,6 +773,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvKonfigMenu)).EndInit();
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKonfigKategori)).EndInit();
+            this.tpKonfigurasiHotel.ResumeLayout(false);
+            this.tpKonfigurasiHotel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -752,5 +819,10 @@
         private System.Windows.Forms.Button bDeleteJenis;
         private System.Windows.Forms.Button bEditJenis;
         private System.Windows.Forms.Button bTambahJenis;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button bSimpan;
+        private System.Windows.Forms.TextBox tAlamat;
+        private System.Windows.Forms.TextBox tHotel;
+        private System.Windows.Forms.Label label2;
     }
 }

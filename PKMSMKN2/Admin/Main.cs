@@ -95,6 +95,8 @@ namespace PKMSMKN2.Admin
             dgvKonfigKamar.Columns["TanggalOut"].Visible = false;
             dgvKonfigKamar.Columns["Ketersediaan"].Visible = false;
             dgvKonfigKamar.Columns["Pesanan"].Visible = false;
+            dgvKonfigKamar.Columns["NamaPemesan"].Visible = false;
+            dgvKonfigKamar.Columns["Nominal"].Visible = false;
             dgvKonfigKamar.Columns["Nomor"].HeaderText = "No";
             dgvKonfigKamar.Columns["Nomor"].FillWeight = 50;
             dgvKonfigKamar.Columns["NomorKamar"].FillWeight = 75;

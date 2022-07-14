@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -67,6 +68,24 @@ namespace PKMSMKN2.Hotel
             }
         }
 
+        private void bCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void tHarga_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Back || tHarga.Text.Length < 16)
+                Function.cekAngka(sender, e);
+            else
+                e.Handled = true;
+        }
+
+        private void tHarga_KeyUp(object sender, KeyEventArgs e)
+        {
+            Function.addNominal(tHarga);
+        }
+
         private void bTambah_Click(object sender, EventArgs e)
         {
             foreach (TextBox tb in this.Controls.OfType<TextBox>())
@@ -78,7 +97,7 @@ namespace PKMSMKN2.Hotel
                 }
 
             string jenisKamar = tJenisKamar.Text;
-            int hargaKamar = Convert.ToInt32(tHarga.Text);
+            int hargaKamar = Convert.ToInt32(Regex.Replace(tHarga.Text, @"\W", ""));
 
             try
             {
