@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RMain));
             this.dgvKamar = new System.Windows.Forms.DataGridView();
             this.timerRefresh = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKamar)).BeginInit();
@@ -80,9 +81,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.dgvKamar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "RMain";
-            this.Padding = new System.Windows.Forms.Padding(15, 15, 15, 15);
+            this.Padding = new System.Windows.Forms.Padding(15);
             this.Text = "Restoran Main";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RMain_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKamar)).EndInit();

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PesanKamar));
             this.lNoKamar = new System.Windows.Forms.Label();
             this.lJenisKamar = new System.Windows.Forms.Label();
             this.lHargaKamar = new System.Windows.Forms.Label();
@@ -59,36 +60,40 @@
             // lNoKamar
             // 
             this.lNoKamar.AutoSize = true;
-            this.lNoKamar.Location = new System.Drawing.Point(15, 30);
+            this.lNoKamar.Location = new System.Drawing.Point(22, 46);
+            this.lNoKamar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lNoKamar.Name = "lNoKamar";
-            this.lNoKamar.Size = new System.Drawing.Size(115, 17);
+            this.lNoKamar.Size = new System.Drawing.Size(159, 25);
             this.lNoKamar.TabIndex = 1;
             this.lNoKamar.Text = "Nomor Kamar   : ";
             // 
             // lJenisKamar
             // 
             this.lJenisKamar.AutoSize = true;
-            this.lJenisKamar.Location = new System.Drawing.Point(15, 67);
+            this.lJenisKamar.Location = new System.Drawing.Point(22, 103);
+            this.lJenisKamar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lJenisKamar.Name = "lJenisKamar";
-            this.lJenisKamar.Size = new System.Drawing.Size(114, 17);
+            this.lJenisKamar.Size = new System.Drawing.Size(158, 25);
             this.lJenisKamar.TabIndex = 2;
             this.lJenisKamar.Text = "Jenis Kamar     : ";
             // 
             // lHargaKamar
             // 
             this.lHargaKamar.AutoSize = true;
-            this.lHargaKamar.Location = new System.Drawing.Point(15, 104);
+            this.lHargaKamar.Location = new System.Drawing.Point(22, 160);
+            this.lHargaKamar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lHargaKamar.Name = "lHargaKamar";
-            this.lHargaKamar.Size = new System.Drawing.Size(115, 17);
+            this.lHargaKamar.Size = new System.Drawing.Size(156, 25);
             this.lHargaKamar.TabIndex = 5;
             this.lHargaKamar.Text = "Harga Per Hari : ";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(20, 141);
+            this.label4.Location = new System.Drawing.Point(30, 217);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(118, 17);
+            this.label4.Size = new System.Drawing.Size(167, 25);
             this.label4.TabIndex = 6;
             this.label4.Text = "Tanggal Check In";
             // 
@@ -96,9 +101,10 @@
             // 
             this.dtCheckin.CustomFormat = "dd MMMM yyyy";
             this.dtCheckin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtCheckin.Location = new System.Drawing.Point(212, 139);
+            this.dtCheckin.Location = new System.Drawing.Point(318, 214);
+            this.dtCheckin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtCheckin.Name = "dtCheckin";
-            this.dtCheckin.Size = new System.Drawing.Size(175, 23);
+            this.dtCheckin.Size = new System.Drawing.Size(260, 30);
             this.dtCheckin.TabIndex = 3;
             this.dtCheckin.ValueChanged += new System.EventHandler(this.dtCheck_ValueChanged);
             // 
@@ -108,9 +114,10 @@
             this.bPesanKamar.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.bPesanKamar.FlatAppearance.BorderSize = 0;
             this.bPesanKamar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bPesanKamar.Location = new System.Drawing.Point(261, 268);
+            this.bPesanKamar.Location = new System.Drawing.Point(392, 412);
+            this.bPesanKamar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bPesanKamar.Name = "bPesanKamar";
-            this.bPesanKamar.Size = new System.Drawing.Size(220, 40);
+            this.bPesanKamar.Size = new System.Drawing.Size(330, 62);
             this.bPesanKamar.TabIndex = 6;
             this.bPesanKamar.Text = "Pesan";
             this.bPesanKamar.UseVisualStyleBackColor = false;
@@ -119,22 +126,24 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(20, 215);
+            this.label5.Location = new System.Drawing.Point(30, 331);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 17);
+            this.label5.Size = new System.Drawing.Size(97, 25);
             this.label5.TabIndex = 9;
             this.label5.Text = "Extra Bed";
             // 
             // nExtraBed
             // 
-            this.nExtraBed.Location = new System.Drawing.Point(212, 213);
+            this.nExtraBed.Location = new System.Drawing.Point(318, 328);
+            this.nExtraBed.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.nExtraBed.Maximum = new decimal(new int[] {
             10,
             0,
             0,
             0});
             this.nExtraBed.Name = "nExtraBed";
-            this.nExtraBed.Size = new System.Drawing.Size(50, 23);
+            this.nExtraBed.Size = new System.Drawing.Size(75, 30);
             this.nExtraBed.TabIndex = 5;
             this.nExtraBed.ValueChanged += new System.EventHandler(this.nExtraBed_ValueChanged);
             // 
@@ -142,18 +151,20 @@
             // 
             this.dtCheckOut.CustomFormat = "dd MMMM yyyy";
             this.dtCheckOut.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtCheckOut.Location = new System.Drawing.Point(212, 176);
+            this.dtCheckOut.Location = new System.Drawing.Point(318, 271);
+            this.dtCheckOut.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtCheckOut.Name = "dtCheckOut";
-            this.dtCheckOut.Size = new System.Drawing.Size(175, 23);
+            this.dtCheckOut.Size = new System.Drawing.Size(260, 30);
             this.dtCheckOut.TabIndex = 4;
             this.dtCheckOut.ValueChanged += new System.EventHandler(this.dtCheck_ValueChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(20, 178);
+            this.label6.Location = new System.Drawing.Point(30, 274);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(130, 17);
+            this.label6.Size = new System.Drawing.Size(183, 25);
             this.label6.TabIndex = 11;
             this.label6.Text = "Tanggal Check Out";
             // 
@@ -164,9 +175,11 @@
             this.groupBox1.Controls.Add(this.lJenisKamar);
             this.groupBox1.Controls.Add(this.lHargaKamar);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(521, 12);
+            this.groupBox1.Location = new System.Drawing.Point(782, 18);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(267, 139);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Size = new System.Drawing.Size(400, 214);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informasi Kamar";
@@ -188,25 +201,29 @@
             this.groupBox2.Controls.Add(this.bPesanKamar);
             this.groupBox2.Controls.Add(this.bCancel);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 12);
+            this.groupBox2.Location = new System.Drawing.Point(18, 18);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(500, 338);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox2.Size = new System.Drawing.Size(750, 520);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Informasi Pemesan";
             // 
             // tNamaPemesan
             // 
-            this.tNamaPemesan.Location = new System.Drawing.Point(212, 27);
+            this.tNamaPemesan.Location = new System.Drawing.Point(318, 42);
+            this.tNamaPemesan.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tNamaPemesan.Name = "tNamaPemesan";
-            this.tNamaPemesan.Size = new System.Drawing.Size(269, 23);
+            this.tNamaPemesan.Size = new System.Drawing.Size(402, 30);
             this.tNamaPemesan.TabIndex = 0;
             // 
             // tNomorIdentitas
             // 
-            this.tNomorIdentitas.Location = new System.Drawing.Point(212, 64);
+            this.tNomorIdentitas.Location = new System.Drawing.Point(318, 98);
+            this.tNomorIdentitas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tNomorIdentitas.Name = "tNomorIdentitas";
-            this.tNomorIdentitas.Size = new System.Drawing.Size(269, 23);
+            this.tNomorIdentitas.Size = new System.Drawing.Size(402, 30);
             this.tNomorIdentitas.TabIndex = 1;
             // 
             // cbJenisKelamin
@@ -215,35 +232,39 @@
             this.cbJenisKelamin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbJenisKelamin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbJenisKelamin.FormattingEnabled = true;
-            this.cbJenisKelamin.Location = new System.Drawing.Point(212, 101);
+            this.cbJenisKelamin.Location = new System.Drawing.Point(318, 155);
+            this.cbJenisKelamin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbJenisKelamin.Name = "cbJenisKelamin";
-            this.cbJenisKelamin.Size = new System.Drawing.Size(121, 24);
+            this.cbJenisKelamin.Size = new System.Drawing.Size(180, 33);
             this.cbJenisKelamin.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 104);
+            this.label3.Location = new System.Drawing.Point(30, 160);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 17);
+            this.label3.Size = new System.Drawing.Size(135, 25);
             this.label3.TabIndex = 2;
             this.label3.Text = "Jenis Kelamin";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 67);
+            this.label2.Location = new System.Drawing.Point(30, 103);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(149, 17);
+            this.label2.Size = new System.Drawing.Size(208, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nomor KTP / Passport";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 30);
+            this.label1.Location = new System.Drawing.Point(30, 46);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 17);
+            this.label1.Size = new System.Drawing.Size(152, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nama Pemesan";
             // 
@@ -253,9 +274,10 @@
             this.bCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.bCancel.FlatAppearance.BorderSize = 0;
             this.bCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bCancel.Location = new System.Drawing.Point(23, 268);
+            this.bCancel.Location = new System.Drawing.Point(34, 412);
+            this.bCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bCancel.Name = "bCancel";
-            this.bCancel.Size = new System.Drawing.Size(220, 40);
+            this.bCancel.Size = new System.Drawing.Size(330, 62);
             this.bCancel.TabIndex = 7;
             this.bCancel.Text = "Cancel";
             this.bCancel.UseVisualStyleBackColor = false;
@@ -264,9 +286,10 @@
             // lTotalHari
             // 
             this.lTotalHari.AutoSize = true;
-            this.lTotalHari.Location = new System.Drawing.Point(15, 33);
+            this.lTotalHari.Location = new System.Drawing.Point(22, 51);
+            this.lTotalHari.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lTotalHari.Name = "lTotalHari";
-            this.lTotalHari.Size = new System.Drawing.Size(118, 17);
+            this.lTotalHari.Size = new System.Drawing.Size(157, 25);
             this.lTotalHari.TabIndex = 6;
             this.lTotalHari.Text = "Total Hari          : ";
             // 
@@ -276,9 +299,11 @@
             this.groupBox3.Controls.Add(this.lTotalTrasansaksi);
             this.groupBox3.Controls.Add(this.lTotalHari);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(521, 157);
+            this.groupBox3.Location = new System.Drawing.Point(782, 242);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(267, 193);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox3.Size = new System.Drawing.Size(400, 297);
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Informasi Pesanan";
@@ -286,23 +311,26 @@
             // lTotalTrasansaksi
             // 
             this.lTotalTrasansaksi.AutoSize = true;
-            this.lTotalTrasansaksi.Location = new System.Drawing.Point(15, 70);
+            this.lTotalTrasansaksi.Location = new System.Drawing.Point(22, 108);
+            this.lTotalTrasansaksi.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lTotalTrasansaksi.Name = "lTotalTrasansaksi";
-            this.lTotalTrasansaksi.Size = new System.Drawing.Size(136, 17);
+            this.lTotalTrasansaksi.Size = new System.Drawing.Size(187, 25);
             this.lTotalTrasansaksi.TabIndex = 7;
             this.lTotalTrasansaksi.Text = "Total Transaksi : Rp";
             // 
             // PesanKamar
             // 
             this.AcceptButton = this.bPesanKamar;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.bCancel;
-            this.ClientSize = new System.Drawing.Size(800, 358);
+            this.ClientSize = new System.Drawing.Size(1200, 551);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "PesanKamar";

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddFoodCategory));
             this.label1 = new System.Windows.Forms.Label();
             this.tKategori = new System.Windows.Forms.TextBox();
             this.bSimpan = new System.Windows.Forms.Button();
@@ -40,7 +41,7 @@
             this.label1.Location = new System.Drawing.Point(20, 20);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 17);
+            this.label1.Size = new System.Drawing.Size(85, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Kategori";
             // 
@@ -49,7 +50,7 @@
             this.tKategori.Location = new System.Drawing.Point(23, 41);
             this.tKategori.Margin = new System.Windows.Forms.Padding(4);
             this.tKategori.Name = "tKategori";
-            this.tKategori.Size = new System.Drawing.Size(250, 23);
+            this.tKategori.Size = new System.Drawing.Size(250, 30);
             this.tKategori.TabIndex = 1;
             // 
             // bSimpan
@@ -76,7 +77,7 @@
             // AddFoodCategory
             // 
             this.AcceptButton = this.bSimpan;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.bCancel;
             this.ClientSize = new System.Drawing.Size(294, 126);
@@ -85,6 +86,7 @@
             this.Controls.Add(this.tKategori);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
