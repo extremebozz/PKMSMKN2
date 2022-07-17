@@ -32,10 +32,10 @@ namespace PKMSMKN2
 
             var connection = new MySqlConnectionStringBuilder
             {
-                Server = "localhost", //ConfigurationManager.ConnectionStrings["server"].ConnectionString,
+                Server = ConfigurationManager.ConnectionStrings["server"].ConnectionString,
                 UserID = "root",
-                Password = "bukanadmin", //bukanadmin
-                Database = "hotel_smkn2" //ConfigurationManager.ConnectionStrings["database"].ConnectionString
+                Password = "bukanadmin",
+                Database = ConfigurationManager.ConnectionStrings["database"].ConnectionString
             };
 
             try
