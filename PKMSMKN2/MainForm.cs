@@ -75,7 +75,7 @@ namespace PKMSMKN2
 
                     case "restoran":
                     case "Restoran":
-                        Restoran.RMain RestoranMain = new Restoran.RMain();
+                        Restoran.RMain RestoranMain = new Restoran.RMain(this, false);
                         RestoranMain.MdiParent = this;
                         RestoranMain.StartPosition = FormStartPosition.CenterScreen;
                         RestoranMain.WindowState = FormWindowState.Maximized;

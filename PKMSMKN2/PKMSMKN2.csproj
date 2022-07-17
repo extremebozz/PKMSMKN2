@@ -35,6 +35,9 @@
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>SMKN 2 BATAM LOGO OK %281%29.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
@@ -321,7 +324,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Catatan 24-6-2022.txt" />
+    <None Include="Resources\SMKN 2 BATAM LOGO OK.png" />
     <Content Include="Restoran\Database untuk fitur restoran.txt" />
+    <Content Include="SMKN 2 BATAM LOGO OK %281%29.ico" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

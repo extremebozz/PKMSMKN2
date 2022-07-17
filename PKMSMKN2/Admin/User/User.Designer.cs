@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(User));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,59 +41,66 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(53, 42);
+            this.label1.Location = new System.Drawing.Point(80, 65);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.Size = new System.Drawing.Size(83, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Username";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(53, 104);
+            this.label2.Location = new System.Drawing.Point(80, 160);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.Size = new System.Drawing.Size(78, 20);
             this.label2.TabIndex = 0;
             this.label2.Text = "Password";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(53, 163);
+            this.label3.Location = new System.Drawing.Point(80, 251);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 13);
+            this.label3.Size = new System.Drawing.Size(42, 20);
             this.label3.TabIndex = 0;
             this.label3.Text = "Role";
             // 
             // tUser
             // 
-            this.tUser.Location = new System.Drawing.Point(141, 39);
+            this.tUser.Location = new System.Drawing.Point(212, 60);
+            this.tUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tUser.Name = "tUser";
-            this.tUser.Size = new System.Drawing.Size(121, 20);
+            this.tUser.Size = new System.Drawing.Size(180, 26);
             this.tUser.TabIndex = 1;
             // 
             // tPassword
             // 
-            this.tPassword.Location = new System.Drawing.Point(141, 101);
+            this.tPassword.Location = new System.Drawing.Point(212, 155);
+            this.tPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tPassword.Name = "tPassword";
             this.tPassword.PasswordChar = '*';
-            this.tPassword.Size = new System.Drawing.Size(121, 20);
+            this.tPassword.Size = new System.Drawing.Size(180, 26);
             this.tPassword.TabIndex = 1;
             // 
             // cbRole
             // 
             this.cbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRole.FormattingEnabled = true;
-            this.cbRole.Location = new System.Drawing.Point(141, 160);
+            this.cbRole.Location = new System.Drawing.Point(212, 246);
+            this.cbRole.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbRole.Name = "cbRole";
-            this.cbRole.Size = new System.Drawing.Size(121, 21);
+            this.cbRole.Size = new System.Drawing.Size(180, 28);
             this.cbRole.TabIndex = 2;
             // 
             // bSimpanData
             // 
-            this.bSimpanData.Location = new System.Drawing.Point(56, 220);
+            this.bSimpanData.Location = new System.Drawing.Point(84, 338);
+            this.bSimpanData.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bSimpanData.Name = "bSimpanData";
-            this.bSimpanData.Size = new System.Drawing.Size(206, 23);
+            this.bSimpanData.Size = new System.Drawing.Size(309, 35);
             this.bSimpanData.TabIndex = 3;
             this.bSimpanData.Text = "Simpan Data";
             this.bSimpanData.UseVisualStyleBackColor = true;
@@ -100,9 +108,9 @@
             // 
             // User
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(327, 286);
+            this.ClientSize = new System.Drawing.Size(490, 440);
             this.Controls.Add(this.bSimpanData);
             this.Controls.Add(this.cbRole);
             this.Controls.Add(this.tPassword);
@@ -110,6 +118,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "User";

@@ -59,5 +59,15 @@ namespace PKMSMKN2.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SMKN_2_BATAM_LOGO_OK {
+            get {
+                object obj = ResourceManager.GetObject("SMKN 2 BATAM LOGO OK", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
