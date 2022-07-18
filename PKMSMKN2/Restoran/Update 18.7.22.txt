@@ -1,0 +1,14 @@
+﻿Restoran : 
+Main, show ongoing order,
+Add order nambah transaksi,
+Didalam transaksi bisa add nomor kamar (simpan id transaksi),
+
+
+Report Service : 
+No (in report aja), Tanggal Request, Catatan, Nomor Kamar, Tanggal Done
+
+Report Hotel : 
+No, Tanggal Masuk, Tanggal Keluar, Nomor Kamar, Extra Bed, Hari Stay, Rate, Check In, Check Out, Nama Pelanggan, 
+
+Report Restoran : 
+No, Tanggal Order, Server, Nominal, Bill To

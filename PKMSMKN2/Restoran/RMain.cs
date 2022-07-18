@@ -81,5 +81,16 @@ namespace PKMSMKN2.Restoran
             if (!admin)
                 mForm.ExitUser();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bReport_Click(object sender, EventArgs e)
+        {
+            CetakReport cReport = new CetakReport();
+            cReport.ShowDialog();
+        }
     }
 }

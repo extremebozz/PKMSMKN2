@@ -499,6 +499,9 @@ namespace PKMSMKN2.Database
                     cmd.Parameters.AddWithValue("@bed", ExtraBed);
                     cmd.ExecuteNonQuery();
                 }
+
+                Model.MRoomTransaksi mKamar = ReadTransactionByID(IDTransaksi);
+                DService.CreateService(Convert.ToInt32(mKamar.NomorKamar), "Add Extra Bed " + ExtraBed.ToString());
             }
             catch { throw; }
         }
