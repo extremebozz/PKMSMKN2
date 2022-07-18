@@ -221,17 +221,20 @@ namespace PKMSMKN2.Database
         #endregion
 
         #region Transaksi
-        public static void AddTransaksi(Model.MMakananTransaksi MTransaksi, string Waiter)
+        public static void AddTransaksi(Model.MMakananTransaksi MTransaksi, string Waiter, string NomorMeja)
         {
             try
             {
+                int? idKamar = MTransaksi.IDTransaksiKamar.Equals(0) ? (int?)null : MTransaksi.IDTransaksiKamar;
+
                 using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
                 {
-                    MySqlCommand cmd = new MySqlCommand("INSERT INTO restoran_transaksi(id_transaksi_kamar, tanggal, waiter) " +
-                        "VALUES(@idKamar, @tanggal, @waiter); SELECT LAST_INSERT_ID();", con);
-                    cmd.Parameters.AddWithValue("@idKamar", MTransaksi.IDTransaksiKamar);
+                    MySqlCommand cmd = new MySqlCommand("INSERT INTO restoran_transaksi(id_transaksi_kamar, tanggal, waiter, meja) " +
+                        "VALUES(@idKamar, @tanggal, @waiter, @meja); SELECT LAST_INSERT_ID();", con);
+                    cmd.Parameters.AddWithValue("@idKamar", idKamar);
                     cmd.Parameters.AddWithValue("@tanggal", DateTime.Now.ToString("yyyy-MM-dd"));
                     cmd.Parameters.AddWithValue("@waiter", Waiter);
+                    cmd.Parameters.AddWithValue("@meja", NomorMeja);
                     int idTransaksi = Convert.ToInt32(cmd.ExecuteScalar().ToString());
                     MTransaksi.IDTransaksi = idTransaksi;
                 }
@@ -290,6 +293,11 @@ namespace PKMSMKN2.Database
             }
 
             return lTransaksi;
+        }
+
+        public static void ReadTransaction()
+        {
+
         }
 
         public static void EditOrder(Model.MMakananTransaksi MTransaksi)

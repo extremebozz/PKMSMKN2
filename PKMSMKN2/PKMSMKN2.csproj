@@ -198,6 +198,7 @@
     <Compile Include="Model\MMakanan.cs" />
     <Compile Include="Model\MMakananTransaksi.cs" />
     <Compile Include="Model\Model_User.cs" />
+    <Compile Include="Model\MReportInformasi.cs" />
     <Compile Include="Model\MReportService.cs" />
     <Compile Include="Model\MRestoranView.cs" />
     <Compile Include="Model\MRoom.cs" />
@@ -218,6 +219,12 @@
     </Compile>
     <Compile Include="Restoran\AddFoodCategory.Designer.cs">
       <DependentUpon>AddFoodCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Restoran\AddTransaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Restoran\AddTransaction.Designer.cs">
+      <DependentUpon>AddTransaction.cs</DependentUpon>
     </Compile>
     <Compile Include="Restoran\CetakReport.cs">
       <SubType>Form</SubType>
@@ -242,6 +249,12 @@
     </Compile>
     <Compile Include="Restoran\RMain.Designer.cs">
       <DependentUpon>RMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\CetakReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Services\CetakReport.Designer.cs">
+      <DependentUpon>CetakReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Services\ServiceMenu.cs">
       <SubType>Form</SubType>
@@ -303,11 +316,17 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Report\Faktur.rdlc" />
+    <EmbeddedResource Include="Report\ReportHotel.rdlc" />
+    <EmbeddedResource Include="Report\ReportRestoran.rdlc" />
+    <EmbeddedResource Include="Report\ReportService.rdlc" />
     <EmbeddedResource Include="Restoran\AddFood.resx">
       <DependentUpon>AddFood.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Restoran\AddFoodCategory.resx">
       <DependentUpon>AddFoodCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Restoran\AddTransaction.resx">
+      <DependentUpon>AddTransaction.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Restoran\CetakReport.resx">
       <DependentUpon>CetakReport.cs</DependentUpon>
@@ -321,6 +340,9 @@
     <EmbeddedResource Include="Restoran\RMain.resx">
       <DependentUpon>RMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Services\CetakReport.resx">
+      <DependentUpon>CetakReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Services\ServiceMenu.resx">
       <DependentUpon>ServiceMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -331,6 +353,8 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\PKMSMKN2.Model.MInformasi.datasource" />
     <None Include="Properties\DataSources\PKMSMKN2.Model.MMakananTransaksi.datasource" />
+    <None Include="Properties\DataSources\PKMSMKN2.Model.MReportInformasi.datasource" />
+    <None Include="Properties\DataSources\PKMSMKN2.Model.MReportService.datasource" />
     <None Include="Properties\DataSources\PKMSMKN2.Model.MRoomTransaksi.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

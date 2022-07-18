@@ -13,17 +13,19 @@ namespace PKMSMKN2.Restoran
     public partial class Order : Form
     {
         int idTransaksiKamar, idTransaksiOrder;
+        string nomorMeja;
         bool orderanBaru = true;
 
         RMain main;
 
-        public Order(RMain Main, int IDTransaksiKamar, int NomorKamar)
+        public Order(RMain Main, int IDTransaksiKamar, string NomorMeja)
         {
             InitializeComponent();
             idTransaksiKamar = IDTransaksiKamar;
             main = Main;
+            nomorMeja = NomorMeja;
             AmbilData();
-            this.Text = "Nomor Kamar : " + NomorKamar;
+            this.Text = "Nomor Meja : " + NomorMeja;
         }
 
         public void AmbilData()
@@ -52,7 +54,7 @@ namespace PKMSMKN2.Restoran
             dgvOrderList.Columns["IDMakanan"].Visible = false;
             dgvOrderList.Columns["harga"].DefaultCellStyle.Format = "#,##0";
 
-            lTotal.Text = string.Format("{0:#,##0}", lTransaksi.Sum(transaksi => transaksi.Harga * transaksi.Qty));
+            lTotal.Text = string.Format("{0:#,##0}", ": " + lTransaksi.Sum(transaksi => transaksi.Harga * transaksi.Qty));
         }
 
         private void Order_FormClosing(object sender, FormClosingEventArgs e)
@@ -64,7 +66,7 @@ namespace PKMSMKN2.Restoran
         {
             try
             {
-                OrderMenu oMenu = new OrderMenu(this, idTransaksiKamar, idTransaksiOrder);
+                OrderMenu oMenu = new OrderMenu(this, idTransaksiKamar, nomorMeja, idTransaksiOrder);
                 oMenu.ShowDialog();
             }
             catch { }

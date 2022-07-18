@@ -15,19 +15,20 @@ namespace PKMSMKN2.Restoran
         Order order;
         List<Model.MKategoriMakanan> lKategori;
 
-        int qty, idFood, harga, idOrder = 0, idKamar, idFoodTransaction = 0;
-        string menu;
+        int qty, idFood, harga, idOrder, idKamar, idFoodTransaction = 0;
+        string menu, nomorMeja;
 
-        public OrderMenu(Order Order, int RoomID, int OrderID = 0)
+        public OrderMenu(Order Order, int RoomID, string NomorMeja, int OrderID = 0)
         {
             InitializeComponent();
             order = Order;
             idKamar = RoomID;
             idOrder = OrderID;
+            nomorMeja = NomorMeja;
             InitData();
         }
 
-        public OrderMenu(Order Order, int RoomID, int OrderID, int FoodTransactionID) : this(Order, RoomID, OrderID)
+        public OrderMenu(Order Order, int RoomID, int OrderID, int FoodTransactionID) : this(Order, RoomID, "0", OrderID)
         {
             nQty.ValueChanged -= numericUpDown1_ValueChanged;
             idFoodTransaction = FoodTransactionID;
@@ -141,7 +142,7 @@ namespace PKMSMKN2.Restoran
                 if (idFoodTransaction == 0)
                 {
                     if (idOrder == 0)
-                        Database.DRestoran.AddTransaksi(mTransaksi, Model.MUser.USERNAME);
+                        Database.DRestoran.AddTransaksi(mTransaksi, Model.MUser.USERNAME, nomorMeja);
                     else
                         Database.DRestoran.AddOrder(mTransaksi);
                 }

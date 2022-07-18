@@ -69,5 +69,11 @@ namespace PKMSMKN2.Services
             ServiceMenu sMenu = new ServiceMenu(this, idService, nomorKamar);
             sMenu.ShowDialog();
         }
+
+        private void bReport_Click(object sender, EventArgs e)
+        {
+            CetakReport cReport = new CetakReport();
+            cReport.ShowDialog();
+        }
     }
 }

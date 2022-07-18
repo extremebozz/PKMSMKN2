@@ -33,6 +33,7 @@
             this.dtpAkhir = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.bCetak = new System.Windows.Forms.Button();
+            this.rRestoran = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
             // 
             // dtpAwal
@@ -87,20 +88,34 @@
             this.bCetak.UseVisualStyleBackColor = true;
             this.bCetak.Click += new System.EventHandler(this.bCetak_Click);
             // 
+            // rRestoran
+            // 
+            this.rRestoran.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rRestoran.Location = new System.Drawing.Point(12, 53);
+            this.rRestoran.Name = "rRestoran";
+            this.rRestoran.ServerReport.BearerToken = null;
+            this.rRestoran.Size = new System.Drawing.Size(776, 385);
+            this.rRestoran.TabIndex = 5;
+            // 
             // CetakReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.rRestoran);
             this.Controls.Add(this.bCetak);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dtpAkhir);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpAwal);
+            this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "CetakReport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cetak Report Restoran";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.CetakReport_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -113,5 +128,6 @@
         private System.Windows.Forms.DateTimePicker dtpAkhir;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button bCetak;
+        private Microsoft.Reporting.WinForms.ReportViewer rRestoran;
     }
 }

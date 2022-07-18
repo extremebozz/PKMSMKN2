@@ -12,3 +12,8 @@ No, Tanggal Masuk, Tanggal Keluar, Nomor Kamar, Extra Bed, Hari Stay, Rate, Chec
 
 Report Restoran : 
 No, Tanggal Order, Server, Nominal, Bill To
+
+Tabel Restoran : 
+No, Tanggal Order, Nomor Meja, Nomor Kamar, Nominal
+
+database restoran transaksi tambah meja and aktif

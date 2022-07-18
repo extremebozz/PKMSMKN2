@@ -35,8 +35,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RMain));
             this.dgvKamar = new System.Windows.Forms.DataGridView();
             this.timerRefresh = new System.Windows.Forms.Timer(this.components);
-            this.bOrder = new System.Windows.Forms.Button();
+            this.bAddOrder = new System.Windows.Forms.Button();
             this.bReport = new System.Windows.Forms.Button();
+            this.bEditOrder = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKamar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,6 +50,7 @@
             this.dgvKamar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvKamar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -77,19 +79,20 @@
             this.dgvKamar.TabIndex = 1;
             this.dgvKamar.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKamar_CellDoubleClick);
             // 
-            // bOrder
+            // bAddOrder
             // 
-            this.bOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bOrder.Location = new System.Drawing.Point(13, 13);
-            this.bOrder.Name = "bOrder";
-            this.bOrder.Size = new System.Drawing.Size(150, 40);
-            this.bOrder.TabIndex = 2;
-            this.bOrder.Text = "Add Order";
-            this.bOrder.UseVisualStyleBackColor = true;
-            this.bOrder.Click += new System.EventHandler(this.button1_Click);
+            this.bAddOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bAddOrder.Location = new System.Drawing.Point(13, 13);
+            this.bAddOrder.Name = "bAddOrder";
+            this.bAddOrder.Size = new System.Drawing.Size(150, 40);
+            this.bAddOrder.TabIndex = 2;
+            this.bAddOrder.Text = "New Order";
+            this.bAddOrder.UseVisualStyleBackColor = true;
+            this.bAddOrder.Click += new System.EventHandler(this.bAddOrder_Click);
             // 
             // bReport
             // 
+            this.bReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bReport.Location = new System.Drawing.Point(637, 13);
             this.bReport.Name = "bReport";
@@ -99,17 +102,29 @@
             this.bReport.UseVisualStyleBackColor = true;
             this.bReport.Click += new System.EventHandler(this.bReport_Click);
             // 
+            // bEditOrder
+            // 
+            this.bEditOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bEditOrder.Location = new System.Drawing.Point(169, 13);
+            this.bEditOrder.Name = "bEditOrder";
+            this.bEditOrder.Size = new System.Drawing.Size(150, 40);
+            this.bEditOrder.TabIndex = 4;
+            this.bEditOrder.Text = "Edit Order";
+            this.bEditOrder.UseVisualStyleBackColor = true;
+            this.bEditOrder.Click += new System.EventHandler(this.bEditOrder_Click);
+            // 
             // RMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.bEditOrder);
             this.Controls.Add(this.bReport);
-            this.Controls.Add(this.bOrder);
+            this.Controls.Add(this.bAddOrder);
             this.Controls.Add(this.dgvKamar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RMain";
-            this.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "Restoran Main";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RMain_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKamar)).EndInit();
@@ -120,7 +135,8 @@
         #endregion
         private System.Windows.Forms.DataGridView dgvKamar;
         private System.Windows.Forms.Timer timerRefresh;
-        private System.Windows.Forms.Button bOrder;
+        private System.Windows.Forms.Button bAddOrder;
         private System.Windows.Forms.Button bReport;
+        private System.Windows.Forms.Button bEditOrder;
     }
 }

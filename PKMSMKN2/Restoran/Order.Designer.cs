@@ -39,7 +39,15 @@
             this.bClose = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lTotal = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lNama = new System.Windows.Forms.Label();
+            this.bPembayaran = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.bLinkKamar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderList)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvOrderList
@@ -48,9 +56,8 @@
             this.dgvOrderList.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.dgvOrderList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvOrderList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvOrderList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.dgvOrderList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
@@ -69,22 +76,21 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvOrderList.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvOrderList.Location = new System.Drawing.Point(16, 15);
+            this.dgvOrderList.Location = new System.Drawing.Point(16, 264);
             this.dgvOrderList.Margin = new System.Windows.Forms.Padding(4);
             this.dgvOrderList.Name = "dgvOrderList";
             this.dgvOrderList.RowHeadersVisible = false;
             this.dgvOrderList.RowHeadersWidth = 62;
             this.dgvOrderList.RowTemplate.Height = 30;
-            this.dgvOrderList.Size = new System.Drawing.Size(571, 422);
+            this.dgvOrderList.Size = new System.Drawing.Size(541, 484);
             this.dgvOrderList.TabIndex = 0;
             // 
             // bAddOrder
             // 
-            this.bAddOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bAddOrder.Location = new System.Drawing.Point(617, 35);
+            this.bAddOrder.Location = new System.Drawing.Point(16, 147);
             this.bAddOrder.Margin = new System.Windows.Forms.Padding(4);
             this.bAddOrder.Name = "bAddOrder";
-            this.bAddOrder.Size = new System.Drawing.Size(150, 40);
+            this.bAddOrder.Size = new System.Drawing.Size(175, 40);
             this.bAddOrder.TabIndex = 1;
             this.bAddOrder.Text = "Add Order";
             this.bAddOrder.UseVisualStyleBackColor = true;
@@ -92,11 +98,10 @@
             // 
             // bEditOrder
             // 
-            this.bEditOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bEditOrder.Location = new System.Drawing.Point(617, 92);
+            this.bEditOrder.Location = new System.Drawing.Point(199, 147);
             this.bEditOrder.Margin = new System.Windows.Forms.Padding(4);
             this.bEditOrder.Name = "bEditOrder";
-            this.bEditOrder.Size = new System.Drawing.Size(150, 40);
+            this.bEditOrder.Size = new System.Drawing.Size(175, 40);
             this.bEditOrder.TabIndex = 2;
             this.bEditOrder.Text = "Edit Order";
             this.bEditOrder.UseVisualStyleBackColor = true;
@@ -104,11 +109,10 @@
             // 
             // bDeleteOrder
             // 
-            this.bDeleteOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bDeleteOrder.Location = new System.Drawing.Point(617, 148);
+            this.bDeleteOrder.Location = new System.Drawing.Point(382, 147);
             this.bDeleteOrder.Margin = new System.Windows.Forms.Padding(4);
             this.bDeleteOrder.Name = "bDeleteOrder";
-            this.bDeleteOrder.Size = new System.Drawing.Size(150, 40);
+            this.bDeleteOrder.Size = new System.Drawing.Size(175, 40);
             this.bDeleteOrder.TabIndex = 3;
             this.bDeleteOrder.Text = "Delete Order";
             this.bDeleteOrder.UseVisualStyleBackColor = true;
@@ -116,11 +120,10 @@
             // 
             // bClose
             // 
-            this.bClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bClose.Location = new System.Drawing.Point(617, 377);
+            this.bClose.Location = new System.Drawing.Point(297, 205);
             this.bClose.Margin = new System.Windows.Forms.Padding(4);
             this.bClose.Name = "bClose";
-            this.bClose.Size = new System.Drawing.Size(150, 40);
+            this.bClose.Size = new System.Drawing.Size(260, 40);
             this.bClose.TabIndex = 4;
             this.bClose.Text = "Close";
             this.bClose.UseVisualStyleBackColor = true;
@@ -129,31 +132,111 @@
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(614, 220);
+            this.label1.Location = new System.Drawing.Point(26, 72);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 17);
+            this.label1.Size = new System.Drawing.Size(40, 17);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Total :";
+            this.label1.Text = "Total";
             // 
             // lTotal
             // 
             this.lTotal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.lTotal.AutoSize = true;
-            this.lTotal.Location = new System.Drawing.Point(669, 220);
+            this.lTotal.Location = new System.Drawing.Point(114, 72);
             this.lTotal.Name = "lTotal";
-            this.lTotal.Size = new System.Drawing.Size(0, 17);
+            this.lTotal.Size = new System.Drawing.Size(71, 17);
             this.lTotal.TabIndex = 6;
+            this.lTotal.Text = ": <Harga>";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.bLinkKamar);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.lNama);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.lTotal);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(545, 116);
+            this.groupBox1.TabIndex = 7;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Informasi Order";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(26, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(84, 17);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Nomor Meja";
+            // 
+            // lNama
+            // 
+            this.lNama.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lNama.AutoSize = true;
+            this.lNama.Location = new System.Drawing.Point(116, 35);
+            this.lNama.Name = "lNama";
+            this.lNama.Size = new System.Drawing.Size(108, 17);
+            this.lNama.TabIndex = 9;
+            this.lNama.Text = ": <Nomor Meja>";
+            // 
+            // bPembayaran
+            // 
+            this.bPembayaran.Location = new System.Drawing.Point(16, 205);
+            this.bPembayaran.Margin = new System.Windows.Forms.Padding(4);
+            this.bPembayaran.Name = "bPembayaran";
+            this.bPembayaran.Size = new System.Drawing.Size(260, 40);
+            this.bPembayaran.TabIndex = 8;
+            this.bPembayaran.Text = "Pembayaran";
+            this.bPembayaran.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(303, 35);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(95, 17);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Nomor Kamar";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(404, 35);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(119, 17);
+            this.label4.TabIndex = 11;
+            this.label4.Text = ": <Nomor Kamar>";
+            // 
+            // bLinkKamar
+            // 
+            this.bLinkKamar.Location = new System.Drawing.Point(306, 65);
+            this.bLinkKamar.Name = "bLinkKamar";
+            this.bLinkKamar.Size = new System.Drawing.Size(217, 30);
+            this.bLinkKamar.TabIndex = 12;
+            this.bLinkKamar.Text = "Link Kamar";
+            this.bLinkKamar.UseVisualStyleBackColor = true;
             // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lTotal);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(572, 761);
+            this.Controls.Add(this.bPembayaran);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.bClose);
             this.Controls.Add(this.bDeleteOrder);
             this.Controls.Add(this.bEditOrder);
@@ -164,14 +247,15 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(816, 489);
+            this.MinimumSize = new System.Drawing.Size(588, 800);
             this.Name = "Order";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Close";
+            this.Text = "Nomor Kamar : X";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Order_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderList)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -184,5 +268,12 @@
         private System.Windows.Forms.Button bClose;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lTotal;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lNama;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button bLinkKamar;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button bPembayaran;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -70,7 +71,7 @@ namespace PKMSMKN2.Restoran
             //Show form order
             try
             {
-                Order order = new Order(this, idTransaksi, nomorKamar);
+                Order order = new Order(this, idTransaksi, "0");
                 order.ShowDialog();
             }
             catch { }
@@ -82,15 +83,51 @@ namespace PKMSMKN2.Restoran
                 mForm.ExitUser();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void bReport_Click(object sender, EventArgs e)
         {
             CetakReport cReport = new CetakReport();
             cReport.ShowDialog();
+        }
+
+        private void bEditOrder_Click(object sender, EventArgs e)
+        {
+            //Ambil index
+            int index = dgvKamar.CurrentCell.RowIndex;
+            int idTransaksi = Convert.ToInt32(dgvKamar.Rows[index].Cells["IDTransaksi"].Value);
+            int nomorKamar = Convert.ToInt32(dgvKamar.Rows[index].Cells["NomorKamar"].Value);
+
+            //Check apakah kamar telah check in
+            if (!((DateTime?)dgvKamar.Rows[index].Cells["CheckIn"].Value).HasValue ? true : false)
+            {
+                MessageBox.Show("Kamar Ini Belum CheckIn!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            //Show form order
+            try
+            {
+                Order order = new Order(this, idTransaksi, "0");
+                order.ShowDialog();
+            }
+            catch { }
+        }
+
+        private void bAddOrder_Click(object sender, EventArgs e)
+        {
+            string nomorMeja;
+            object inputBox = Interaction.InputBox("Masukan Nomor Meja Order", "Tambah Order");
+
+            int index = dgvKamar.CurrentCell.RowIndex;
+            int idTransaksi = Convert.ToInt32(dgvKamar.Rows[index].Cells["IDTransaksi"].Value);
+            int nomorKamar = Convert.ToInt32(dgvKamar.Rows[index].Cells["NomorKamar"].Value);
+
+            if (inputBox.ToString() != "")
+            {
+                nomorMeja = inputBox.ToString();
+
+                Order oMenu = new Order(this, idTransaksi, nomorMeja);
+                oMenu.ShowDialog();
+            }
         }
     }
 }
