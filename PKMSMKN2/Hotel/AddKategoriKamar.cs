@@ -47,6 +47,8 @@ namespace PKMSMKN2.Hotel
 
             tJenisKamar.Text = mRoomCategories.JenisKamar;
             tHarga.Text = mRoomCategories.HargaKamar.ToString();
+
+            Function.addNominal(tHarga);
         }
 
         private void bUpdate_Click(object sender, EventArgs e)

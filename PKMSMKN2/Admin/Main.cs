@@ -142,7 +142,7 @@ namespace PKMSMKN2.Admin
             //Informasi Hotel
             Model.MInformasi informasi = Database.DInformasi.ReadInformasi();
 
-            if (informasi.Nama != tHotel.Text || informasi.Alamat != tAlamat.Text)
+            if (!tHotel.Focus() || !tAlamat.Focus())
             {
                 tHotel.Text = informasi.Nama;
                 tAlamat.Text = informasi.Alamat;

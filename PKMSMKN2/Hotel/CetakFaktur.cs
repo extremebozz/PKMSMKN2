@@ -12,17 +12,15 @@ namespace PKMSMKN2.Hotel
 {
     public partial class CetakFaktur : Form
     {
-        Main hMain;
         int idTransaksi;
 
         List<Model.MMakananTransaksi> listOrder = new List<Model.MMakananTransaksi>();
         Model.MRoomTransaksi detailKamar = new Model.MRoomTransaksi();
         Model.MInformasi mInformasi = new Model.MInformasi();
 
-        public CetakFaktur(Main Main, int IDTransaksi)
+        public CetakFaktur(int IDTransaksi)
         {
             InitializeComponent();
-            hMain = Main;
             idTransaksi = IDTransaksi;
             AmbilData();
         }

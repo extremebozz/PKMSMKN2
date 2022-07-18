@@ -71,6 +71,8 @@ namespace PKMSMKN2.Restoran
             cbKategori.SelectedValue = mMakanan[0].CategoryID;
             tNama.Text = mMakanan[0].Nama;
             tHarga.Text = mMakanan[0].Harga.ToString();
+
+            Function.addNominal(tHarga);
         }
 
         private void bSimpan_Click(object sender, EventArgs e)

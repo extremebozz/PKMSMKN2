@@ -57,8 +57,6 @@ namespace PKMSMKN2.Hotel
         {
             DateTime waktuCheck = dtTanggalCheck.Value.Date + dtJamCheck.Value.TimeOfDay;
 
-            //Check jam check in apakah sudah diset?
-
             //Apabila checkIn true makan jalankan kode checkin
             if (checkIn)
                 try
@@ -80,6 +78,10 @@ namespace PKMSMKN2.Hotel
                 try
                 {
                     Database.DKamar.CheckOut(idTransaksi, waktuCheck);
+
+                    CetakFaktur cFaktur = new CetakFaktur(idTransaksi);
+                    cFaktur.ShowDialog();
+
                     hMain.AmbilData();
                     this.Close();
                     return;

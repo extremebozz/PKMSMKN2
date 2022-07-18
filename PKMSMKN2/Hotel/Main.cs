@@ -154,7 +154,7 @@ namespace PKMSMKN2.Hotel
         {
             int rowIndex = dgvKamar.CurrentCell.RowIndex,
                 noKamar = Convert.ToInt32(dgvKamar.Rows[rowIndex].Cells["NomorKamar"].Value),
-                idService = 0;
+                idTransaksi = Convert.ToInt32(dgvKamar.Rows[rowIndex].Cells["IDTransaksi"].Value);
 
             if (!((DateTime?)dgvKamar.Rows[rowIndex].Cells["CheckIn"].Value).HasValue ? true : false)
             {
@@ -162,9 +162,8 @@ namespace PKMSMKN2.Hotel
                 return;
             }
 
-            //Prove of Concept nanti diganti
-            Services.ServiceMenu sMenu = new Services.ServiceMenu(idService, noKamar);
-            sMenu.ShowDialog();
+            Service service = new Service(noKamar, idTransaksi);
+            service.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -172,7 +171,7 @@ namespace PKMSMKN2.Hotel
             int rowIndex = dgvKamar.CurrentCell.RowIndex,
                 idTransaksi = Convert.ToInt32(dgvKamar.Rows[rowIndex].Cells["IDTransaksi"].Value);
 
-            CetakFaktur cFatkur = new CetakFaktur(this, idTransaksi);
+            CetakFaktur cFatkur = new CetakFaktur(idTransaksi);
             cFatkur.ShowDialog();
         }
     }

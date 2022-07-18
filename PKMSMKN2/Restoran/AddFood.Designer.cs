@@ -80,6 +80,7 @@
             // 
             // bCancel
             // 
+            this.bCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.bCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bCancel.Location = new System.Drawing.Point(42, 189);
             this.bCancel.Name = "bCancel";
@@ -121,8 +122,10 @@
             // 
             // AddFood
             // 
+            this.AcceptButton = this.bSimpan;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.bCancel;
             this.ClientSize = new System.Drawing.Size(418, 263);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);

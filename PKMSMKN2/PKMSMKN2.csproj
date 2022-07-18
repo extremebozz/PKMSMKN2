@@ -114,12 +114,6 @@
     <Compile Include="Admin\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Service.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Admin\Service.Designer.cs">
-      <DependentUpon>Service.cs</DependentUpon>
-    </Compile>
     <Compile Include="Admin\User\User.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +128,12 @@
     <Compile Include="Database\DService.cs" />
     <Compile Include="Database\DUser.cs" />
     <Compile Include="Function.cs" />
+    <Compile Include="Hotel\AddExtraBed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hotel\AddExtraBed.Designer.cs">
+      <DependentUpon>AddExtraBed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Hotel\AddKamar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +169,12 @@
     </Compile>
     <Compile Include="Hotel\PesanKamar.Designer.cs">
       <DependentUpon>PesanKamar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Hotel\Service.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hotel\Service.Designer.cs">
+      <DependentUpon>Service.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -245,6 +251,9 @@
     <EmbeddedResource Include="Admin\User\User.resx">
       <DependentUpon>User.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Hotel\AddExtraBed.resx">
+      <DependentUpon>AddExtraBed.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Hotel\AddKamar.resx">
       <DependentUpon>AddKamar.cs</DependentUpon>
     </EmbeddedResource>
@@ -262,6 +271,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Hotel\PesanKamar.resx">
       <DependentUpon>PesanKamar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hotel\Service.resx">
+      <DependentUpon>Service.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

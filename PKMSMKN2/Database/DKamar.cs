@@ -469,5 +469,38 @@ namespace PKMSMKN2.Database
 
             return mTransaksi;
         }
+
+        public static int ReadExtraBed(int IDTransaksi)
+        {
+            try
+            {
+                int extraBed = 0;
+
+                using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
+                {
+                    MySqlCommand cmd = new MySqlCommand("SELECT extra_bed FROM kamar_transaksi WHERE id = @id", con);
+                    cmd.Parameters.AddWithValue("@id", IDTransaksi);
+                    extraBed = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+                }
+
+                return extraBed;
+            }
+            catch { throw; }
+        }
+
+        public static void UpdateExtraBed(int IDTransaksi, int ExtraBed)
+        {
+            try
+            {
+                using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
+                {
+                    MySqlCommand cmd = new MySqlCommand("UPDATE kamar_transaksi SET extra_bed = @bed WHERE id = @id", con);
+                    cmd.Parameters.AddWithValue("@id", IDTransaksi);
+                    cmd.Parameters.AddWithValue("@bed", ExtraBed);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch { throw; }
+        }
     }
 }
