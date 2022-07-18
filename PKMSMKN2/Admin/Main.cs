@@ -55,7 +55,7 @@ namespace PKMSMKN2.Admin
             service.Show();
 
             //Restoran
-            Form restoran = new Restoran.RMain();
+            Form restoran = new Restoran.RMain(mf, true);
             restoran.TopLevel = false;
             restoran.FormBorderStyle = FormBorderStyle.None;
             tpRestoran.Controls.Add(restoran);

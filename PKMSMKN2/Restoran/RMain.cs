@@ -12,7 +12,11 @@ namespace PKMSMKN2.Restoran
 {
     public partial class RMain : Form
     {
-        public RMain()
+        MainForm mForm;
+
+        bool admin = false;
+
+        public RMain(MainForm MForm, bool Admin)
         {
             InitializeComponent();
             AmbilData();
@@ -21,6 +25,9 @@ namespace PKMSMKN2.Restoran
             timer.Interval = (10 * 1000); //10 Detik
             timer.Tick += new EventHandler(timer_Tick);
             timer.Start();
+
+            mForm = MForm;
+            admin = Admin;
         }
 
         private void timer_Tick(object sender, EventArgs e) 
@@ -67,6 +74,12 @@ namespace PKMSMKN2.Restoran
                 order.ShowDialog();
             }
             catch { }
+        }
+
+        private void RMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!admin)
+                mForm.ExitUser();
         }
     }
 }

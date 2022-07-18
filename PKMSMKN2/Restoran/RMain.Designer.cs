@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RMain));
             this.dgvKamar = new System.Windows.Forms.DataGridView();
             this.timerRefresh = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKamar)).BeginInit();
@@ -64,23 +65,28 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvKamar.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvKamar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvKamar.Location = new System.Drawing.Point(10, 10);
+            this.dgvKamar.Location = new System.Drawing.Point(15, 15);
+            this.dgvKamar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvKamar.Name = "dgvKamar";
             this.dgvKamar.RowHeadersVisible = false;
+            this.dgvKamar.RowHeadersWidth = 62;
             this.dgvKamar.RowTemplate.Height = 30;
-            this.dgvKamar.Size = new System.Drawing.Size(780, 430);
+            this.dgvKamar.Size = new System.Drawing.Size(1170, 662);
             this.dgvKamar.TabIndex = 1;
             this.dgvKamar.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKamar_CellDoubleClick);
             // 
             // RMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.dgvKamar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "RMain";
-            this.Padding = new System.Windows.Forms.Padding(10);
+            this.Padding = new System.Windows.Forms.Padding(15);
             this.Text = "Restoran Main";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RMain_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKamar)).EndInit();
             this.ResumeLayout(false);
 
