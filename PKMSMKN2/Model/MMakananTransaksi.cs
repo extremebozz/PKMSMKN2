@@ -11,7 +11,7 @@ namespace PKMSMKN2.Model
     {
         public int IDDetailTransaksi { get; set; }
         public int IDTransaksi { get; set; }
-        public int IDTransaksiKamar { get; set; }
+        public int? IDTransaksiKamar { get; set; }
         public int IDMakanan { get; set; }
         [DisplayName("Menu")]
         public string NamaMenu { get; set; }

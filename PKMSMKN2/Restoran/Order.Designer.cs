@@ -40,12 +40,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lTotal = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lNama = new System.Windows.Forms.Label();
-            this.bPembayaran = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.bLinkKamar = new System.Windows.Forms.Button();
+            this.lKamar = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lMeja = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.bPembayaran = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderList)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -154,9 +154,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.bLinkKamar);
-            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.lKamar);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.lNama);
+            this.groupBox1.Controls.Add(this.lMeja);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.lTotal);
@@ -167,37 +167,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informasi Order";
             // 
-            // label2
+            // bLinkKamar
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.bLinkKamar.Location = new System.Drawing.Point(306, 65);
+            this.bLinkKamar.Name = "bLinkKamar";
+            this.bLinkKamar.Size = new System.Drawing.Size(217, 30);
+            this.bLinkKamar.TabIndex = 12;
+            this.bLinkKamar.Text = "Link Kamar";
+            this.bLinkKamar.UseVisualStyleBackColor = true;
+            // 
+            // lKamar
+            // 
+            this.lKamar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 35);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 17);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Nomor Meja";
-            // 
-            // lNama
-            // 
-            this.lNama.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.lNama.AutoSize = true;
-            this.lNama.Location = new System.Drawing.Point(116, 35);
-            this.lNama.Name = "lNama";
-            this.lNama.Size = new System.Drawing.Size(108, 17);
-            this.lNama.TabIndex = 9;
-            this.lNama.Text = ": <Nomor Meja>";
-            // 
-            // bPembayaran
-            // 
-            this.bPembayaran.Location = new System.Drawing.Point(16, 205);
-            this.bPembayaran.Margin = new System.Windows.Forms.Padding(4);
-            this.bPembayaran.Name = "bPembayaran";
-            this.bPembayaran.Size = new System.Drawing.Size(260, 40);
-            this.bPembayaran.TabIndex = 8;
-            this.bPembayaran.Text = "Pembayaran";
-            this.bPembayaran.UseVisualStyleBackColor = true;
+            this.lKamar.AutoSize = true;
+            this.lKamar.Location = new System.Drawing.Point(404, 35);
+            this.lKamar.Name = "lKamar";
+            this.lKamar.Size = new System.Drawing.Size(119, 17);
+            this.lKamar.TabIndex = 11;
+            this.lKamar.Text = ": <Nomor Kamar>";
             // 
             // label3
             // 
@@ -210,25 +198,37 @@
             this.label3.TabIndex = 10;
             this.label3.Text = "Nomor Kamar";
             // 
-            // label4
+            // lMeja
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lMeja.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(404, 35);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(119, 17);
-            this.label4.TabIndex = 11;
-            this.label4.Text = ": <Nomor Kamar>";
+            this.lMeja.AutoSize = true;
+            this.lMeja.Location = new System.Drawing.Point(116, 35);
+            this.lMeja.Name = "lMeja";
+            this.lMeja.Size = new System.Drawing.Size(108, 17);
+            this.lMeja.TabIndex = 9;
+            this.lMeja.Text = ": <Nomor Meja>";
             // 
-            // bLinkKamar
+            // label2
             // 
-            this.bLinkKamar.Location = new System.Drawing.Point(306, 65);
-            this.bLinkKamar.Name = "bLinkKamar";
-            this.bLinkKamar.Size = new System.Drawing.Size(217, 30);
-            this.bLinkKamar.TabIndex = 12;
-            this.bLinkKamar.Text = "Link Kamar";
-            this.bLinkKamar.UseVisualStyleBackColor = true;
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(26, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(84, 17);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Nomor Meja";
+            // 
+            // bPembayaran
+            // 
+            this.bPembayaran.Location = new System.Drawing.Point(16, 205);
+            this.bPembayaran.Margin = new System.Windows.Forms.Padding(4);
+            this.bPembayaran.Name = "bPembayaran";
+            this.bPembayaran.Size = new System.Drawing.Size(260, 40);
+            this.bPembayaran.TabIndex = 8;
+            this.bPembayaran.Text = "Pembayaran";
+            this.bPembayaran.UseVisualStyleBackColor = true;
             // 
             // Order
             // 
@@ -269,10 +269,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lTotal;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lNama;
+        private System.Windows.Forms.Label lMeja;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button bLinkKamar;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lKamar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button bPembayaran;
     }

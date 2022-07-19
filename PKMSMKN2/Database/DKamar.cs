@@ -134,9 +134,12 @@ namespace PKMSMKN2.Database
 
                     cmd.CommandText = "UPDATE service_data SET aktif = '0' WHERE kamar = @kamar";
                     cmd.Parameters.AddWithValue("@kamar", nomorKamar);
-                    cmd.ExecuteScalar();
+                    cmd.ExecuteNonQuery();
+
+                    cmd.CommandText = "UPDATE restoran_transaksi SET aktif = 'N' WHERE id_transaksi_kamar = @idTransaksi";
+                    cmd.ExecuteNonQuery();
                 }
-                catch (Exception msg)
+                catch
                 {
                     throw;
                 }
@@ -168,7 +171,7 @@ namespace PKMSMKN2.Database
                             no++;
                         }
                 }
-                catch(Exception msg)
+                catch
                 {
                     throw;
                 }
@@ -225,7 +228,7 @@ namespace PKMSMKN2.Database
                             nomorList++;
                         }
                 }
-                catch (Exception msg)
+                catch
                 {
                     throw;
                 }
@@ -243,7 +246,7 @@ namespace PKMSMKN2.Database
                     cmd.Parameters.AddWithValue("@harga", Harga);
                     cmd.ExecuteNonQuery();
                 }
-                catch (Exception msg)
+                catch
                 {
                     throw;
                 }
@@ -266,7 +269,7 @@ namespace PKMSMKN2.Database
                     mRoomCategories.JenisKamar = read["jenis"].ToString();
                     mRoomCategories.HargaKamar = Convert.ToInt32(read["harga"].ToString());
                 }
-                catch(Exception msg)
+                catch
                 {
                     throw;
                 }
@@ -317,7 +320,7 @@ namespace PKMSMKN2.Database
                     cmd.Parameters.AddWithValue("@harga", Harga);
                     cmd.ExecuteNonQuery();
                 }
-                catch (Exception msg)
+                catch
                 {
                     throw;
                 }
@@ -333,7 +336,7 @@ namespace PKMSMKN2.Database
                     cmd.Parameters.AddWithValue("@jenis", Jenis);
                     cmd.ExecuteNonQuery();
                 }
-                catch (Exception msg)
+                catch
                 {
                     throw;
                 }
@@ -361,7 +364,7 @@ namespace PKMSMKN2.Database
                         }
                     }
                 }
-                catch (Exception msg)
+                catch 
                 {
                     throw;
                 }
@@ -380,7 +383,7 @@ namespace PKMSMKN2.Database
                     cmd.Parameters.AddWithValue("@jenisKamar", JenisKamar);
                     cmd.ExecuteNonQuery();
                 }
-                catch (Exception msg)
+                catch
                 {
                     throw;
                 }

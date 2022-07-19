@@ -142,7 +142,7 @@ namespace PKMSMKN2.Restoran
                 if (idFoodTransaction == 0)
                 {
                     if (idOrder == 0)
-                        Database.DRestoran.AddTransaksi(mTransaksi, Model.MUser.USERNAME, nomorMeja);
+                        idOrder = Database.DRestoran.AddTransaksi(mTransaksi, Model.MUser.USERNAME, nomorMeja);
                     else
                         Database.DRestoran.AddOrder(mTransaksi);
                 }
@@ -151,7 +151,7 @@ namespace PKMSMKN2.Restoran
                     Database.DRestoran.EditOrder(mTransaksi);
                 }
 
-                order.AmbilData();
+                order.AmbilData(idOrder);
                 this.Close();
             }
             catch (Exception msg){ MessageBox.Show(msg.ToString(), "", MessageBoxButtons.OK, MessageBoxIcon.Warning); }

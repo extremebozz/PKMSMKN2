@@ -221,8 +221,10 @@ namespace PKMSMKN2.Database
         #endregion
 
         #region Transaksi
-        public static void AddTransaksi(Model.MMakananTransaksi MTransaksi, string Waiter, string NomorMeja)
+        public static int AddTransaksi(Model.MMakananTransaksi MTransaksi, string Waiter, string NomorMeja)
         {
+            int idOrder = 0;
+
             try
             {
                 int? idKamar = MTransaksi.IDTransaksiKamar.Equals(0) ? (int?)null : MTransaksi.IDTransaksiKamar;
@@ -237,11 +239,14 @@ namespace PKMSMKN2.Database
                     cmd.Parameters.AddWithValue("@meja", NomorMeja);
                     int idTransaksi = Convert.ToInt32(cmd.ExecuteScalar().ToString());
                     MTransaksi.IDTransaksi = idTransaksi;
+                    idOrder = idTransaksi;
                 }
 
                 AddOrder(MTransaksi);
             }
             catch { throw; }
+
+            return idOrder;
         }
 
         public static void AddOrder(Model.MMakananTransaksi MTransaksi)
@@ -267,7 +272,7 @@ namespace PKMSMKN2.Database
             catch { throw; }
         }
 
-        public static List<Model.MMakananTransaksi> ReadDetailTransaksi(int IDTransaksiKamar)
+        public static List<Model.MMakananTransaksi> ReadDetailTransaksi(int IDOrder)
         {
             List<Model.MMakananTransaksi> lTransaksi = new List<Model.MMakananTransaksi>();
 
@@ -275,29 +280,58 @@ namespace PKMSMKN2.Database
             {
                 MySqlCommand cmd = new MySqlCommand("SELECT *, (SELECT id_transaksi_kamar FROM restoran_transaksi WHERE id = @id) AS nomor_kamar, " +
                     "(SELECT nama FROM menu_data WHERE id = id_makanan) AS makanan FROM restoran_detail JOIN restoran_transaksi AS RD ON " +
-                    "id_transaksi = RD.id WHERE id_transaksi_kamar = @id", con);
-                cmd.Parameters.AddWithValue("@id", IDTransaksiKamar);
+                    "id_transaksi = RD.id WHERE id_transaksi = @id", con);
+                cmd.Parameters.AddWithValue("@id", IDOrder);
 
-                using (MySqlDataReader read = cmd.ExecuteReader())
-                    while (read.Read())
-                        lTransaksi.Add(new Model.MMakananTransaksi()
+                try
+                {
+                    using (MySqlDataReader read = cmd.ExecuteReader())
+                        while (read.Read())
                         {
-                            IDDetailTransaksi = read.GetInt32("id"),
-                            IDTransaksi = read.GetInt32("id_transaksi"),
-                            IDTransaksiKamar = read.GetInt32("id_transaksi_kamar"),
-                            IDMakanan = read.GetInt32("id_makanan"),
-                            Qty = read.GetInt32("qty"),
-                            Harga = read.GetInt32("harga"),
-                            NamaMenu = read["makanan"].ToString()
-                        });
+                            int? idTransaksiKamar = Convert.IsDBNull(read["id_transaksi_kamar"]) ? (int?)null : read.GetInt32("id_transaksi_kamar");
+                            lTransaksi.Add(new Model.MMakananTransaksi()
+                            {
+                                IDDetailTransaksi = read.GetInt32("id"),
+                                IDTransaksi = read.GetInt32("id_transaksi"),
+                                IDTransaksiKamar = idTransaksiKamar,
+                                IDMakanan = read.GetInt32("id_makanan"),
+                                Qty = read.GetInt32("qty"),
+                                Harga = read.GetInt32("harga"),
+                                NamaMenu = read["makanan"].ToString()
+                            });
+                        }
+                }
+                catch (Exception msg) { System.Windows.Forms.MessageBox.Show(msg.ToString()); }
             }
 
             return lTransaksi;
         }
 
-        public static void ReadTransaction()
+        public static List<Model.MRestoranView> ReadTransaction()
         {
+            List<Model.MRestoranView> lRestoran = new List<Model.MRestoranView>();
 
+            using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
+            {
+                MySqlCommand cmd = new MySqlCommand("SELECT *, (SELECT kamar FROM kamar_transaksi AS KT WHERE RT.id_transaksi_kamar = KT.id) " +
+                    "AS nomor_kamar FROM restoran_transaksi AS RT WHERE aktif = 'Y'", con);
+                using (MySqlDataReader read = cmd.ExecuteReader())
+                {
+                    while (read.Read())
+                    {
+                        lRestoran.Add(new Model.MRestoranView()
+                        {
+                            Nominal = read.GetInt32("total"),
+                            NomorKamar = read["nomor_kamar"].ToString(),
+                            NomorMeja = read["meja"].ToString(),
+                            Waiter = read["waiter"].ToString(),
+                            OrderID = read.GetInt32("id")
+                        });
+                    }
+                }
+            }
+
+            return lRestoran;
         }
 
         public static void EditOrder(Model.MMakananTransaksi MTransaksi)
@@ -333,6 +367,20 @@ namespace PKMSMKN2.Database
                 cmd.Parameters.AddWithValue("@idTransaksi", TransaksiOrderID);
                 cmd.ExecuteNonQuery();
             }
+        }
+
+        public static bool ReadMeja(string NomorMeja)
+        {
+            bool terisi;
+
+            using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
+            {
+                MySqlCommand cmd = new MySqlCommand("SELECT COUNT(*) FROM restoran_transaksi WHERE meja = @meja AND aktif = 'Y'", con);
+                cmd.Parameters.AddWithValue("@meja", NomorMeja);
+                terisi = cmd.ExecuteScalar().ToString().Equals("0") ? false : true;
+            }
+
+            return terisi;
         }
         #endregion
     }

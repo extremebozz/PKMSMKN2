@@ -12,30 +12,40 @@ namespace PKMSMKN2.Restoran
 {
     public partial class Order : Form
     {
-        int idTransaksiKamar, idTransaksiOrder;
+        int idTransaksiKamar, idTransaksiOrder, idOrder;
         string nomorMeja;
         bool orderanBaru = true;
 
         RMain main;
 
-        public Order(RMain Main, int IDTransaksiKamar, string NomorMeja)
+        public Order(RMain Main, string NomorMeja, int OrderID = 0)
         {
             InitializeComponent();
-            idTransaksiKamar = IDTransaksiKamar;
+            idOrder = OrderID;
             main = Main;
             nomorMeja = NomorMeja;
             AmbilData();
             this.Text = "Nomor Meja : " + NomorMeja;
+            lMeja.Text = ": " + NomorMeja;
         }
 
-        public void AmbilData()
+        public void AmbilData(int OrderID = 0)
         {
+            if (OrderID != 0)
+                idOrder = OrderID;
+
+            dgvOrderList.Columns.Clear();
+
             //Ambil data Makanan_transaksi berdasarkan Id_Transaksi
             BindingSource bsTransaksi = new BindingSource();
-            List<Model.MMakananTransaksi> lTransaksi = Database.DRestoran.ReadDetailTransaksi(idTransaksiKamar);
+            List<Model.MMakananTransaksi> lTransaksi = Database.DRestoran.ReadDetailTransaksi(idOrder);
 
             if (lTransaksi.Count == 0)
             {
+                lTotal.Text = ": 0";
+
+                dgvOrderList.Columns.Clear();
+
                 dgvOrderList.Columns.Add("", "");
                 dgvOrderList.Rows.Add("Tidak Ada Orderan!");
                 orderanBaru = false;
@@ -53,8 +63,11 @@ namespace PKMSMKN2.Restoran
             dgvOrderList.Columns["IDTransaksiKamar"].Visible = false;
             dgvOrderList.Columns["IDMakanan"].Visible = false;
             dgvOrderList.Columns["harga"].DefaultCellStyle.Format = "#,##0";
+            dgvOrderList.Columns["total"].DefaultCellStyle.Format = "#,##0";
 
-            lTotal.Text = string.Format("{0:#,##0}", ": " + lTransaksi.Sum(transaksi => transaksi.Harga * transaksi.Qty));
+            int test = lTransaksi.Sum(transaksi => transaksi.Total);
+
+            lTotal.Text = ": " + string.Format("{0:#,##0}", lTransaksi.Sum(transaksi => transaksi.Total));
         }
 
         private void Order_FormClosing(object sender, FormClosingEventArgs e)
@@ -66,7 +79,7 @@ namespace PKMSMKN2.Restoran
         {
             try
             {
-                OrderMenu oMenu = new OrderMenu(this, idTransaksiKamar, nomorMeja, idTransaksiOrder);
+                OrderMenu oMenu = new OrderMenu(this, idTransaksiKamar, nomorMeja, idOrder);
                 oMenu.ShowDialog();
             }
             catch { }
@@ -77,7 +90,7 @@ namespace PKMSMKN2.Restoran
             int index = Convert.ToInt32(dgvOrderList.CurrentCell.RowIndex),
                 idDetailTransaksi = Convert.ToInt32(dgvOrderList.Rows[index].Cells["IDDetailTransaksi"].Value);
 
-            OrderMenu oMenu = new OrderMenu(this, idTransaksiKamar, idTransaksiOrder, idDetailTransaksi);
+            OrderMenu oMenu = new OrderMenu(this, idTransaksiKamar, idOrder, idDetailTransaksi);
             oMenu.ShowDialog();
         }
 

@@ -39,42 +39,51 @@ namespace PKMSMKN2.Restoran
         public void AmbilData()
         {
             //Ambil data kamar yang telah checkin
-            BindingSource bsKamar = new BindingSource();
-            List<Model.MRoom> lKamar = Database.DKamar.ReadRoom();
+            //BindingSource bsKamar = new BindingSource();
+            //List<Model.MRoom> lKamar = Database.DKamar.ReadRoom();
 
-            bsKamar.DataSource = lKamar;
-            dgvKamar.DataSource = bsKamar;
+            //bsKamar.DataSource = lKamar;
+            //dgvKamar.DataSource = bsKamar;
 
-            dgvKamar.Columns["ID"].Visible = false;
-            dgvKamar.Columns["JenisKamar"].Visible = false;
-            dgvKamar.Columns["IDJenisKamar"].Visible = false;
-            dgvKamar.Columns["HargaKamar"].Visible = false;
-            dgvKamar.Columns["Ketersediaan"].Visible = false;
-            dgvKamar.Columns["CheckOut"].Visible = false;
-            dgvKamar.Columns["IDTransaksi"].Visible = false;
+            //dgvKamar.Columns["ID"].Visible = false;
+            //dgvKamar.Columns["JenisKamar"].Visible = false;
+            //dgvKamar.Columns["IDJenisKamar"].Visible = false;
+            //dgvKamar.Columns["HargaKamar"].Visible = false;
+            //dgvKamar.Columns["Ketersediaan"].Visible = false;
+            //dgvKamar.Columns["CheckOut"].Visible = false;
+            //dgvKamar.Columns["IDTransaksi"].Visible = false;
+
+            BindingSource bsRestoran = new BindingSource();
+            List<Model.MRestoranView> lRestoran = Database.DRestoran.ReadTransaction();
+
+            bsRestoran.DataSource = lRestoran;
+            dgvKamar.DataSource = bsRestoran;
+
+            dgvKamar.Columns["OrderID"].Visible = false;
+            dgvKamar.Columns["Nominal"].DefaultCellStyle.Format = "#,##0";
         }
 
         private void dgvKamar_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            //Ambil index
-            int index = dgvKamar.CurrentCell.RowIndex;
-            int idTransaksi = Convert.ToInt32(dgvKamar.Rows[index].Cells["IDTransaksi"].Value);
-            int nomorKamar = Convert.ToInt32(dgvKamar.Rows[index].Cells["NomorKamar"].Value);
+            ////Ambil index
+            //int index = dgvKamar.CurrentCell.RowIndex;
+            //int idTransaksi = Convert.ToInt32(dgvKamar.Rows[index].Cells["IDTransaksi"].Value);
+            //string nomorMeja = dgvKamar.Rows[index].Cells["NomorMeja"].Value.ToString();
 
-            //Check apakah kamar telah check in
-            if (!((DateTime?)dgvKamar.Rows[index].Cells["CheckIn"].Value).HasValue ? true : false)
-            {
-                MessageBox.Show("Kamar Ini Belum CheckIn!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            ////Check apakah kamar telah check in
+            //if (!((DateTime?)dgvKamar.Rows[index].Cells["CheckIn"].Value).HasValue ? true : false)
+            //{
+            //    MessageBox.Show("Kamar Ini Belum CheckIn!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
 
-            //Show form order
-            try
-            {
-                Order order = new Order(this, idTransaksi, "0");
-                order.ShowDialog();
-            }
-            catch { }
+            ////Show form order
+            //try
+            //{
+            //    Order order = new Order(this, "0", idTransaksi);
+            //    order.ShowDialog();
+            //}
+            //catch { }
         }
 
         private void RMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -93,23 +102,16 @@ namespace PKMSMKN2.Restoran
         {
             //Ambil index
             int index = dgvKamar.CurrentCell.RowIndex;
-            int idTransaksi = Convert.ToInt32(dgvKamar.Rows[index].Cells["IDTransaksi"].Value);
-            int nomorKamar = Convert.ToInt32(dgvKamar.Rows[index].Cells["NomorKamar"].Value);
-
-            //Check apakah kamar telah check in
-            if (!((DateTime?)dgvKamar.Rows[index].Cells["CheckIn"].Value).HasValue ? true : false)
-            {
-                MessageBox.Show("Kamar Ini Belum CheckIn!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            int idOrder = Convert.ToInt32(dgvKamar.Rows[index].Cells["OrderID"].Value);
+            string nomorMeja = dgvKamar.Rows[index].Cells["NomorMeja"].Value.ToString();
 
             //Show form order
             try
             {
-                Order order = new Order(this, idTransaksi, "0");
+                Order order = new Order(this, nomorMeja, idOrder);
                 order.ShowDialog();
             }
-            catch { }
+            catch (Exception msg) { MessageBox.Show(msg.ToString()); }
         }
 
         private void bAddOrder_Click(object sender, EventArgs e)
@@ -117,16 +119,19 @@ namespace PKMSMKN2.Restoran
             string nomorMeja;
             object inputBox = Interaction.InputBox("Masukan Nomor Meja Order", "Tambah Order");
 
-            int index = dgvKamar.CurrentCell.RowIndex;
-            int idTransaksi = Convert.ToInt32(dgvKamar.Rows[index].Cells["IDTransaksi"].Value);
-            int nomorKamar = Convert.ToInt32(dgvKamar.Rows[index].Cells["NomorKamar"].Value);
-
             if (inputBox.ToString() != "")
             {
                 nomorMeja = inputBox.ToString();
 
-                Order oMenu = new Order(this, idTransaksi, nomorMeja);
-                oMenu.ShowDialog();
+                if (!Database.DRestoran.ReadMeja(nomorMeja))
+                {
+                    Order oMenu = new Order(this, nomorMeja);
+                    oMenu.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Silakan Masukan Nomor Meja Yang Lain!", "Nomor Meja Telah Terisi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
     }
