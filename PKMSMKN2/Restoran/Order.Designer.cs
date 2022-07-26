@@ -175,6 +175,7 @@
             this.bLinkKamar.TabIndex = 12;
             this.bLinkKamar.Text = "Link Kamar";
             this.bLinkKamar.UseVisualStyleBackColor = true;
+            this.bLinkKamar.Click += new System.EventHandler(this.bLinkKamar_Click);
             // 
             // lKamar
             // 

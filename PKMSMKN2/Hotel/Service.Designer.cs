@@ -74,7 +74,9 @@
             this.Controls.Add(this.bCallService);
             this.Controls.Add(this.bExtraBed);
             this.Controls.Add(this.bClose);
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(240, 224);
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(240, 224);
             this.Name = "Service";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

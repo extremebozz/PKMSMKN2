@@ -491,10 +491,13 @@ namespace PKMSMKN2.Database
             catch { throw; }
         }
 
-        public static void UpdateExtraBed(int IDTransaksi, int ExtraBed)
+        public static void UpdateExtraBed(int IDTransaksi, int ExtraBed, int OldExtraBed)
         {
             try
             {
+                string operasi = ExtraBed - OldExtraBed <= 0 ? "Kurang " : "Tambah ";
+                string catatanService = operasi + Math.Abs(ExtraBed - OldExtraBed) + " Extra Bed";
+
                 using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
                 {
                     MySqlCommand cmd = new MySqlCommand("UPDATE kamar_transaksi SET extra_bed = @bed WHERE id = @id", con);
@@ -504,7 +507,7 @@ namespace PKMSMKN2.Database
                 }
 
                 Model.MRoomTransaksi mKamar = ReadTransactionByID(IDTransaksi);
-                DService.CreateService(Convert.ToInt32(mKamar.NomorKamar), "Add Extra Bed " + ExtraBed.ToString());
+                DService.CreateService(Convert.ToInt32(mKamar.NomorKamar), catatanService);
             }
             catch { throw; }
         }

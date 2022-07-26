@@ -75,5 +75,21 @@ namespace PKMSMKN2.Services
             CetakReport cReport = new CetakReport();
             cReport.ShowDialog();
         }
+
+        private void bService_Click(object sender, EventArgs e)
+        {
+            int rowIndex = dgvService.CurrentCell.RowIndex,
+                idService = Convert.ToInt32(dgvService.Rows[rowIndex].Cells["ServiceID"].Value),
+                nomorKamar = Convert.ToInt32(dgvService.Rows[rowIndex].Cells["NomorKamar"].Value);
+
+            if (!((DateTime?)dgvService.Rows[rowIndex].Cells["CheckIn"].Value).HasValue ? true : false)
+            {
+                MessageBox.Show("Kamar Ini Belum Check In!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            ServiceMenu sMenu = new ServiceMenu(this, idService, nomorKamar);
+            sMenu.ShowDialog();
+        }
     }
 }

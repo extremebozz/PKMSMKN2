@@ -94,6 +94,11 @@ namespace PKMSMKN2.Restoran
             oMenu.ShowDialog();
         }
 
+        private void bLinkKamar_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void bDelete_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Apakah Anda Yakin Ingin Menghapus Orderan Ini?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

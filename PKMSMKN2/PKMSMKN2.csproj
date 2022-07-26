@@ -232,6 +232,12 @@
     <Compile Include="Restoran\CetakReport.Designer.cs">
       <DependentUpon>CetakReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Restoran\LinkRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Restoran\LinkRoom.Designer.cs">
+      <DependentUpon>LinkRoom.cs</DependentUpon>
+    </Compile>
     <Compile Include="Restoran\Order.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -330,6 +336,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Restoran\CetakReport.resx">
       <DependentUpon>CetakReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Restoran\LinkRoom.resx">
+      <DependentUpon>LinkRoom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Restoran\Order.resx">
       <DependentUpon>Order.cs</DependentUpon>

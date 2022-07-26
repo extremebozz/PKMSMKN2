@@ -13,7 +13,7 @@ namespace PKMSMKN2.Hotel
 {
     public partial class AddExtraBed : Form
     {
-        int idTransaksi = 0;
+        int idTransaksi = 0, extraBed = 0;
 
         public AddExtraBed(int idTransaksi)
         {
@@ -25,22 +25,28 @@ namespace PKMSMKN2.Hotel
         private void AmbilData(int IDTransaksi)
         {
             nExtraBed.Value = Database.DKamar.ReadExtraBed(IDTransaksi);
+            extraBed = Convert.ToInt32(nExtraBed.Value);
         }
 
         private void bSimpan_Click(object sender, EventArgs e)
         {
-            int extraBed = Convert.ToInt32(nExtraBed.Value);
+            int newExtraBed = Convert.ToInt32(nExtraBed.Value);
 
-            try
+            if (!(newExtraBed - extraBed).Equals(0))
             {
-                Database.DKamar.UpdateExtraBed(idTransaksi, extraBed);
-                MessageBox.Show("Data Berhasil Disimpan!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                try
+                {
+                    Database.DKamar.UpdateExtraBed(idTransaksi, newExtraBed, extraBed);
+                }
+                catch (MySqlException msg)
+                {
+                    MessageBox.Show(msg.ToString(), "Data Gagal Tersimpan!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
             }
-            catch (MySqlException msg) 
-            {
-                MessageBox.Show(msg.ToString(), "Data Gagal Tersimpan!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+
+            MessageBox.Show("Data Berhasil Disimpan!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
         }
     }
 }
