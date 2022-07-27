@@ -79,7 +79,7 @@ namespace PKMSMKN2.Database
                     {
                         while (read.Read())
                         {
-                            string billTo = read.GetInt32("id_transaksi_kamar").Equals(null) ? "Bayar Lansung" : "Kamar " + read["nomor_kamar"].ToString();
+                            string billTo = Convert.IsDBNull(read["id_transaksi_kamar"]) ? "Bayar Lansung" : "Kamar " + read["nomor_kamar"].ToString();
 
                             rRestoran.Add(new Model.MReportRestoran()
                             {
