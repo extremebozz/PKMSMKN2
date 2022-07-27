@@ -156,6 +156,12 @@
     <Compile Include="Hotel\CetakFaktur.Designer.cs">
       <DependentUpon>CetakFaktur.cs</DependentUpon>
     </Compile>
+    <Compile Include="Hotel\CetakReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hotel\CetakReport.Designer.cs">
+      <DependentUpon>CetakReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Hotel\CheckKamar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +204,7 @@
     <Compile Include="Model\MMakanan.cs" />
     <Compile Include="Model\MMakananTransaksi.cs" />
     <Compile Include="Model\Model_User.cs" />
+    <Compile Include="Model\MReportHotel.cs" />
     <Compile Include="Model\MReportInformasi.cs" />
     <Compile Include="Model\MReportService.cs" />
     <Compile Include="Model\MRestoranView.cs" />
@@ -293,6 +300,9 @@
     <EmbeddedResource Include="Hotel\CetakFaktur.resx">
       <DependentUpon>CetakFaktur.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Hotel\CetakReport.resx">
+      <DependentUpon>CetakReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Hotel\CheckKamar.resx">
       <DependentUpon>CheckKamar.cs</DependentUpon>
     </EmbeddedResource>
@@ -362,6 +372,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\PKMSMKN2.Model.MInformasi.datasource" />
     <None Include="Properties\DataSources\PKMSMKN2.Model.MMakananTransaksi.datasource" />
+    <None Include="Properties\DataSources\PKMSMKN2.Model.MReportHotel.datasource" />
     <None Include="Properties\DataSources\PKMSMKN2.Model.MReportInformasi.datasource" />
     <None Include="Properties\DataSources\PKMSMKN2.Model.MReportService.datasource" />
     <None Include="Properties\DataSources\PKMSMKN2.Model.MRoomTransaksi.datasource" />
