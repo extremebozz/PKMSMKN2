@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `kamar_transaksi` (
   PRIMARY KEY (`id`),
   KEY `FK_kamar_transaksi_datakamar` (`kamar`),
   CONSTRAINT `FK_kamar_transaksi_datakamar` FOREIGN KEY (`kamar`) REFERENCES `kamar_data` (`nomor_kamar`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 
 -- Data exporting was unselected.
 
@@ -101,7 +101,7 @@ DELIMITER //
 CREATE PROCEDURE `pTampilKamar`()
 BEGIN
 
-SELECT KD.id, nomor_kamar, jenis_kamar AS id_jenis_kamar, KJ.jenis AS jenis_kamar, KJ.harga AS harga_kamar, ketersediaan, tanggal_in, tanggal_out, check_in, check_out, id_transaksi, (SELECT id FROM restoran_transaksi AS RT WHERE id_transaksi_kamar = KT.id) AS pesanan, KT.nama AS nama
+SELECT KD.id, nomor_kamar, jenis_kamar AS id_jenis_kamar, KJ.jenis AS jenis_kamar, KJ.harga AS harga_kamar, ketersediaan, tanggal_in, tanggal_out, check_in, check_out, id_transaksi, (SELECT id FROM restoran_transaksi AS RT WHERE id_transaksi_kamar = KT.id LIMIT 1) AS pesanan, KT.nama AS nama
 FROM kamar_data AS KD LEFT JOIN kamar_jenis AS KJ ON KJ.id = KD.jenis_kamar LEFT JOIN kamar_transaksi AS KT ON KD.id_transaksi = KT.id
 ORDER BY jenis_kamar DESC, nomor_kamar ASC;
 
@@ -123,6 +123,21 @@ ORDER BY jenis_kamar;
 END//
 DELIMITER ;
 
+-- Dumping structure for procedure hotel_smkn2.pTampilReportHotel
+DELIMITER //
+CREATE PROCEDURE `pTampilReportHotel`(
+	IN `Tanggal_Awal` DATE,
+	IN `Tanggal_Akhir` DATE
+)
+BEGIN
+
+SELECT *, (SELECT id FROM restoran_transaksi AS RT WHERE id_transaksi_kamar = KT.id) AS pesanan 
+FROM kamar_transaksi AS KT LEFT JOIN kamar_data AS KD ON KT.kamar = kd.nomor_kamar LEFT JOIN kamar_jenis AS KJ ON KD.jenis_kamar = KJ.id 
+WHERE check_in BETWEEN Tanggal_Awal AND Tanggal_Akhir AND check_in IS NOT NULL AND check_out IS NOT NULL;
+
+END//
+DELIMITER ;
+
 -- Dumping structure for procedure hotel_smkn2.pTampilService
 DELIMITER //
 CREATE PROCEDURE `pTampilService`()
@@ -140,7 +155,9 @@ DELIMITER //
 CREATE PROCEDURE `pTampilTransaksiHotel`()
 BEGIN
 
-SELECT *, (SELECT id FROM restoran_transaksi AS RT WHERE id_transaksi_kamar = KT.id) AS pesanan FROM kamar_transaksi AS KT LEFT JOIN kamar_data AS KD ON KT.kamar = kd.nomor_kamar LEFT JOIN kamar_jenis AS KJ ON KD.jenis_kamar = KJ.id WHERE check_out IS NOT NULL;
+SELECT *, (SELECT id FROM restoran_transaksi AS RT WHERE id_transaksi_kamar = KT.id) AS pesanan 
+FROM kamar_transaksi AS KT LEFT JOIN kamar_data AS KD ON KT.kamar = kd.nomor_kamar LEFT JOIN kamar_jenis AS KJ ON KD.jenis_kamar = KJ.id 
+WHERE check_in IS NOT NULL AND check_out IS NOT NULL;
 
 END//
 DELIMITER ;
@@ -158,21 +175,23 @@ CREATE TABLE IF NOT EXISTS `restoran_detail` (
   KEY `FK_makanan` (`id_makanan`),
   CONSTRAINT `FK_makanan` FOREIGN KEY (`id_makanan`) REFERENCES `menu_data` (`id`) ON DELETE SET NULL,
   CONSTRAINT `FK_transaksi` FOREIGN KEY (`id_transaksi`) REFERENCES `restoran_transaksi` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 
 -- Data exporting was unselected.
 
 -- Dumping structure for table hotel_smkn2.restoran_transaksi
 CREATE TABLE IF NOT EXISTS `restoran_transaksi` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `id_transaksi_kamar` int(10) unsigned NOT NULL,
+  `id_transaksi_kamar` int(10) unsigned DEFAULT NULL,
   `tanggal` date NOT NULL,
+  `meja` varchar(255) NOT NULL,
   `total` int(11) NOT NULL DEFAULT 0,
+  `aktif` enum('Y','N') NOT NULL DEFAULT 'Y',
   `waiter` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_transaksi_kamar` (`id_transaksi_kamar`),
   CONSTRAINT `FK_transaksi_kamar` FOREIGN KEY (`id_transaksi_kamar`) REFERENCES `kamar_transaksi` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 -- Data exporting was unselected.
 
