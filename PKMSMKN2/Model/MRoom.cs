@@ -42,6 +42,7 @@ namespace PKMSMKN2.Model
         public DateTime? TanggalIn { set; get; }
         [DisplayName("Tanggal Keluar")]
         public DateTime? TanggalOut { set; get; }
+        public int Hari { get; set; }
         [DisplayName("Check In")]
         public DateTime? CheckIn { set; get; }
         public DateTime? CheckOut { set; get; }

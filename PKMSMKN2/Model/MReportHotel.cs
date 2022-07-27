@@ -11,6 +11,7 @@ namespace PKMSMKN2.Model
         public DateTime TanggalMasuk { get; set; }
         public DateTime TanggalKeluar { get; set; }
         public string NomorKamar { get; set; }
+        public string JenisKamar { get; set; }
         public int ExtraBed { get; set; }
         public int Hari { get; set; }
         public int Rate { get; set; }

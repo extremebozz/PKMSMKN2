@@ -206,6 +206,7 @@
     <Compile Include="Model\Model_User.cs" />
     <Compile Include="Model\MReportHotel.cs" />
     <Compile Include="Model\MReportInformasi.cs" />
+    <Compile Include="Model\MReportRestoran.cs" />
     <Compile Include="Model\MReportService.cs" />
     <Compile Include="Model\MRestoranView.cs" />
     <Compile Include="Model\MRoom.cs" />
@@ -374,6 +375,7 @@
     <None Include="Properties\DataSources\PKMSMKN2.Model.MMakananTransaksi.datasource" />
     <None Include="Properties\DataSources\PKMSMKN2.Model.MReportHotel.datasource" />
     <None Include="Properties\DataSources\PKMSMKN2.Model.MReportInformasi.datasource" />
+    <None Include="Properties\DataSources\PKMSMKN2.Model.MReportRestoran.datasource" />
     <None Include="Properties\DataSources\PKMSMKN2.Model.MReportService.datasource" />
     <None Include="Properties\DataSources\PKMSMKN2.Model.MRoomTransaksi.datasource" />
     <None Include="Properties\Settings.settings">

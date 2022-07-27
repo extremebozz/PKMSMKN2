@@ -46,6 +46,7 @@
             this.bRoomService = new System.Windows.Forms.Button();
             this.tpJenisKamar = new System.Windows.Forms.TabPage();
             this.dgvTransaksi = new System.Windows.Forms.DataGridView();
+            this.bReport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKamar)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tpKamar.SuspendLayout();
@@ -183,11 +184,12 @@
             // 
             // tpJenisKamar
             // 
+            this.tpJenisKamar.Controls.Add(this.bReport);
             this.tpJenisKamar.Controls.Add(this.dgvTransaksi);
             this.tpJenisKamar.Location = new System.Drawing.Point(4, 34);
             this.tpJenisKamar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tpJenisKamar.Name = "tpJenisKamar";
-            this.tpJenisKamar.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.tpJenisKamar.Padding = new System.Windows.Forms.Padding(8);
             this.tpJenisKamar.Size = new System.Drawing.Size(1318, 825);
             this.tpJenisKamar.TabIndex = 1;
             this.tpJenisKamar.Text = "Riwayat Transaksi";
@@ -199,6 +201,9 @@
             this.dgvTransaksi.AllowUserToDeleteRows = false;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.Gainsboro;
             this.dgvTransaksi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvTransaksi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvTransaksi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
@@ -217,16 +222,26 @@
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvTransaksi.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dgvTransaksi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvTransaksi.Location = new System.Drawing.Point(8, 8);
+            this.dgvTransaksi.Location = new System.Drawing.Point(8, 96);
             this.dgvTransaksi.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvTransaksi.Name = "dgvTransaksi";
             this.dgvTransaksi.RowHeadersVisible = false;
             this.dgvTransaksi.RowHeadersWidth = 62;
             this.dgvTransaksi.RowTemplate.Height = 40;
             this.dgvTransaksi.RowTemplate.ReadOnly = true;
-            this.dgvTransaksi.Size = new System.Drawing.Size(1302, 809);
+            this.dgvTransaksi.Size = new System.Drawing.Size(1302, 721);
             this.dgvTransaksi.TabIndex = 0;
+            // 
+            // bReport
+            // 
+            this.bReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bReport.Location = new System.Drawing.Point(1082, 11);
+            this.bReport.Name = "bReport";
+            this.bReport.Size = new System.Drawing.Size(225, 77);
+            this.bReport.TabIndex = 1;
+            this.bReport.Text = "Cetak Report";
+            this.bReport.UseVisualStyleBackColor = true;
+            this.bReport.Click += new System.EventHandler(this.bReport_Click);
             // 
             // Main
             // 
@@ -259,5 +274,6 @@
         private System.Windows.Forms.Button bRoomService;
         private System.Windows.Forms.DataGridView dgvTransaksi;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button bReport;
     }
 }

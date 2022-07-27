@@ -53,7 +53,8 @@ namespace PKMSMKN2.Database
                                 IDTransaksi = idTransaksi,
                                 Pesanan = pesanan,
                                 NamaPemesan = read["nama"].ToString(),
-                                Nominal = read.GetInt32("nominal")
+                                Nominal = read.GetInt32("nominal"),
+                                Hari = read.GetInt32("hari")
                             });
 
                             nomorList++;

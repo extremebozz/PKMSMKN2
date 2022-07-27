@@ -61,7 +61,7 @@ namespace PKMSMKN2.Hotel
 
             //Buat Transaksi
             BindingSource bsTransaksi = new BindingSource();
-            List<Model.MRoom> lTransaksi = new List<Model.MRoom>();//Database.DKamar.ReadTransaksiRoom();
+            List<Model.MRoom> lTransaksi = Database.DKamar.ReadTransaksiRoom(); //new List<Model.MRoom>();
 
             bsTransaksi.DataSource = lTransaksi;
             dgvTransaksi.DataSource = bsTransaksi;
@@ -74,7 +74,7 @@ namespace PKMSMKN2.Hotel
             dgvTransaksi.Columns["Nomor"].FillWeight = 50;
             dgvTransaksi.Columns["NomorKamar"].FillWeight = 50;
             dgvTransaksi.Columns["Pesanan"].FillWeight = 55;
-            dgvTransaksi.Columns["Ketersediaan"].FillWeight = 75;
+            dgvTransaksi.Columns["Hari"].FillWeight = 50;
             dgvTransaksi.Columns["HargaKamar"].DefaultCellStyle.Format = "#,##0";
             dgvTransaksi.Columns["Nominal"].DefaultCellStyle.Format = "#,##0";
             dgvTransaksi.Columns["TanggalIn"].DefaultCellStyle.Format = "dd MMMM yyyy";
@@ -173,6 +173,12 @@ namespace PKMSMKN2.Hotel
 
             CetakFaktur cFatkur = new CetakFaktur(idTransaksi);
             cFatkur.ShowDialog();
+        }
+
+        private void bReport_Click(object sender, EventArgs e)
+        {
+            CetakReport cReport = new CetakReport();
+            cReport.ShowDialog();
         }
     }
 }

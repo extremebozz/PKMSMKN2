@@ -12,7 +12,8 @@ namespace PKMSMKN2.Restoran
 {
     public partial class CetakReport : Form
     {
-        List<Model.MReportService> lService = new List<Model.MReportService>();
+        List<Model.MReportRestoran> lRestoran = new List<Model.MReportRestoran>();
+        Model.MReportInformasi mInformasi = new Model.MReportInformasi();
 
         public CetakReport()
         {
@@ -21,18 +22,29 @@ namespace PKMSMKN2.Restoran
 
         private void bCetak_Click(object sender, EventArgs e)
         {
+            AmbilData();
+        }
+
+        private void AmbilData()
+        {
             DateTime dtAwal = dtpAwal.Value,
                 dtAkhir = dtpAkhir.Value;
             DateTime pAwal = new DateTime(dtAwal.Year, dtAwal.Month, dtAwal.Day),
                 pAkhir = new DateTime(dtAkhir.Year, dtAkhir.Month, dtAkhir.Day, 23, 59, 59);
 
-            lService = Database.DReport.ReportService(pAwal, pAkhir);
+            mInformasi.TanggalAwal = pAwal;
+            mInformasi.TanggalAkhir = pAkhir;
+
+            lRestoran = Database.DReport.ReportRestoran(pAwal, pAkhir);
+
+            this.MReportInformasiBindingSource.DataSource = mInformasi;
+            this.MReportRestoranBindingSource.DataSource = lRestoran;
+            this.rRestoran.RefreshReport();
         }
 
         private void CetakReport_Load(object sender, EventArgs e)
         {
-
-            this.rRestoran.RefreshReport();
+            AmbilData();
         }
     }
 }

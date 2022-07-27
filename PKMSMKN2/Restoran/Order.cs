@@ -17,6 +17,7 @@ namespace PKMSMKN2.Restoran
         bool orderanBaru = true;
 
         RMain main;
+        List<Model.MMakananTransaksi> lTransaksi;
 
         public Order(RMain Main, string NomorMeja, int OrderID = 0)
         {
@@ -38,11 +39,12 @@ namespace PKMSMKN2.Restoran
 
             //Ambil data Makanan_transaksi berdasarkan Id_Transaksi
             BindingSource bsTransaksi = new BindingSource();
-            List<Model.MMakananTransaksi> lTransaksi = Database.DRestoran.ReadDetailTransaksi(idOrder);
+            lTransaksi = Database.DRestoran.ReadDetailTransaksi(idOrder);
 
             if (lTransaksi.Count == 0)
             {
                 lTotal.Text = ": 0";
+                lKamar.Text = "";
 
                 dgvOrderList.Columns.Clear();
 
@@ -53,7 +55,10 @@ namespace PKMSMKN2.Restoran
             }
 
             if (lTransaksi[0].IDTransaksi != 0)
+            {
                 idTransaksiOrder = lTransaksi[0].IDTransaksi;
+                lKamar.Text = lTransaksi[0].NomorKamar;
+            }
 
             bsTransaksi.DataSource = lTransaksi;
             dgvOrderList.DataSource = bsTransaksi;
@@ -95,6 +100,22 @@ namespace PKMSMKN2.Restoran
         }
 
         private void bLinkKamar_Click(object sender, EventArgs e)
+        {
+            if (lTransaksi.Count.Equals(0))
+            {
+                MessageBox.Show("Tambahkan orderan terlebih dahulu!");
+                return;
+            }
+
+            try
+            {
+                LinkRoom lRoom = new LinkRoom(this, idOrder);
+                lRoom.ShowDialog();
+            }
+            catch { }
+        }
+
+        private void bPembayaran_Click(object sender, EventArgs e)
         {
 
         }

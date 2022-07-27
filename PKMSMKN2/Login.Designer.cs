@@ -31,16 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.pLogo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pLogin = new System.Windows.Forms.Panel();
             this.bLogin = new System.Windows.Forms.Button();
             this.tUsername = new System.Windows.Forms.TextBox();
             this.tPassword = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pLogo.SuspendLayout();
-            this.pLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pLogin.SuspendLayout();
             this.SuspendLayout();
             // 
             // pLogo
@@ -52,7 +52,7 @@
             this.pLogo.Location = new System.Drawing.Point(0, 0);
             this.pLogo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pLogo.Name = "pLogo";
-            this.pLogo.Size = new System.Drawing.Size(375, 452);
+            this.pLogo.Size = new System.Drawing.Size(375, 443);
             this.pLogo.TabIndex = 0;
             // 
             // label1
@@ -68,6 +68,17 @@
             this.label1.Text = "Selamat Datang Di \r\nAplikasi Hotel SMKN 2 Batam";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Image = global::PKMSMKN2.Properties.Resources.SMKN_2_BATAM_LOGO_OK;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(375, 278);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // pLogin
             // 
             this.pLogin.BackColor = System.Drawing.Color.White;
@@ -80,7 +91,7 @@
             this.pLogin.Location = new System.Drawing.Point(375, 0);
             this.pLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pLogin.Name = "pLogin";
-            this.pLogin.Size = new System.Drawing.Size(567, 452);
+            this.pLogin.Size = new System.Drawing.Size(564, 443);
             this.pLogin.TabIndex = 1;
             // 
             // bLogin
@@ -88,10 +99,10 @@
             this.bLogin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.bLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bLogin.Location = new System.Drawing.Point(126, 329);
+            this.bLogin.Location = new System.Drawing.Point(126, 320);
             this.bLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bLogin.Name = "bLogin";
-            this.bLogin.Size = new System.Drawing.Size(319, 46);
+            this.bLogin.Size = new System.Drawing.Size(317, 46);
             this.bLogin.TabIndex = 4;
             this.bLogin.Text = "Login";
             this.bLogin.UseVisualStyleBackColor = true;
@@ -106,7 +117,7 @@
             this.tUsername.Location = new System.Drawing.Point(76, 128);
             this.tUsername.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tUsername.Name = "tUsername";
-            this.tUsername.Size = new System.Drawing.Size(417, 35);
+            this.tUsername.Size = new System.Drawing.Size(413, 35);
             this.tUsername.TabIndex = 2;
             // 
             // tPassword
@@ -119,7 +130,7 @@
             this.tPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tPassword.Name = "tPassword";
             this.tPassword.PasswordChar = '*';
-            this.tPassword.Size = new System.Drawing.Size(417, 35);
+            this.tPassword.Size = new System.Drawing.Size(413, 35);
             this.tPassword.TabIndex = 3;
             // 
             // label3
@@ -150,38 +161,27 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Username";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = global::PKMSMKN2.Properties.Resources.SMKN_2_BATAM_LOGO_OK;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(375, 278);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // Login
             // 
             this.AcceptButton = this.bLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(942, 452);
+            this.ClientSize = new System.Drawing.Size(939, 443);
             this.Controls.Add(this.pLogin);
             this.Controls.Add(this.pLogo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(964, 508);
+            this.MaximumSize = new System.Drawing.Size(961, 499);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(964, 508);
+            this.MinimumSize = new System.Drawing.Size(961, 499);
             this.Name = "Login";
             this.Text = "Login";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Login_FormClosed_1);
             this.pLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pLogin.ResumeLayout(false);
             this.pLogin.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

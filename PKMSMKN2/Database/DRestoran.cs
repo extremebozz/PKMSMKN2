@@ -278,7 +278,7 @@ namespace PKMSMKN2.Database
 
             using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
             {
-                MySqlCommand cmd = new MySqlCommand("SELECT *, (SELECT id_transaksi_kamar FROM restoran_transaksi WHERE id = @id) AS nomor_kamar, " +
+                MySqlCommand cmd = new MySqlCommand("SELECT *, (SELECT kamar FROM kamar_transaksi WHERE id = RD.id_transaksi_kamar) AS nomor_kamar, " +
                     "(SELECT nama FROM menu_data WHERE id = id_makanan) AS makanan FROM restoran_detail JOIN restoran_transaksi AS RD ON " +
                     "id_transaksi = RD.id WHERE id_transaksi = @id", con);
                 cmd.Parameters.AddWithValue("@id", IDOrder);
@@ -297,7 +297,8 @@ namespace PKMSMKN2.Database
                                 IDMakanan = read.GetInt32("id_makanan"),
                                 Qty = read.GetInt32("qty"),
                                 Harga = read.GetInt32("harga"),
-                                NamaMenu = read["makanan"].ToString()
+                                NamaMenu = read["makanan"].ToString(),
+                                NomorKamar = read["nomor_kamar"].ToString()
                             });
                         }
                 }
@@ -381,6 +382,43 @@ namespace PKMSMKN2.Database
             }
 
             return terisi;
+        }
+        #endregion
+
+        #region Link Kamar
+        public static List<Model.MRoom> ReadCheckedRoom()
+        {
+            List<Model.MRoom> lRoom = new List<Model.MRoom>();
+
+            using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
+            {
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM kamar_transaksi AS KT WHERE check_in IS NOT NULL AND check_out IS NULL AND NOT EXISTS (SELECT * FROM restoran_transaksi AS RT WHERE RT.id_transaksi_kamar = KT.id)", con);
+                using (MySqlDataReader read = cmd.ExecuteReader())
+                {
+                    while (read.Read())
+                    {
+                        lRoom.Add(new Model.MRoom()
+                        {
+                            NomorKamar = read["kamar"].ToString(),
+                            NamaPemesan = read["nama"].ToString(),
+                            IDTransaksi = read.GetInt32("id")
+                        });
+                    }
+                }
+            }
+
+            return lRoom;
+        }
+
+        public static void LinkRoomToOrder(int OrderID, int RoomTrasactionID)
+        {
+            using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
+            {
+                MySqlCommand cmd = new MySqlCommand("UPDATE restoran_transaksi SET id_transaksi_kamar = @roomid WHERE id = @id", con);
+                cmd.Parameters.AddWithValue("@roomid", RoomTrasactionID);
+                cmd.Parameters.AddWithValue("@id", OrderID);
+                cmd.ExecuteNonQuery();
+            }
         }
         #endregion
     }

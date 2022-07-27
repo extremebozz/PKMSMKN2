@@ -24,5 +24,6 @@ namespace PKMSMKN2.Model
                 return Qty * Harga;
             }
         }
+        public string NomorKamar { get; set; }
     }
 }

@@ -136,7 +136,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(26, 72);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 17);
+            this.label1.Size = new System.Drawing.Size(56, 25);
             this.label1.TabIndex = 5;
             this.label1.Text = "Total";
             // 
@@ -147,7 +147,7 @@
             this.lTotal.AutoSize = true;
             this.lTotal.Location = new System.Drawing.Point(114, 72);
             this.lTotal.Name = "lTotal";
-            this.lTotal.Size = new System.Drawing.Size(71, 17);
+            this.lTotal.Size = new System.Drawing.Size(100, 25);
             this.lTotal.TabIndex = 6;
             this.lTotal.Text = ": <Harga>";
             // 
@@ -184,7 +184,7 @@
             this.lKamar.AutoSize = true;
             this.lKamar.Location = new System.Drawing.Point(404, 35);
             this.lKamar.Name = "lKamar";
-            this.lKamar.Size = new System.Drawing.Size(119, 17);
+            this.lKamar.Size = new System.Drawing.Size(168, 25);
             this.lKamar.TabIndex = 11;
             this.lKamar.Text = ": <Nomor Kamar>";
             // 
@@ -195,7 +195,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(303, 35);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 17);
+            this.label3.Size = new System.Drawing.Size(133, 25);
             this.label3.TabIndex = 10;
             this.label3.Text = "Nomor Kamar";
             // 
@@ -206,7 +206,7 @@
             this.lMeja.AutoSize = true;
             this.lMeja.Location = new System.Drawing.Point(116, 35);
             this.lMeja.Name = "lMeja";
-            this.lMeja.Size = new System.Drawing.Size(108, 17);
+            this.lMeja.Size = new System.Drawing.Size(153, 25);
             this.lMeja.TabIndex = 9;
             this.lMeja.Text = ": <Nomor Meja>";
             // 
@@ -217,7 +217,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(26, 35);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 17);
+            this.label2.Size = new System.Drawing.Size(118, 25);
             this.label2.TabIndex = 7;
             this.label2.Text = "Nomor Meja";
             // 
@@ -230,10 +230,11 @@
             this.bPembayaran.TabIndex = 8;
             this.bPembayaran.Text = "Pembayaran";
             this.bPembayaran.UseVisualStyleBackColor = true;
+            this.bPembayaran.Click += new System.EventHandler(this.bPembayaran_Click);
             // 
             // Order
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(572, 761);
             this.Controls.Add(this.bPembayaran);
