@@ -220,6 +220,9 @@ CREATE TABLE IF NOT EXISTS `user_data` (
   UNIQUE KEY `Unique` (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
+INSERT INTO `user_data` (`id`, `username`, `password`, `jabatan`) VALUES
+	(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Admin');
+
 -- Data exporting was unselected.
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
