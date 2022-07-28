@@ -420,6 +420,16 @@ namespace PKMSMKN2.Database
                 cmd.ExecuteNonQuery();
             }
         }
+
+        public static void Pembayaran(int OrderID)
+        {
+            using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
+            {
+                MySqlCommand cmd = new MySqlCommand("UPDATE restoran_transaksi SET aktif = 'N' WHERE id = @id", con);
+                cmd.Parameters.AddWithValue("@id", OrderID);
+                cmd.ExecuteNonQuery();
+            }
+        }
         #endregion
     }
 }

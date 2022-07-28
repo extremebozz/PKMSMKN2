@@ -50,6 +50,7 @@ namespace PKMSMKN2.Hotel
             dgvKamar.Columns["Pesanan"].Visible = false;
             dgvKamar.Columns["NamaPemesan"].Visible = false;
             dgvKamar.Columns["Nominal"].Visible = false;
+            dgvKamar.Columns["Hari"].Visible = false;
             dgvKamar.Columns["Nomor"].HeaderText = "No";
             dgvKamar.Columns["Nomor"].FillWeight = 50;
             dgvKamar.Columns["NomorKamar"].FillWeight = 50;

@@ -258,6 +258,12 @@
     <Compile Include="Restoran\OrderMenu.Designer.cs">
       <DependentUpon>OrderMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Restoran\Pembayaran.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Restoran\Pembayaran.Designer.cs">
+      <DependentUpon>Pembayaran.cs</DependentUpon>
+    </Compile>
     <Compile Include="Restoran\RMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -356,6 +362,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Restoran\OrderMenu.resx">
       <DependentUpon>OrderMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Restoran\Pembayaran.resx">
+      <DependentUpon>Pembayaran.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Restoran\RMain.resx">
       <DependentUpon>RMain.cs</DependentUpon>

@@ -196,8 +196,12 @@ namespace PKMSMKN2.Admin
         #region Config Menu
         private void bAddMenu_Click(object sender, EventArgs e)
         {
-            Restoran.AddFood restoran = new Restoran.AddFood(this);
-            restoran.ShowDialog();
+            try
+            {
+                Restoran.AddFood restoran = new Restoran.AddFood(this);
+                restoran.ShowDialog();
+            }
+            catch { }
         }
 
         private void bEditMenu_Click(object sender, EventArgs e)

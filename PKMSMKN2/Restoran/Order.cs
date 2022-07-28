@@ -12,7 +12,7 @@ namespace PKMSMKN2.Restoran
 {
     public partial class Order : Form
     {
-        int idTransaksiKamar, idTransaksiOrder, idOrder;
+        int idTransaksiKamar, idTransaksiOrder, idOrder, total;
         string nomorMeja;
         bool orderanBaru = true;
 
@@ -67,12 +67,13 @@ namespace PKMSMKN2.Restoran
             dgvOrderList.Columns["IDTransaksi"].Visible = false;
             dgvOrderList.Columns["IDTransaksiKamar"].Visible = false;
             dgvOrderList.Columns["IDMakanan"].Visible = false;
+            dgvOrderList.Columns["NomorKamar"].Visible = false;
             dgvOrderList.Columns["harga"].DefaultCellStyle.Format = "#,##0";
             dgvOrderList.Columns["total"].DefaultCellStyle.Format = "#,##0";
 
-            int test = lTransaksi.Sum(transaksi => transaksi.Total);
+            total = lTransaksi.Sum(transaksi => transaksi.Total);
 
-            lTotal.Text = ": " + string.Format("{0:#,##0}", lTransaksi.Sum(transaksi => transaksi.Total));
+            lTotal.Text = ": " + string.Format("{0:#,##0}", total);
         }
 
         private void Order_FormClosing(object sender, FormClosingEventArgs e)
@@ -117,7 +118,11 @@ namespace PKMSMKN2.Restoran
 
         private void bPembayaran_Click(object sender, EventArgs e)
         {
+            Pembayaran pembayaran = new Pembayaran(idOrder, total);
+            pembayaran.ShowDialog();
 
+            this.Close();
+            return;
         }
 
         private void bDelete_Click(object sender, EventArgs e)
