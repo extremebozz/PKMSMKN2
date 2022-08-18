@@ -34,7 +34,7 @@ namespace PKMSMKN2
             {
                 Server = ConfigurationManager.ConnectionStrings["server"].ConnectionString,
                 UserID = "root",
-                Password = "bukanadmin",
+                Password = "smkn2batam", 
                 Database = ConfigurationManager.ConnectionStrings["database"].ConnectionString
             };
 

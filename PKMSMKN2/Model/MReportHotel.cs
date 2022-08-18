@@ -15,6 +15,12 @@ namespace PKMSMKN2.Model
         public int ExtraBed { get; set; }
         public int Hari { get; set; }
         public int Rate { get; set; }
+        public int Total { 
+            get
+            {
+                return Hari * Rate;
+            }
+        }
         public DateTime CheckIn { get; set; }
         public DateTime CheckOut{ get; set; }
         public string NamaPelanggan { get; set; }

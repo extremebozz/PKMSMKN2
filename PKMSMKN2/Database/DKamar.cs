@@ -123,8 +123,7 @@ namespace PKMSMKN2.Database
             {
                 try
                 {
-                    MySqlCommand cmd = new MySqlCommand("UPDATE kamar_transaksi SET check_out = @checkOut, " +
-                        "nominal = (nominal + (SELECT total FROM restoran_transaksi WHERE id_transaksi_kamar = @idTransaksi)) WHERE id = @idTransaksi", con);
+                    MySqlCommand cmd = new MySqlCommand("UPDATE kamar_transaksi SET check_out = @checkOut, nominal = (nominal + IFNULL((SELECT total FROM restoran_transaksi WHERE id_transaksi_kamar = @idTransaksi), 0)) WHERE id = @idTransaksi", con);
                     cmd.Parameters.AddWithValue("@checkOut", TanggalCheckOut);
                     cmd.Parameters.AddWithValue("@idTransaksi", IDTransaksi);
                     cmd.ExecuteNonQuery();
