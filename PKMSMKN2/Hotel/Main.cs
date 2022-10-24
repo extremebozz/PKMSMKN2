@@ -169,11 +169,11 @@ namespace PKMSMKN2.Hotel
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int rowIndex = dgvKamar.CurrentCell.RowIndex,
-                idTransaksi = Convert.ToInt32(dgvKamar.Rows[rowIndex].Cells["IDTransaksi"].Value);
+            //int rowIndex = dgvKamar.CurrentCell.RowIndex,
+            //    idTransaksi = Convert.ToInt32(dgvKamar.Rows[rowIndex].Cells["IDTransaksi"].Value);
 
-            CetakFaktur cFatkur = new CetakFaktur(idTransaksi);
-            cFatkur.ShowDialog();
+            //CetakFaktur cFatkur = new CetakFaktur(idTransaksi);
+            //cFatkur.ShowDialog();
         }
 
         private void bReport_Click(object sender, EventArgs e)
