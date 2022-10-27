@@ -42,11 +42,10 @@
             this.bCheckOut = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpKamar = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
             this.bRoomService = new System.Windows.Forms.Button();
             this.tpJenisKamar = new System.Windows.Forms.TabPage();
-            this.dgvTransaksi = new System.Windows.Forms.DataGridView();
             this.bReport = new System.Windows.Forms.Button();
+            this.dgvTransaksi = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKamar)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tpKamar.SuspendLayout();
@@ -92,7 +91,7 @@
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
             this.dgvKamar.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvKamar.RowTemplate.Height = 30;
-            this.dgvKamar.Size = new System.Drawing.Size(1290, 685);
+            this.dgvKamar.Size = new System.Drawing.Size(1290, 571);
             this.dgvKamar.TabIndex = 4;
             // 
             // bCheckIn
@@ -139,13 +138,12 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1326, 863);
+            this.tabControl1.Size = new System.Drawing.Size(1326, 749);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 8;
             // 
             // tpKamar
             // 
-            this.tpKamar.Controls.Add(this.button1);
             this.tpKamar.Controls.Add(this.bRoomService);
             this.tpKamar.Controls.Add(this.dgvKamar);
             this.tpKamar.Controls.Add(this.bCheckOut);
@@ -155,21 +153,10 @@
             this.tpKamar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tpKamar.Name = "tpKamar";
             this.tpKamar.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tpKamar.Size = new System.Drawing.Size(1318, 825);
+            this.tpKamar.Size = new System.Drawing.Size(1318, 711);
             this.tpKamar.TabIndex = 0;
             this.tpKamar.Text = "Kamar";
             this.tpKamar.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(948, 15);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(225, 77);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Cetak Faktur";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // bRoomService
             // 
@@ -194,6 +181,17 @@
             this.tpJenisKamar.TabIndex = 1;
             this.tpJenisKamar.Text = "Riwayat Transaksi";
             this.tpJenisKamar.UseVisualStyleBackColor = true;
+            // 
+            // bReport
+            // 
+            this.bReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bReport.Location = new System.Drawing.Point(1082, 11);
+            this.bReport.Name = "bReport";
+            this.bReport.Size = new System.Drawing.Size(225, 77);
+            this.bReport.TabIndex = 1;
+            this.bReport.Text = "Cetak Report";
+            this.bReport.UseVisualStyleBackColor = true;
+            this.bReport.Click += new System.EventHandler(this.bReport_Click);
             // 
             // dgvTransaksi
             // 
@@ -232,22 +230,11 @@
             this.dgvTransaksi.Size = new System.Drawing.Size(1302, 721);
             this.dgvTransaksi.TabIndex = 0;
             // 
-            // bReport
-            // 
-            this.bReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bReport.Location = new System.Drawing.Point(1082, 11);
-            this.bReport.Name = "bReport";
-            this.bReport.Size = new System.Drawing.Size(225, 77);
-            this.bReport.TabIndex = 1;
-            this.bReport.Text = "Cetak Report";
-            this.bReport.UseVisualStyleBackColor = true;
-            this.bReport.Click += new System.EventHandler(this.bReport_Click);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1326, 863);
+            this.ClientSize = new System.Drawing.Size(1326, 749);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -273,7 +260,6 @@
         private System.Windows.Forms.TabPage tpJenisKamar;
         private System.Windows.Forms.Button bRoomService;
         private System.Windows.Forms.DataGridView dgvTransaksi;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button bReport;
     }
 }

@@ -50,20 +50,18 @@
             this.pLogo.Controls.Add(this.pictureBox1);
             this.pLogo.Dock = System.Windows.Forms.DockStyle.Left;
             this.pLogo.Location = new System.Drawing.Point(0, 0);
-            this.pLogo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pLogo.Name = "pLogo";
-            this.pLogo.Size = new System.Drawing.Size(375, 443);
+            this.pLogo.Size = new System.Drawing.Size(250, 299);
             this.pLogo.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(0, 243);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(0, 158);
             this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 100);
-            this.label1.Size = new System.Drawing.Size(375, 209);
+            this.label1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 65);
+            this.label1.Size = new System.Drawing.Size(250, 136);
             this.label1.TabIndex = 0;
             this.label1.Text = "Selamat Datang Di \r\nAplikasi Hotel SMKN 2 Batam";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -73,8 +71,9 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBox1.Image = global::PKMSMKN2.Properties.Resources.SMKN_2_BATAM_LOGO_OK;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(375, 278);
+            this.pictureBox1.Size = new System.Drawing.Size(250, 181);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -88,10 +87,9 @@
             this.pLogin.Controls.Add(this.label3);
             this.pLogin.Controls.Add(this.label2);
             this.pLogin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pLogin.Location = new System.Drawing.Point(375, 0);
-            this.pLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pLogin.Location = new System.Drawing.Point(250, 0);
             this.pLogin.Name = "pLogin";
-            this.pLogin.Size = new System.Drawing.Size(564, 443);
+            this.pLogin.Size = new System.Drawing.Size(380, 299);
             this.pLogin.TabIndex = 1;
             // 
             // bLogin
@@ -99,10 +97,9 @@
             this.bLogin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.bLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bLogin.Location = new System.Drawing.Point(126, 320);
-            this.bLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bLogin.Location = new System.Drawing.Point(84, 219);
             this.bLogin.Name = "bLogin";
-            this.bLogin.Size = new System.Drawing.Size(317, 46);
+            this.bLogin.Size = new System.Drawing.Size(215, 30);
             this.bLogin.TabIndex = 4;
             this.bLogin.Text = "Login";
             this.bLogin.UseVisualStyleBackColor = true;
@@ -114,10 +111,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tUsername.Location = new System.Drawing.Point(76, 128);
-            this.tUsername.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tUsername.Location = new System.Drawing.Point(51, 83);
             this.tUsername.Name = "tUsername";
-            this.tUsername.Size = new System.Drawing.Size(413, 35);
+            this.tUsername.Size = new System.Drawing.Size(281, 26);
             this.tUsername.TabIndex = 2;
             // 
             // tPassword
@@ -126,11 +122,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tPassword.Location = new System.Drawing.Point(76, 243);
-            this.tPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tPassword.Location = new System.Drawing.Point(51, 158);
             this.tPassword.Name = "tPassword";
             this.tPassword.PasswordChar = '*';
-            this.tPassword.Size = new System.Drawing.Size(413, 35);
+            this.tPassword.Size = new System.Drawing.Size(281, 26);
             this.tPassword.TabIndex = 3;
             // 
             // label3
@@ -140,10 +135,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(70, 208);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(47, 135);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(120, 29);
+            this.label3.Size = new System.Drawing.Size(78, 20);
             this.label3.TabIndex = 1;
             this.label3.Text = "Password";
             // 
@@ -154,27 +148,25 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(70, 92);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(47, 60);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 29);
+            this.label2.Size = new System.Drawing.Size(83, 20);
             this.label2.TabIndex = 0;
             this.label2.Text = "Username";
             // 
             // Login
             // 
             this.AcceptButton = this.bLogin;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(939, 443);
+            this.ClientSize = new System.Drawing.Size(630, 299);
             this.Controls.Add(this.pLogin);
             this.Controls.Add(this.pLogo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(961, 499);
+            this.MaximumSize = new System.Drawing.Size(646, 338);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(961, 499);
+            this.MinimumSize = new System.Drawing.Size(646, 338);
             this.Name = "Login";
             this.Text = "Login";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Login_FormClosed_1);
