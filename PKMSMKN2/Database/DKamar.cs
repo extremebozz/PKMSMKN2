@@ -154,7 +154,7 @@ namespace PKMSMKN2.Database
             using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
                 try
                 {
-                    MySqlCommand cmd = new MySqlCommand("SELECT id, jenis, harga, (SELECT count(*) FROM kamar_data WHERE jenis_kamar = kamar_jenis.id) AS total_kamar FROM kamar_jenis", con);
+                    MySqlCommand cmd = new MySqlCommand("SELECT id, jenis, harga, (SELECT count(*) FROM kamar_data WHERE jenis_kamar = kamar_jenis.id) AS total_kamar FROM kamar_jenis WHERE aktif = 'Y'", con);
                     int no = 1;
 
                     using (MySqlDataReader read = cmd.ExecuteReader())
@@ -260,7 +260,7 @@ namespace PKMSMKN2.Database
             using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
                 try
                 {
-                    MySqlCommand cmd = new MySqlCommand("SELECT id, jenis, harga FROM kamar_jenis WHERE id = @id", con);
+                    MySqlCommand cmd = new MySqlCommand("SELECT id, jenis, harga FROM kamar_jenis WHERE id = @id WHERE aktif = 'Y'", con);
                     cmd.Parameters.AddWithValue("@id", ID);
 
                     MySqlDataReader read = cmd.ExecuteReader();
@@ -396,7 +396,7 @@ namespace PKMSMKN2.Database
             {
                 try
                 {
-                    MySqlCommand cmd = new MySqlCommand("DELETE FROM kamar_data WHERE id = @id", con);
+                    MySqlCommand cmd = new MySqlCommand("UPDATE kamar_data SET aktif = 'N' WHERE id = @id", con);
                     cmd.Parameters.AddWithValue("@id", RoomID);
                     cmd.ExecuteNonQuery();
                 }
@@ -407,15 +407,25 @@ namespace PKMSMKN2.Database
             }
         }
 
-        public static void DeleteCategory(int CategoryID)
+        public static bool DeleteCategory(int CategoryID)
         {
             using (MySqlConnection con = DatabaseHelper.OpenKoneksi())
             {
                 try
                 {
-                    MySqlCommand cmd = new MySqlCommand("DELETE FROM kamar_jenis WHERE id = @id", con);
+                    MySqlCommand cmd = new MySqlCommand("SELECT COUNT(*) FROM kamar_data WHERE jenis_kamar = @id AND aktif = 'Y'", con);
                     cmd.Parameters.AddWithValue("@id", CategoryID);
-                    cmd.ExecuteNonQuery();
+
+                    if (int.Parse(cmd.ExecuteScalar().ToString()) == 0)
+                    {
+                        cmd.CommandText = "UPDATE kamar_jenis SET aktif = 'N' WHERE id = @id";
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
                 catch
                 {

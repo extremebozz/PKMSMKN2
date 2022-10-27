@@ -344,9 +344,17 @@ namespace PKMSMKN2.Admin
             {
                 try
                 {
-                    Database.DKamar.DeleteCategory(idJenis);
-                    MessageBox.Show("Data Telah Berhasil Dihapus!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    AmbilData();
+                    bool sukses = Database.DKamar.DeleteCategory(idJenis);
+
+                    if (sukses)
+                    {
+                        MessageBox.Show("Data Telah Berhasil Dihapus!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        AmbilData();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Masih Terdapat Kamar Pada Kategori Ini!", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
                 catch (Exception msg)
                 {
